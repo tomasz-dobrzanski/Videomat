@@ -185,6 +185,14 @@ def split_recording(recording: Path, film: Film, work: Path, model_size: str = "
             continue
         first, last = min(matched), max(matched)
         start = max(0.0, heard[first][1] - pad)
+        # Początek linii bez dopasowania (np. liczby zapisane cyframi): zaczynamy zaraz po
+        # poprzedniej linii, żeby nie urwać pierwszych słów.
+        first_script_idx = idx[0]
+        previous_end = next((r["end"] for r in reversed(report) if r.get("ok")), None)
+        if first_script_idx not in mapping and previous_end is not None and previous_end < start:
+            start = previous_end + 0.05
+        elif first_script_idx not in mapping and previous_end is None:
+            start = 0.0
         # koniec: do następnego usłyszanego słowa, żeby nie ucinać ogona głoski
         end = heard[last][2] + pad
         if last + 1 < len(heard):
