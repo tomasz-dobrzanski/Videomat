@@ -44,7 +44,7 @@ Czasy są **symboliczne**, nie bezwzględne. Scena ma `duration: null` i wylicza
   "scenes": [
     { "id": "cold_open", "type": "black", "min_duration": 2.6, "tail": -0.15,
       "narration": [{ "ref": "vo1", "at": 0.45, "captions": true, "y": 1500 }],
-      "layers": [{ "type": "title", "text": "OJCIEC CHRZESTNY", "y": 880, "size": 104 }] },
+      "layers": [{ "type": "title", "text": "VIDEOMAT", "y": 880, "size": 104 }] },
     { "id": "rec1a", "type": "clip", "clip": "c1", "start": 0.05, "end": 5.70 }
   ],
   "music": { "asset": "main", "events": [{ "at": "freeze3", "action": "cut" }] }
@@ -122,7 +122,7 @@ cuDNN, po której pyannote nie potrafi już zainicjować karty.
 | Komenda | Działanie |
 |---|---|
 | `videomat studio` | edytor w przeglądarce |
-| `videomat film projects/ojciec/film.json --quality final` | render montażu z pliku |
+| `videomat film projects/dcs/film.json --quality final` | render montażu z pliku |
 | `videomat film ... --frame 41.5` | jedna klatka do obejrzenia |
 | `videomat project list` / `project new <nazwa>` | projekty |
 | `videomat stenogram <adres\|plik>` | stenogram z mówcami: DOCX, MD, TXT, CSV, JSON + raport QC |
@@ -179,8 +179,8 @@ projects/    film.json, assets/, history/ każdego projektu
 work/ out/   pliki robocze i wyniki (poza repozytorium)
 ```
 
-`projects/ojciec/build.py` to zamrożony skrypt pierwszej wersji filmu. Nie jest już źródłem prawdy —
-zostaje jako punkt odniesienia: render z `film.json` daje obraz identyczny co do piksela.
+`projects/dcs/film.json` to projekt przykładowy (krótkie demo Videomatu) i zarazem punkt odniesienia
+regresji obrazu: po zmianach w rendererze jego render musi być identyczny co do piksela z poprzednim.
 
 ## Następne kroki
 

@@ -85,8 +85,8 @@ def freeze(src, t, dur, subs_file, out):
 # ---------------------------------------------------------------- segments
 def seg_cold():
     e = [
-        D(0, 0.30, 4.00, "Title", r"{\an5\pos(540,900)\fs104\fsp18\fad(600,300)\c&HFFFFFF&}OJCIEC CHRZESTNY"),
-        D(0, 2.30, 4.00, "Sub",   r"{\an5\pos(540,1050)\fs54\fsp14\fad(300,250)\c&H9F9F9F&}POLSKA. 2026."),
+        D(0, 0.30, 4.00, "Title", r"{\an5\pos(540,900)\fs104\fsp18\fad(600,300)\c&HFFFFFF&}VIDEOMAT"),
+        D(0, 2.30, 4.00, "Sub",   r"{\an5\pos(540,1050)\fs54\fsp14\fad(300,250)\c&H9F9F9F&}DCS ROBOTICS. 2026."),
     ]
     ass("s_cold.ass", e)
     black(4.0, "s_cold.ass", "seg1.mp4")
@@ -98,7 +98,7 @@ def seg_quote(src, a, b, quote, counter, stamp, idx):
     e = [D(0, 0.0, dur, "Quote",
            r"{\an2\pos(540,1560)\fad(200,150)}" + quote),
          D(1, 0.25, dur, "Stamp",
-           r"{\an9\pos(1030,150)\fs40\c&H00D9FF&\fad(250,0)}OJCIEC CHRZESTNY \N{\an9\fs78\b1}x" + str(counter))]
+           r"{\an9\pos(1030,150)\fs40\c&H00D9FF&\fad(250,0)}CYTAT \N{\an9\fs78\b1}x" + str(counter))]
     ass(f"s_q{idx}.ass", e)
     clipseg(src, a, b, f"s_q{idx}.ass", f"seg_q{idx}.mp4")
     f = [D(0, 0.0, 0.9, "Stamp",

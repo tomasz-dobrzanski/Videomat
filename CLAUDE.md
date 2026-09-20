@@ -14,10 +14,22 @@ Zasady designu napisów: `skill/video-captions/SKILL.md` (czytaj przy pracy nad 
 ## Jak pracować
 ```powershell
 python -m videomat.cli studio                                   # edytor, http://127.0.0.1:8000
-python -m videomat.cli film projects/ojciec/film.json           # render z dokumentu
-python -m videomat.cli film projects/ojciec/film.json --frame 41.5   # klatka do obejrzenia
+python -m videomat.cli film projects/dcs/film.json              # render z dokumentu
+python -m videomat.cli film projects/dcs/film.json --frame 9.0  # klatka do obejrzenia
 cd studio; npm run build                                        # po zmianach w interfejsie
 ```
+Komenda `film` nie dogrywa lektora — linie TTS generuje studio (`POST /api/tts`) albo
+`speech.ensure_lines(film, Path("work/<projekt>"))`; bez plików scena dostaje długość `fallback`.
+
+## Czego nie robić (lekcje z wrześniowych produkcji)
+- **Żadnych plansz zastępczych** w gotowym filmie. Brak materiału = scena wypada, nie „karta z opisem”.
+- **Cały feedback obowiązuje naraz.** Przed renderem sprawdź listę wszystkich wcześniejszych uwag
+  (długość, napisy, animacje, użyte materiały, ton). Poprawienie jednej rzeczy i cofnięcie innej to błąd.
+- **Krótko i konkretnie.** 35–60 s. Wstawki z materiału tylko najważniejsze zdanie, nie cały fragment.
+  Bez asekuracyjnych dopisków („to opinia”, etykiety OCENA/FAKT), jeśli użytkownik ich nie chce.
+- **Użyj wszystkiego, co dostarczono** (klipy, zrzuty, nagranie lektora) albo powiedz wprost, co i dlaczego wypadło.
+- **Napisy duże, animowane** (word_blast/highlight/hero/keyword), nie statyczny tekst na dole.
+- Repozytorium jest publiczne i firmowe: tylko treści DCS/neutralne. Materiały prywatne i polityczne nie wchodzą.
 
 ## Twarde zasady
 1. **Klucze** tylko w `.env` (gitignore). Nigdy w kodzie, README, logach, promptach. Klucz ujawniony
@@ -27,9 +39,10 @@ cd studio; npm run build                                        # po zmianach w 
 3. **Weryfikuj obrazem.** Po renderze obejrzyj klatki (`--frame`, `out/verify/`): diakrytyki,
    bezpieczne pole x 60–1020 / y 250–1600, brak nachodzenia napisów.
 4. **Nowa nazwa pliku przy każdym renderze** (`config.next_version_path`). Źródeł nie nadpisujemy.
-5. **Regresja obrazu.** `projects/ojciec/film.json` musi renderować się identycznie jak
-   `out/ojciec_chrzestny_v13.mp4`. Sprawdzenie:
-   `ffmpeg -i out/ojciec_chrzestny_v13.mp4 -i <nowy> -lavfi "[0:v][1:v]psnr" -f null -`
+5. **Regresja obrazu.** `projects/dcs/film.json` musi renderować się identycznie jak
+   `out/dcs_reference.mp4` (lokalna kopia renderu z 2026-09-20; `out/` jest poza repozytorium —
+   gdy jej nie ma, wyrenderuj raz przed zmianami i zachowaj). Sprawdzenie:
+   `ffmpeg -i out/dcs_reference.mp4 -i <nowy> -lavfi "[0:v][1:v]psnr" -f null -`
    → `average:inf min:inf`. Jeśli PSNR spadnie, zmiana w rendererze popsuła wygląd.
 6. **Koszty.** `avatar` i `image` są płatne — najpierw `--dry-run`. Veo jest wyłączone (klucz Gemini
    ma zablokowaną usługę). ElevenLabs Music wymaga płatnego planu.

@@ -5,7 +5,7 @@ wprost. Zdarzenia (lektor, efekty, muzyka) odwołują się do granic scen symbol
 więc skrócenie jednej sceny nie rozsypuje reszty montażu.
 
     from videomat.timeline import Film, resolve
-    film = Film.model_validate_json(Path("projects/ojciec/film.json").read_text("utf-8"))
+    film = Film.model_validate_json(Path("projects/dcs/film.json").read_text("utf-8"))
     r = resolve(film, durations={"vo1": 4.42, ...})     # durations: długości plików lektora
     r.total, r.scenes[0].start, r.narration["vo1"].start
 
