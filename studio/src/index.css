@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* Tokeny marki DCS Robotics (Websitomat/oferty) + Rajdhani, czyli ten sam font,
+   którym renderowane są napisy w filmach. Interfejs i produkt wyglądają spójnie. */
+@theme {
+  --color-ink-0: #05070c;
+  --color-ink-1: #0a1120;
+  --color-ink-2: #101a2e;
+  --color-ink-3: #16233c;
+  --color-line: #1d2c46;
+  --color-cyan: #00c2ff;
+  --color-cyan-dim: #0b84b8;
+  --color-gold: #ffd900;
+  --color-paper: #f2f7fb;
+  --color-muted: #93a2af;
+  --color-danger: #ff5d7a;
+  --color-ok: #5dff9d;
+  --font-display: "Rajdhani", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Segoe UI", system-ui, sans-serif;
+}
+
+@font-face {
+  font-family: "Rajdhani";
+  src: url("/fonts/Rajdhani-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-ink-0);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  font-size: 14px;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #1d2c46;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+input,
+select,
+textarea {
+  background: #0b1424;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  padding: 4px 8px;
+  color: inherit;
+  font: inherit;
+  width: 100%;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid var(--color-cyan-dim);
+}
+input[type="checkbox"] {
+  width: auto;
+}

@@ -1,0 +1,15 @@
+.env
+work/
+out/
+models/
+__pycache__/
+*.pyc
+*.mp4
+*.mov
+*.mp3
+*.wav
+*.png
+!fonts/
+studio/node_modules/
+web/static/
+projects/*/history/

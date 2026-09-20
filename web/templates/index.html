@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Videomat</title>
+<style>
+  :root { --bg:#0b1020; --card:#141b33; --fg:#e8ecf5; --muted:#8a94b3; --acc:#00e5ff; --err:#ff5d7a; --ok:#5dff9d; }
+  body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.45 system-ui, Segoe UI, sans-serif; padding:24px; }
+  h1 { font-size:22px; margin:0 0 4px; } h1 span { color:var(--acc); }
+  .sub { color:var(--muted); margin-bottom:20px; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; }
+  .card { background:var(--card); border-radius:12px; padding:16px; }
+  .card h2 { font-size:16px; margin:0 0 10px; color:var(--acc); }
+  label { display:block; font-size:13px; color:var(--muted); margin-top:8px; }
+  input, select, textarea { width:100%; box-sizing:border-box; margin-top:4px; background:#0f1530; color:var(--fg);
+    border:1px solid #2a3560; border-radius:8px; padding:8px; font:inherit; }
+  textarea { min-height:80px; }
+  button { margin-top:12px; background:var(--acc); color:#001018; border:0; border-radius:8px; padding:9px 14px; font-weight:600; cursor:pointer; }
+  button.warn { background:#ffb020; }
+  .jobs, .outs { margin-top:20px; }
+  .job { background:var(--card); border-radius:8px; padding:10px 14px; margin-top:8px; font-size:13px; }
+  .job b.running { color:#ffb020 } .job b.done { color:var(--ok) } .job b.error { color:var(--err) }
+  pre { white-space:pre-wrap; word-break:break-all; color:var(--muted); margin:6px 0 0; font-size:12px; }
+  a { color:var(--acc) }
+  .pill { display:inline-block; font-size:12px; padding:2px 8px; border-radius:99px; background:#0f1530; margin-right:6px; }
+  video { max-width:260px; border-radius:8px; margin-top:8px; display:block; }
+</style>
+</head>
+<body>
+<h1>Video<span>mat</span></h1>
+<div class="sub" id="status">…</div>
+
+<div class="grid">
+  <form class="card" data-url="/api/captions">
+    <h2>Napisy animowane</h2>
+    <label>Wideo <input type="file" name="video" accept="video/*" required></label>
+    <label>Fit 9:16 <select name="fit"><option>none</option><option>crop</option><option>pad</option></select></label>
+    <label>Motyw <select name="theme"><option>hitech</option><option>clean</option><option>bold</option></select></label>
+    <label>Animacja <select name="anim"><option>highlight</option><option>word_blast</option><option>pop</option><option>slide_up</option><option>typewriter</option><option>fade</option></select></label>
+    <label>Język <input name="lang" value="pl"></label>
+    <button>Transkrybuj + wypal napisy</button>
+  </form>
+
+  <form class="card" data-url="/api/roughcut">
+    <h2>Rough cut (cisze → EDL/FCPXML)</h2>
+    <label>Wideo <input type="file" name="video" accept="video/*" required></label>
+    <label>Próg ciszy dB <input name="silence" type="number" value="-30" step="1"></label>
+    <label>Min. cisza [s] <input name="min_sil" type="number" value="0.4" step="0.05"></label>
+    <button>Wycięcie cisz</button>
+  </form>
+
+  <form class="card" data-url="/api/tts">
+    <h2>Lektor (ElevenLabs)</h2>
+    <label>Tekst <textarea name="text" required></textarea></label>
+    <label>voice_id (puste = z .env) <input name="voice"></label>
+    <label>Model <select name="model"><option>eleven_multilingual_v2</option><option>eleven_flash_v2_5</option><option>eleven_v3</option></select></label>
+    <button>Generuj lektora</button>
+  </form>
+
+  <form class="card" data-url="/api/music">
+    <h2>Muzyka (ElevenLabs Music)</h2>
+    <label>Prompt <textarea name="prompt" required>energetic modern tech intro, driving synth, no vocals</textarea></label>
+    <label>Długość [s] <input name="length" type="number" value="30" min="3" max="600"></label>
+    <label><input type="checkbox" name="vocals" value="true" style="width:auto"> pozwól na wokal</label>
+    <button>Generuj muzykę</button>
+  </form>
+
+  <form class="card" data-url="/api/avatar">
+    <h2>Avatar z fotki (Veo 3.1 — płatne)</h2>
+    <label>Zdjęcie <input type="file" name="photo" accept="image/*" required></label>
+    <label>Skrypt (co mówi) <textarea name="script" required></textarea></label>
+    <label>Tryb <select name="mode"><option value="veo-voice">veo-voice (głos Veo, lip-sync)</option><option value="eleven-voice">eleven-voice (lektor ElevenLabs, bez lip-sync)</option></select></label>
+    <label>Tier <select name="tier"><option>fast</option><option>standard</option></select></label>
+    <label>Rozdzielczość <select name="res"><option>720p</option><option>1080p</option></select></label>
+    <label><input type="checkbox" name="confirm_cost" value="true" style="width:auto"> potwierdzam koszt — generuj (bez zaznaczenia: tylko plan i wycena)</label>
+    <button class="warn">Avatar</button>
+  </form>
+</div>
+
+<div class="jobs"><h2 style="font-size:16px">Zadania</h2><div id="jobs"></div></div>
+<div class="outs"><h2 style="font-size:16px">Wyniki (out/)</h2><div id="outs"></div></div>
+
+<script>
+const $ = s => document.querySelector(s);
+async function refreshStatus(){
+  const s = await (await fetch('/api/status')).json();
+  $('#status').innerHTML = `<span class="pill">encoder: ${s.encoder}</span>` +
+    Object.entries(s.keys).map(([k,v])=>`<span class="pill">${k}: ${v?'✓':'brak'}</span>`).join('');
+}
+document.querySelectorAll('form[data-url]').forEach(f => f.addEventListener('submit', async e => {
+  e.preventDefault();
+  const btn = f.querySelector('button'); btn.disabled = true;
+  try {
+    const r = await fetch(f.dataset.url, {method:'POST', body:new FormData(f)});
+    const j = await r.json();
+    if (!r.ok) alert(JSON.stringify(j));
+  } catch(err){ alert(err); }
+  btn.disabled = false; refreshJobs();
+}));
+async function refreshJobs(){
+  const jobs = await (await fetch('/api/jobs')).json();
+  $('#jobs').innerHTML = Object.entries(jobs).reverse().map(([id,j]) => {
+    let body = '';
+    if (j.result) body = '<pre>'+JSON.stringify(j.result,null,1).replace(/[<>]/g,'')+'</pre>';
+    if (j.error) body = '<pre style="color:var(--err)">'+j.error.replace(/[<>]/g,'')+'</pre>';
+    return `<div class="job"><b class="${j.status}">${j.status}</b> · ${j.type} · ${id} ${j.input?'· '+j.input:''}${body}</div>`;
+  }).join('') || '<div class="job">brak</div>';
+  const outs = await (await fetch('/api/outputs')).json();
+  $('#outs').innerHTML = outs.slice(0,30).map(o => {
+    const v = /\.mp4$/i.test(o.name) ? `<video src="/out/${o.name}" controls preload="metadata"></video>` : '';
+    return `<div class="job"><a href="/out/${o.name}" target="_blank">${o.name}</a> · ${(o.size/1e6).toFixed(1)} MB${v}</div>`;
+  }).join('');
+}
+refreshStatus(); refreshJobs(); setInterval(refreshJobs, 4000);
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/api.ts","./src/main.tsx","./src/store.ts","./src/types.ts","./src/ui.tsx","./src/lib/sse.test.ts","./src/lib/sse.ts","./src/panels/assets.tsx","./src/panels/inspector.tsx","./src/panels/jobs.tsx","./src/panels/preview.tsx","./src/panels/promptbar.tsx","./src/panels/timeline.tsx"],"checkPending":true,"version":"5.9.3"}

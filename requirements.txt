@@ -1,0 +1,34 @@
+# Python 3.11. Torch 2.6.0+cu118 jest już zainstalowany — NIE instaluj go ponownie,
+# nowsze pyannote potrafi nadpisać go wersją bez CUDA.
+
+# rdzeń: montaż i napisy
+faster-whisper>=1.2
+ctranslate2>=4.5
+requests>=2.32
+python-dotenv>=1.0
+pydantic>=2.0
+pydantic-settings>=2.0
+click>=8.1
+rich>=13
+numpy>=1.26
+soundfile>=0.12
+pillow>=10
+
+# studio (API + frontend budowany w studio/)
+fastapi>=0.115
+uvicorn>=0.30
+python-multipart>=0.0.9
+jinja2>=3.1
+
+# stenogram: pozyskanie materiału, mówcy, dokumenty, nasłuch na żywo
+yt-dlp>=2026.1.1
+pyannote.audio==3.3.2
+speechbrain>=1.0
+python-docx>=1.1
+sounddevice>=0.5
+
+# warstwa prompt -> montaż
+openai>=1.60
+
+# opcjonalnie: avatar i plansze (płatne, wymaga rozliczenia w Google)
+google-genai>=2.0
