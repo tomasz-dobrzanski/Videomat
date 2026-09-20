@@ -1,0 +1,316 @@
+{
+ "version": 1,
+ "name": "dcs_videomat_demo",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30
+ },
+ "theme": {
+  "sans": "Rajdhani SemiBold",
+  "serif": "Cambria",
+  "mono": "Consolas",
+  "white": "#F2F7FB",
+  "grey": "#93A2AF",
+  "accent": "#FFD900",
+  "accent2": "#00C2FF",
+  "caption_size": 96,
+  "narration_size": 92,
+  "grade": true
+ },
+ "assets": {
+  "clips": {},
+  "music": {},
+  "sfx": {
+   "hit": {
+    "path": null,
+    "prompt": "single deep cinematic bass drum hit with long dark reverb tail",
+    "duration": 2.0,
+    "loop": false
+   },
+   "whoosh": {
+    "path": null,
+    "prompt": "short clean digital whoosh transition, modern tech, no music",
+    "duration": 1.0,
+    "loop": false
+   }
+  },
+  "voice": {
+   "provider": "elevenlabs",
+   "voice_id": null,
+   "voice_order": [
+    "Brian",
+    "Daniel"
+   ],
+   "model": "eleven_v3",
+   "stability": 0.5,
+   "similarity": 0.84,
+   "speed": 1.0,
+   "tempo": 1.08
+  }
+ },
+ "narration": [
+  {
+   "id": "vo1",
+   "text": "Videomat. Studio krótkich filmów od DCS Robotics.",
+   "fallback": 3.6,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo2",
+   "text": "Montaż jest dokumentem. Sceny, napisy i lektor w jednym pliku.",
+   "fallback": 4.5,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo3",
+   "text": "Cytaty tylko z transkrypcji. Render na karcie graficznej. Poprawka w sekundy, nie w minuty.",
+   "fallback": 6.0,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo4",
+   "text": "Videomat. Od pomysłu do filmu.",
+   "fallback": 2.6,
+   "gain_db": 2.0
+  }
+ ],
+ "scenes": [
+  {
+   "id": "open",
+   "type": "black",
+   "min_duration": 3.0,
+   "tail": 0.4,
+   "narration": [
+    {
+     "ref": "vo1",
+     "at": 0.9,
+     "captions": true,
+     "y": 1480,
+     "animation": "word_blast"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "hit",
+     "at": 0.0,
+     "gain_db": 2.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "*VIDEOMAT*.",
+     "y": 760,
+     "size": 140,
+     "kicker": "DCS Robotics",
+     "start": 0.1
+    },
+    {
+     "type": "keyword",
+     "text": "9:16 · NVENC · libass",
+     "animation": "badge",
+     "start": "vo1.end-0.6",
+     "end": null,
+     "position": "top",
+     "size": 60
+    }
+   ]
+  },
+  {
+   "id": "dokument",
+   "type": "black",
+   "tail": 0.4,
+   "narration": [
+    {
+     "ref": "vo2",
+     "at": 0.2,
+     "captions": true,
+     "y": 1480,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "whoosh",
+     "at": 0.0,
+     "gain_db": -4.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "film.json",
+     "animation": "glitch",
+     "start": 0.1,
+     "end": null,
+     "position": "top",
+     "size": 96
+    },
+    {
+     "type": "board",
+     "text": "SCENY",
+     "align": 7,
+     "x": 80,
+     "y": 620,
+     "size": 92,
+     "start": "vo2.start+2.0",
+     "fade_in": 150,
+     "fade_out": 0,
+     "pop": true
+    },
+    {
+     "type": "board",
+     "text": "NAPISY",
+     "align": 7,
+     "x": 80,
+     "y": 740,
+     "size": 92,
+     "start": "vo2.start+2.7",
+     "fade_in": 150,
+     "fade_out": 0,
+     "color": "accent",
+     "pop": true
+    },
+    {
+     "type": "board",
+     "text": "LEKTOR",
+     "align": 7,
+     "x": 80,
+     "y": 860,
+     "size": 92,
+     "start": "vo2.start+3.3",
+     "fade_in": 150,
+     "fade_out": 0,
+     "color": "accent2",
+     "pop": true
+    },
+    {
+     "type": "shape",
+     "align": 7,
+     "x": 80,
+     "y": 990,
+     "width": 920,
+     "height": 3,
+     "color": "grey",
+     "start": "vo2.start+3.8",
+     "fade_in": 150,
+     "fade_out": 0
+    },
+    {
+     "type": "board",
+     "text": "JEDEN PLIK.",
+     "align": 9,
+     "x": 1000,
+     "y": 1020,
+     "size": 84,
+     "start": "vo2.start+3.9",
+     "fade_in": 150,
+     "fade_out": 0,
+     "color": "accent",
+     "pop": true
+    }
+   ]
+  },
+  {
+   "id": "zasady",
+   "type": "black",
+   "tail": 0.5,
+   "narration": [
+    {
+     "ref": "vo3",
+     "at": 0.2,
+     "captions": true,
+     "y": 1480,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "whoosh",
+     "at": 0.0,
+     "gain_db": -4.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "TYLKO TRANSKRYPCJA",
+     "animation": "slide_left",
+     "start": "vo3.start+0.3",
+     "end": "vo3.start+2.4",
+     "position": "top",
+     "size": 66
+    },
+    {
+     "type": "keyword",
+     "text": "RTX · h264_nvenc",
+     "animation": "badge",
+     "start": "vo3.start+2.4",
+     "end": "vo3.start+4.3",
+     "position": "top",
+     "size": 66
+    },
+    {
+     "type": "hero",
+     "text": "*SEKUNDY*,\nNIE MINUTY.",
+     "y": 760,
+     "size": 112,
+     "kicker": "cache scen",
+     "start": "vo3.end-2.2"
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "type": "black",
+   "min_duration": 3.5,
+   "tail": 1.4,
+   "narration": [
+    {
+     "ref": "vo4",
+     "at": 0.6,
+     "captions": true,
+     "y": 1480,
+     "animation": "word_blast"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "hit",
+     "at": 0.0,
+     "gain_db": 0.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "OD POMYSŁU\nDO *FILMU*.",
+     "y": 760,
+     "size": 116,
+     "kicker": "DCS Robotics",
+     "start": 0.2
+    },
+    {
+     "type": "stamp",
+     "text": "VIDEOMAT  ·  OPEN SOURCE  ·  2026",
+     "align": 5,
+     "x": 540,
+     "y": 1150,
+     "size": 38,
+     "spacing": 8,
+     "start": "vo4.end+0.2",
+     "fade_in": 200,
+     "fade_out": 0
+    }
+   ]
+  },
+  {
+   "id": "end",
+   "type": "black",
+   "duration": 0.5,
+   "layers": []
+  }
+ ],
+ "music": null
+}
