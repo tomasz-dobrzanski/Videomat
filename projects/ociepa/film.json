@@ -71,9 +71,9 @@
     "fixes": {}
    },
    "m_serce": {
-    "path": "assets/m_serce.mp4",
-    "crop": null,
-    "transcript": null,
+    "path": "mp4/Morawiecki.mp4",
+    "crop": "crop=620:1102:0:200",
+    "transcript": "work/Morawiecki_transcript.json",
     "fixes": {}
    },
    "m_prezydium": {
@@ -390,22 +390,32 @@
    "id": "k3_serce",
    "type": "clip",
    "clip": "m_serce",
-   "start": 0.0,
-   "end": 4.0,
-   "captions": false,
+   "start": 4.25,
+   "end": 8.85,
+   "captions": true,
    "layers": [
     {
      "type": "stamp",
-     "text": "MORAWIECKI DO MŁODYCH",
+     "text": "MORAWIECKI DO MŁODYCH  ·  RADA NR 1",
      "align": 7,
      "x": 80,
      "y": 300,
-     "size": 40,
+     "size": 38,
      "spacing": 6,
      "fade_in": 150,
      "fade_out": 0
+    },
+    {
+     "type": "headline",
+     "text": "SERCE.",
+     "y": 1230,
+     "size": 150,
+     "color": "accent",
+     "start": 2.95,
+     "end": 4.6
     }
-   ]
+   ],
+   "caption_y": 1560
   },
   {
    "id": "k3_cut",
@@ -887,16 +897,17 @@
    "id": "fin_serce",
    "type": "clip",
    "clip": "m_serce",
-   "start": 0.0,
-   "end": 2.5,
-   "captions": false,
-   "layers": []
+   "start": 4.25,
+   "end": 7.9,
+   "captions": true,
+   "layers": [],
+   "caption_y": 1560
   },
   {
    "id": "fin_freeze",
    "type": "freeze",
    "clip": "m_serce",
-   "at": 2.4,
+   "at": 7.75,
    "zoom": true,
    "min_duration": 4.0,
    "tail": 0.6,
