@@ -28,48 +28,6 @@
      "wicomarszałka,": "wicemarszałka,"
     }
    },
-   "img_pytanie": {
-    "path": "assets/poparcie_2.jpg",
-    "crop": null,
-    "transcript": null,
-    "fixes": {}
-   },
-   "img_pytanie_crop": {
-    "path": "assets/poparcie_2.jpg",
-    "crop": "crop=939:190:0:955",
-    "transcript": null,
-    "fixes": {}
-   },
-   "img_poparcie": {
-    "path": "assets/poparcie_1.jpg",
-    "crop": null,
-    "transcript": null,
-    "fixes": {}
-   },
-   "img_komentarz": {
-    "path": "assets/komentarz_i_atak.jpg",
-    "crop": "crop=939:420:0:868",
-    "transcript": null,
-    "fixes": {}
-   },
-   "img_fb": {
-    "path": "assets/poparcie_3.jpg",
-    "crop": null,
-    "transcript": null,
-    "fixes": {}
-   },
-   "img_lista": {
-    "path": "assets/lista_glosowania.png",
-    "crop": "crop=1272:1150:0:0",
-    "transcript": null,
-    "fixes": {}
-   },
-   "m_serce": {
-    "path": "mp4/Morawiecki.mp4",
-    "crop": "crop=620:1102:0:200",
-    "transcript": "work/Morawiecki_transcript.json",
-    "fixes": {}
-   },
    "c_studio": {
     "path": "mp4/signal-2026-09-18-13-01-35-138-2.mp4",
     "crop": "crop=250:150:180:40",
@@ -82,21 +40,27 @@
     "transcript": "work/signal-2026-09-18-13-01-35-138_transcript.json",
     "fixes": {}
    },
-   "news_rp": {
-    "path": "assets/news/news_1.png",
-    "crop": "crop=1080:540:0:0",
+   "m_serce": {
+    "path": "mp4/Morawiecki.mp4",
+    "crop": "crop=620:1102:0:200",
+    "transcript": "work/Morawiecki_transcript.json",
+    "fixes": {}
+   },
+   "img_wiktoria": {
+    "path": "assets/poparcie_3.jpg",
+    "crop": "crop=939:300:0:1075",
+    "transcript": null,
+    "fixes": {}
+   },
+   "img_poparcie": {
+    "path": "assets/poparcie_1.jpg",
+    "crop": null,
     "transcript": null,
     "fixes": {}
    },
    "news_tvp": {
     "path": "assets/news/news_4.png",
     "crop": "crop=1080:1000:0:250",
-    "transcript": null,
-    "fixes": {}
-   },
-   "news_wp": {
-    "path": "assets/news/news_5.png",
-    "crop": "crop=1080:900:0:80",
     "transcript": null,
     "fixes": {}
    }
@@ -131,87 +95,27 @@
  },
  "narration": [
   {
-   "id": "vo01",
-   "text": "Wiktoria pyta już któryś raz: czyimi głosami Ociepa miał wygrać? Dobrze. To wytłumaczmy to… na klockach.",
-   "fallback": 7.5,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo02",
-   "text": "Najpierw mały szczegół. Mateusz Morawiecki sam publicznie popiera Marcina Ociepę. Ba. Nazywa się ojcem chrzestnym tej kandydatury.",
-   "fallback": 8.0,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo03",
-   "text": "Potem prawica pęka. Powstaje osobny klub Morawieckiego. I od tego momentu sprawa Ociepy przestaje być wyłącznie walką o jeden fotel.",
-   "fallback": 8.5,
+   "id": "vo01a",
+   "text": "Wiktoria pyta już któryś raz: czyimi głosami Ociepa miał wygrać?",
+   "fallback": 4.2,
    "gain_db": 3.0
   },
   {
    "id": "vo04",
    "text": "Piękna rada. Serio. Tylko w polityce warto jeszcze podążać… za własną pamięcią.",
-   "fallback": 5.5,
+   "fallback": 4.7,
    "gain_db": 3.0
   },
   {
    "id": "vo05",
    "text": "Bo ojciec chrzestny chyba powinien pamiętać, czyjego był chrztu.",
-   "fallback": 4.3,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo06",
-   "text": "I teraz dowód koronny: ktoś z OdNowy… był na wydarzeniu innego środowiska. O nie.",
-   "fallback": 5.5,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo07",
-   "text": "Wiktoria. Konferencja to nie ślub. Spotkanie to nie koalicja. A kawa na evencie nie jest umową polityczną.",
-   "fallback": 6.5,
+   "fallback": 4.0,
    "gain_db": 3.0
   },
   {
    "id": "vo08",
    "text": "Można rozmawiać z każdym. Pytanie brzmi, co robisz, kiedy przychodzi moment decyzji.",
-   "fallback": 5.8,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo09",
-   "text": "Żeby było uczciwie: Rozwój Plus proponował powiększenie Prezydium. Dwa dodatkowe miejsca — dla siebie i Centrum.",
-   "fallback": 6.3,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo10",
-   "text": "To jest argument. Tylko że chwilę później przyszedł test praktyczny.",
-   "fallback": 4.3,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo11",
-   "text": "Horała — dwieście pięćdziesiąt cztery. Ociepa — sto sześćdziesiąt siedem. A za Horałą? Między innymi sto czterdziestu dziewięciu posłów Koalicji Obywatelskiej.",
-   "fallback": 8.5,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo12",
-   "text": "I proszę zauważyć: ja nie mówię „tajny deal”. Nie muszę. Mówię: wynik głosowania.",
-   "fallback": 6.0,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo13",
-   "text": "Więc czyimi głosami miał wygrać Ociepa? Powiem jeszcze raz: nie o gwarancję jego wygranej chodziło.",
-   "fallback": 6.5,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo14",
-   "text": "Chodziło o to, czy ludzie, którzy jeszcze chwilę wcześniej tworzyli jeden obóz, spróbują go ponownie skleić… czy wykorzystają pierwszą okazję, żeby pokazać, że podział jest już trwały.",
-   "fallback": 10.5,
+   "fallback": 4.9,
    "gain_db": 3.0
   },
   {
@@ -223,19 +127,13 @@
   {
    "id": "vo16",
    "text": "Ale można przegrać próbując zjednoczyć swoje środowisko… albo wygrać fotel pokazując wszystkim, jak głęboki jest już rozłam.",
-   "fallback": 7.3,
+   "fallback": 7.7,
    "gain_db": 3.0
   },
   {
-   "id": "vo17",
-   "text": "Więc tak, młodzi. Podążajcie za głosem serca. Ale zabierzcie ze sobą trzy rzeczy: pamięć… kalkulator… i wyniki głosowań.",
-   "fallback": 8.0,
-   "gain_db": 3.0
-  },
-  {
-   "id": "vo18",
-   "text": "Wiktoria pyta: czyimi głosami miał wygrać Ociepa? Ja zapytam inaczej: skoro chodziło o jedność prawicy — czyimi głosami postanowiliście pokazać, że tej jedności już nie ma?",
-   "fallback": 10.0,
+   "id": "vo18b",
+   "text": "Skoro chodziło o jedność prawicy — czyimi głosami postanowiliście pokazać, że tej jedności już nie ma?",
+   "fallback": 6.1,
    "gain_db": 3.0
   }
  ],
@@ -243,15 +141,15 @@
   {
    "id": "open",
    "type": "still",
-   "clip": "img_pytanie_crop",
+   "clip": "img_wiktoria",
    "at": 0,
    "zoom": true,
-   "min_duration": 3.0,
-   "tail": 0.3,
+   "min_duration": 2.5,
+   "tail": 0.25,
    "narration": [
     {
-     "ref": "vo01",
-     "at": 0.2,
+     "ref": "vo01a",
+     "at": 0.15,
      "captions": true,
      "y": 1480,
      "animation": "word_blast"
@@ -269,18 +167,10 @@
      "type": "keyword",
      "text": "#CZYIMI GŁOSAMI?",
      "animation": "glitch",
-     "start": 0.2,
-     "end": 3.4,
+     "start": 0.15,
+     "end": null,
      "position": "top",
      "size": 84
-    },
-    {
-     "type": "hero",
-     "text": "NA *KLOCKACH*.",
-     "y": 640,
-     "size": 110,
-     "kicker": "odpowiedź",
-     "start": "vo01.end-1.5"
     }
    ]
   },
@@ -289,29 +179,28 @@
    "type": "still",
    "clip": "img_poparcie",
    "at": 0,
-   "duration": 2.0,
+   "zoom": true,
+   "duration": 1.8,
    "layers": [
     {
      "type": "keyword",
      "text": "28.07.2026",
      "animation": "badge",
-     "start": 0.1,
+     "start": 0.05,
      "end": null,
      "position": "top",
      "size": 80
     },
     {
      "type": "keyword",
-     "text": "POPRĘ OCIEPĘ",
-     "animation": "tooltip",
-     "start": 0.5,
+     "text": "MORAWIECKI: POPRĘ OCIEPĘ",
+     "animation": "slide_left",
+     "start": 0.35,
      "end": null,
-     "position": "upper",
-     "size": 64,
-     "target": [
-      430,
-      880
-     ]
+     "position": null,
+     "x": 540,
+     "y": 1330,
+     "size": 62
     }
    ]
   },
@@ -362,6 +251,40 @@
    ]
   },
   {
+   "id": "glos",
+   "type": "clip",
+   "clip": "c_close",
+   "start": 5.15,
+   "end": 5.95,
+   "captions": true,
+   "caption_y": 1520,
+   "layers": []
+  },
+  {
+   "id": "slowo",
+   "type": "freeze",
+   "clip": "c_close",
+   "at": 5.9,
+   "duration": 1.3,
+   "sfx": [
+    {
+     "ref": "stinger",
+     "at": 0.0,
+     "gain_db": -3.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "*SŁOWO*.",
+     "y": 1230,
+     "size": 130,
+     "kicker": "dane publicznie",
+     "start": 0.0
+    }
+   ]
+  },
+  {
    "id": "serce",
    "type": "clip",
    "clip": "m_serce",
@@ -369,13 +292,6 @@
    "end": 8.85,
    "captions": true,
    "caption_y": 1520,
-   "sfx": [
-    {
-     "ref": "stinger",
-     "at": 4.45,
-     "gain_db": -3.0
-    }
-   ],
    "layers": [
     {
      "type": "stamp",
@@ -402,11 +318,11 @@
   {
    "id": "pamiec",
    "type": "black",
-   "tail": 0.25,
+   "tail": 0.2,
    "narration": [
     {
      "ref": "vo04",
-     "at": 0.15,
+     "at": 0.1,
      "captions": true,
      "y": 1480,
      "animation": "word_blast"
@@ -418,22 +334,65 @@
      "text": "*PAMIĘĆ*.",
      "y": 800,
      "size": 130,
-     "kicker": "rada nr 2 — od nas",
-     "start": "vo04.end-1.5"
+     "kicker": "rada nr 2",
+     "start": "vo04.end-1.3"
     }
    ]
   },
   {
-   "id": "komentarz",
-   "type": "still",
-   "clip": "img_komentarz",
-   "at": 0,
-   "zoom": true,
-   "min_duration": 3.0,
+   "id": "chrzest",
+   "type": "freeze",
+   "clip": "c_conf",
+   "at": 1.9,
+   "duration": null,
    "tail": 0.3,
    "narration": [
     {
-     "ref": "vo07",
+     "ref": "vo05",
+     "at": 0.1,
+     "captions": true,
+     "y": 1480,
+     "animation": "highlight"
+    }
+   ],
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "28.07 · „OJCIEC CHRZESTNY”",
+     "animation": "badge",
+     "start": 0.05,
+     "end": null,
+     "position": "top",
+     "size": 62
+    },
+    {
+     "type": "hero",
+     "text": "*LOJALNOŚĆ*.",
+     "y": 1230,
+     "size": 120,
+     "kicker": "czyjego był chrztu",
+     "start": "vo05.end-1.2"
+    }
+   ]
+  },
+  {
+   "id": "decyzja",
+   "type": "still",
+   "clip": "news_tvp",
+   "at": 0,
+   "zoom": true,
+   "min_duration": 3.0,
+   "tail": 0.25,
+   "sfx": [
+    {
+     "ref": "stinger",
+     "at": 0.0,
+     "gain_db": -4.0
+    }
+   ],
+   "narration": [
+    {
+     "ref": "vo08",
      "at": 0.2,
      "captions": true,
      "y": 1480,
@@ -443,229 +402,126 @@
    "layers": [
     {
      "type": "keyword",
-     "text": "DOWÓD KORONNY",
-     "animation": "badge",
-     "start": 0.1,
-     "end": 2.6,
+     "text": "TVP INFO · 18.09",
+     "animation": "slide_left",
+     "start": 0.0,
+     "end": null,
      "position": "top",
-     "size": 76
+     "size": 60
     },
     {
      "type": "hero",
-     "text": "SPOTKANIE\n≠ *GŁOSOWANIE*",
-     "y": 700,
-     "size": 96,
-     "start": "vo07.end-2.4"
+     "text": "MOMENT *DECYZJI*.",
+     "y": 1230,
+     "size": 104,
+     "start": "vo08.end-1.6"
     }
    ]
   },
   {
-   "id": "news1",
-   "type": "still",
-   "clip": "news_tvp",
-   "at": 0,
-   "zoom": true,
-   "duration": 1.7,
-   "sfx": [
-    {
-     "ref": "stinger",
-     "at": 0.0,
-     "gain_db": -3.0
-    }
-   ],
-   "layers": [
-    {
-     "type": "keyword",
-     "text": "TVP INFO",
-     "animation": "slide_left",
-     "start": 0.0,
-     "end": null,
-     "position": "top",
-     "size": 64
-    }
-   ]
-  },
-  {
-   "id": "news2",
-   "type": "still",
-   "clip": "news_rp",
-   "at": 0,
-   "zoom": true,
-   "duration": 1.5,
-   "layers": [
-    {
-     "type": "keyword",
-     "text": "RP.PL",
-     "animation": "slide_left",
-     "start": 0.0,
-     "end": null,
-     "position": "top",
-     "size": 64
-    }
-   ]
-  },
-  {
-   "id": "lista",
-   "type": "still",
-   "clip": "img_lista",
-   "at": 0,
-   "zoom": true,
-   "duration": 1.5,
-   "layers": [
-    {
-     "type": "keyword",
-     "text": "LISTA GŁOSOWAŃ",
-     "animation": "slide_left",
-     "start": 0.0,
-     "end": null,
-     "position": "top",
-     "size": 64
-    }
-   ]
-  },
-  {
-   "id": "tablica",
+   "id": "fotel",
    "type": "black",
-   "tail": 0.3,
+   "tail": 0.9,
    "narration": [
     {
-     "ref": "vo11",
-     "at": 0.3,
-     "captions": false,
-     "y": 1500,
-     "animation": "karaoke"
+     "ref": "vo15",
+     "at": 0.2,
+     "captions": true,
+     "y": 1480,
+     "animation": "word_blast"
+    },
+    {
+     "ref": "vo16",
+     "at": "vo15.end+0.35",
+     "captions": true,
+     "y": 1480,
+     "animation": "highlight"
     }
    ],
    "layers": [
     {
-     "type": "stamp",
-     "text": "18.09.2026  ·  WYBÓR WICEMARSZAŁKA SEJMU",
+     "type": "board",
+     "text": "PRZEGRAĆ",
      "align": 7,
      "x": 80,
-     "y": 520,
-     "size": 36,
-     "spacing": 4,
-     "fade_in": 120,
-     "fade_out": 0
-    },
-    {
-     "type": "board",
-     "text": "HORAŁA",
-     "align": 7,
-     "x": 80,
-     "y": 660,
-     "size": 76,
-     "start": 0.3,
-     "fade_in": 150,
-     "fade_out": 0
-    },
-    {
-     "type": "board",
-     "text": "254",
-     "align": 9,
-     "x": 1000,
-     "y": 630,
-     "size": 130,
-     "start": 0.6,
+     "y": 500,
+     "size": 88,
+     "start": "vo16.start+0.5",
      "fade_in": 150,
      "fade_out": 0,
-     "bold": true,
-     "color": "accent",
-     "pop": true
+     "pop": true,
+     "color": "grey"
+    },
+    {
+     "type": "board",
+     "text": "JEDNOCZĄC",
+     "align": 9,
+     "x": 1000,
+     "y": 620,
+     "size": 88,
+     "start": "vo16.start+1.6",
+     "fade_in": 150,
+     "fade_out": 0,
+     "pop": true,
+     "color": "accent"
     },
     {
      "type": "shape",
      "align": 7,
      "x": 80,
-     "y": 800,
+     "y": 760,
      "width": 920,
      "height": 3,
-     "color": "accent",
-     "start": 0.6,
+     "color": "grey",
+     "start": "vo16.start+1.6",
      "fade_in": 150,
      "fade_out": 0
     },
     {
      "type": "board",
-     "text": "OCIEPA",
+     "text": "WYGRAĆ FOTEL",
      "align": 7,
      "x": 80,
-     "y": 850,
-     "size": 76,
-     "start": 2.5,
-     "fade_in": 150,
-     "fade_out": 0
-    },
-    {
-     "type": "board",
-     "text": "167",
-     "align": 9,
-     "x": 1000,
-     "y": 820,
-     "size": 130,
-     "start": 2.8,
+     "y": 800,
+     "size": 88,
+     "start": "vo16.start+3.85",
      "fade_in": 150,
      "fade_out": 0,
-     "bold": true,
-     "color": "grey",
      "pop": true
     },
     {
      "type": "board",
-     "text": "KO  →  HORAŁA",
-     "align": 7,
-     "x": 80,
-     "y": 1060,
-     "size": 64,
-     "start": 5.3,
+     "text": "DZIELĄC",
+     "align": 9,
+     "x": 1000,
+     "y": 920,
+     "size": 88,
+     "start": "vo16.start+6.0",
      "fade_in": 150,
      "fade_out": 0,
+     "pop": true,
      "color": "accent2"
     },
     {
-     "type": "board",
-     "text": "149",
-     "align": 9,
-     "x": 1000,
-     "y": 1020,
-     "size": 130,
-     "start": 5.6,
-     "fade_in": 150,
-     "fade_out": 0,
-     "bold": true,
-     "color": "accent2",
-     "pop": true
-    },
-    {
      "type": "keyword",
-     "text": "WYNIK, NIE OPINIA",
+     "text": "ROZŁAM",
      "animation": "glitch",
-     "start": 7.4,
+     "start": "vo16.start+6.9",
      "end": null,
      "position": null,
      "x": 540,
-     "y": 1300,
-     "size": 72
+     "y": 1180,
+     "size": 120
     }
    ]
   },
   {
-   "id": "glos",
-   "type": "clip",
-   "clip": "c_close",
-   "start": 5.15,
-   "end": 5.95,
-   "captions": true,
-   "caption_y": 1520,
-   "layers": []
-  },
-  {
    "id": "szpila",
    "type": "black",
-   "tail": 1.7,
+   "tail": 1.8,
    "narration": [
     {
-     "ref": "vo18",
+     "ref": "vo18b",
      "at": 0.3,
      "captions": true,
      "y": 1560,
@@ -675,61 +531,61 @@
    "layers": [
     {
      "type": "board",
-     "text": "„ZDRADA”   —   [c:grey]OCENA",
+     "text": "POPARŁ OCIEPĘ.",
      "align": 7,
      "x": 80,
-     "y": 480,
-     "size": 66,
+     "y": 470,
+     "size": 54,
      "start": 0.2,
      "fade_in": 150,
      "fade_out": 0,
-     "color": "accent",
      "pop": true
     },
     {
      "type": "board",
-     "text": "ROZŁAM   —   [c:grey]FAKT",
+     "text": "NAZWAŁ SIĘ OJCEM CHRZESTNYM.",
      "align": 7,
      "x": 80,
-     "y": 600,
-     "size": 66,
-     "start": 0.9,
+     "y": 575,
+     "size": 54,
+     "start": 1.0,
      "fade_in": 150,
      "fade_out": 0,
      "pop": true
     },
     {
      "type": "board",
-     "text": "254 : 167   —   [c:grey]WYNIK",
+     "text": "POWIEDZIAŁ: MASZ MÓJ GŁOS.",
      "align": 7,
      "x": 80,
-     "y": 720,
-     "size": 66,
-     "start": 1.6,
+     "y": 680,
+     "size": 54,
+     "start": 1.8,
      "fade_in": 150,
      "fade_out": 0,
-     "pop": true
+     "pop": true,
+     "color": "accent"
     },
     {
      "type": "board",
-     "text": "149 KO → HORAŁA   —   [c:grey]FAKT",
+     "text": "I WYSTAWIŁ KONTRKANDYDATA.",
      "align": 7,
      "x": 80,
-     "y": 840,
-     "size": 66,
-     "start": 2.3,
+     "y": 785,
+     "size": 54,
+     "start": 2.8,
      "fade_in": 150,
      "fade_out": 0,
-     "color": "accent2",
-     "pop": true
+     "pop": true,
+     "color": "accent2"
     },
     {
      "type": "hero",
-     "text": "OCEŃCIE *SAMI*.",
+     "text": "CZYIMI *GŁOSAMI*?",
      "y": 1180,
-     "size": 104,
-     "kicker": "czy to było jednoczenie prawicy?",
-     "start": "vo18.end+0.3"
+     "size": 108,
+     "kicker": "pytanie zwracamy",
+     "start": "vo18b.end+0.3"
     }
    ]
   },
