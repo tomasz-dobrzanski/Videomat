@@ -380,6 +380,27 @@ def audio_devices():
     console.print(t)
 
 
+@cli.command("voice-split")
+@click.argument("film_json", type=click.Path(exists=True))
+@click.argument("recording", type=click.Path(exists=True))
+@click.option("--model", default="medium")
+def voice_split(film_json, recording, model):
+    """Jedno nagranie lektora -> osobne pliki linii (work/<projekt>/<id>.mp3), wyrownane do skryptu."""
+    from videomat import speech
+    from videomat.render import load_film
+    path = Path(film_json)
+    movie = load_film(path)
+    work = config.WORK / path.parent.name
+    report = speech.split_recording(Path(recording), movie, work, model_size=model)
+    t = Table("linia", "od", "do", "dlugosc", "zgodnosc", "ok")
+    for row in report:
+        t.add_row(row["id"], str(row.get("start", "-")), str(row.get("end", "-")),
+                  str(row.get("duration", "-")), str(row.get("coverage", "-")),
+                  "tak" if row.get("ok") else "[red]SPRAWDZ[/]")
+    console.print(t)
+    console.print(f"[dim]raport: {work / 'split_report.json'}[/]")
+
+
 @cli.group()
 def project():
     """Projekty studia."""

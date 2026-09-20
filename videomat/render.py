@@ -364,7 +364,9 @@ class Renderer:
 
     def scene_ass(self, scene: Scene, duration: float) -> str:
         events: list[str] = []
-        if scene.type == "clip" and scene.captions:
+        if self.missing(scene):
+            events += self.placeholder_events(scene, duration)
+        if scene.type == "clip" and scene.captions and not self.missing(scene):
             events += self.quote_events(scene)
         resolved = self.resolved()
         local_times = {n.id: (n.local_start, n.local_start + n.duration)
@@ -410,6 +412,56 @@ class Renderer:
             return "setsar=1"
         return "eq=contrast=1.10:saturation=0.85:gamma=0.97,noise=alls=7:allf=t,vignette=PI/4.5,setsar=1"
 
+    IMAGE_SUFFIXES = (".png", ".jpg", ".jpeg", ".webp", ".bmp")
+
+    def clip_source(self, scene: Scene) -> Path | None:
+        if not scene.clip:
+            return None
+        return self.asset_path(self.film.assets.clips[scene.clip].path)
+
+    def missing(self, scene: Scene) -> bool:
+        """Scena odwołuje się do materiału, którego jeszcze nie ma na dysku."""
+        if scene.type == "black":
+            return False
+        src = self.clip_source(scene)
+        return src is None or not src.exists()
+
+    def _seek_args(self, src: Path, at: float | None) -> list[str]:
+        """Zrzut ekranu ma jedną klatkę — szukanie w nim czasu nic nie zwraca."""
+        if src.suffix.lower() in self.IMAGE_SUFFIXES:
+            return ["-i", str(src)]
+        return ["-ss", f"{float(at or 0.0):.3f}", "-i", str(src)]
+
+    def placeholder_events(self, scene: Scene, duration: float) -> list[str]:
+        """Plansza zastępcza: film renderuje się w całości, zanim wszystkie materiały dotrą."""
+        fmt = self.film.format
+        cx = fmt.width // 2
+        path = self.film.assets.clips[scene.clip].path if scene.clip else "?"
+        span = ""
+        if scene.type == "clip":
+            span = f"{scene.start:.1f}–{scene.end:.1f} s"
+        elif scene.at is not None:
+            span = f"klatka {scene.at:.1f} s"
+        grey = hex_to_ass(self.film.theme.grey)
+        accent = hex_to_ass(self.film.theme.accent2)
+        return [
+            dialogue(0, 0, duration, "Board",
+                     f"{{\\an7\\pos(0,0)\\1c&H0A1120&\\bord0\\shad0\\p1}}{_rect(fmt.width, fmt.height)}{{\\p0}}"),
+            # Karta w dolnej połowie — górę zostawiamy stemplom i nagłówkom sceny.
+            dialogue(0, 0, duration, "Board",
+                     f"{{\\an7\\pos(60,1150)\\1c{accent}&\\bord0\\shad0\\p1}}m 0 0 l 960 0 l 960 4 l 0 4{{\\p0}}"),
+            dialogue(1, 0, duration, "Hud",
+                     f"{{\\an7\\pos(60,1190)\\fs34\\c{accent}&}}MATERIAŁ DO WKLEJENIA"),
+            dialogue(1, 0, duration, "Board",
+                     f"{{\\an7\\pos(60,1250)\\fs44\\b1}}{esc(scene.id)}"),
+            dialogue(1, 0, duration, "Board",
+                     f"{{\\an7\\pos(60,1320)\\fs32\\c{grey}&}}{esc(path)}"),
+            dialogue(1, 0, duration, "Board",
+                     f"{{\\an7\\pos(60,1370)\\fs32\\c{grey}&}}{esc(span)}"),
+            dialogue(1, 0, duration, "Board",
+                     f"{{\\an5\\pos({cx},820)\\fs120\\b1\\c{grey}&\\1a&HA0&}}▶"),
+        ]
+
     def _clip_fit(self, scene: Scene, quality: str) -> str:
         clip = self.film.assets.clips[scene.clip]  # type: ignore[index]
         return (clip.crop + "," if clip.crop else "") + self._fit(quality)
@@ -425,9 +477,10 @@ class Renderer:
             wav = self.speech_files().get(placement.ref)
             if wav:
                 sources.append(wav)
-        payload = {"scene": scene.model_dump(mode="json"), "duration": round(duration, 4),
-                   "ass": ass_text, "format": self.film.format.model_dump(),
-                   "theme": self.film.theme.model_dump()}
+        clip_def = (self.film.assets.clips[scene.clip].model_dump(mode="json") if scene.clip else None)
+        payload = {"scene": scene.model_dump(mode="json"), "clip": clip_def,
+                   "duration": round(duration, 4), "ass": ass_text,
+                   "format": self.film.format.model_dump(), "theme": self.film.theme.model_dump()}
         return cache.key(payload, sources, quality, ENGINE)
 
     def render_scene(self, scene: Scene, duration: float, quality: str = "final") -> Path:
@@ -444,7 +497,9 @@ class Renderer:
         enc = self._encoder(quality)
         self.log(f"render {scene.id} ({scene.type}, {duration:.2f}s, {quality})")
 
-        if scene.type == "black":
+        if scene.type == "black" or self.missing(scene):
+            if self.missing(scene):
+                self.log(f"scena {scene.id}: brak materiału, plansza zastępcza")
             vf = f"ass='{subs}'"
             if self.film.theme.grade:
                 vf += ",noise=alls=5:allf=t,vignette=PI/5"
@@ -453,9 +508,8 @@ class Renderer:
                         "-vf", vf, "-shortest"] + enc + [str(out)])
             return out
 
-        src = self.asset_path(self.film.assets.clips[scene.clip].path)  # type: ignore[index]
-        if not src or not src.exists():
-            raise RenderError(f"Scena {scene.id}: brak pliku klipu {src}")
+        src = self.clip_source(scene)
+        assert src is not None
 
         if scene.type == "clip":
             ffmpeg.run(["-ss", f"{scene.start:.3f}", "-to", f"{scene.end:.3f}", "-i", str(src),
@@ -465,7 +519,7 @@ class Renderer:
 
         png = self.work / "frames" / f"{key}.png"
         if not png.exists():
-            ffmpeg.run(["-ss", f"{scene.at:.3f}", "-i", str(src), "-frames:v", "1",
+            ffmpeg.run(self._seek_args(src, scene.at) + ["-frames:v", "1",
                         "-filter_complex", self._clip_fit(scene, quality), str(png)])
         vf = self._grade_still()
         if scene.zoom:
@@ -497,7 +551,7 @@ class Renderer:
         w, h = self._size(quality)
         fps = self.film.format.fps
 
-        if scene.type == "black":
+        if scene.type == "black" or self.missing(scene):
             vf = f"ass='{subs}'"
             if self.film.theme.grade:
                 vf += ",noise=alls=5:allf=t,vignette=PI/5"
@@ -505,7 +559,8 @@ class Renderer:
                         "-vf", vf, "-ss", f"{local:.3f}", "-frames:v", "1", str(out)])
             return out
 
-        src = self.asset_path(self.film.assets.clips[scene.clip].path)  # type: ignore[index]
+        src = self.clip_source(scene)
+        assert src is not None
         if scene.type == "clip":
             ffmpeg.run(["-ss", f"{scene.start:.3f}", "-i", str(src),
                         "-filter_complex", self._clip_fit(scene, quality) + f",ass='{subs}'",
@@ -514,7 +569,7 @@ class Renderer:
 
         png = self.work / "frames" / f"{key}.png"
         if not png.exists():
-            ffmpeg.run(["-ss", f"{scene.at:.3f}", "-i", str(src), "-frames:v", "1",
+            ffmpeg.run(self._seek_args(src, scene.at) + ["-frames:v", "1",
                         "-filter_complex", self._clip_fit(scene, quality), str(png)])
         vf = self._grade_still()
         if scene.zoom:

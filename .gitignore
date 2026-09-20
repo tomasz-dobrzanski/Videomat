@@ -13,3 +13,5 @@ __pycache__/
 studio/node_modules/
 web/static/
 projects/*/history/
+mp4/
+*.jpeg

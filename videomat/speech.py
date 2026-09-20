@@ -127,6 +127,82 @@ def durations(film: Film, work: Path) -> dict[str, float]:
     return {n.id: (ffmpeg.duration(files[n.id]) if n.id in files else n.fallback) for n in film.narration}
 
 
+def _norm(token: str) -> str:
+    import re
+    return re.sub(r"[^\w]+", "", token.lower())
+
+
+def split_recording(recording: Path, film: Film, work: Path, model_size: str = "medium",
+                    pad: float = 0.08, only: list[str] | None = None) -> list[dict]:
+    """Jedno nagranie lektora → osobne pliki linii, wyrównane do tekstu skryptu.
+
+    Lektor czyta cały skrypt po kolei (może się pomylić, zrobić pauzę, dodać słowo). Whisper daje
+    czasy słów, a dopasowanie sekwencji (difflib) przypina każdą linię skryptu do fragmentu nagrania.
+    Wynik: work/<id>.mp3 dla każdej linii + raport z pewnością dopasowania. Linie o niskiej zgodności
+    trzeba odsłuchać.
+    """
+    import difflib
+    import json
+
+    global _WHISPER
+    work.mkdir(parents=True, exist_ok=True)
+    lines = [n for n in film.narration if only is None or n.id in only]
+    if not lines:
+        return []
+    from faster_whisper import WhisperModel
+    if _WHISPER is None:
+        try:
+            import torch
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+        except Exception:
+            device = "cpu"
+        _WHISPER = WhisperModel(model_size, device=device,
+                                compute_type="float16" if device == "cuda" else "int8")
+    segments, _ = _WHISPER.transcribe(str(recording), language="pl", word_timestamps=True,
+                                      vad_filter=True, beam_size=5, condition_on_previous_text=False)
+    heard = [(w.word.strip(), float(w.start), float(w.end))
+             for s in segments for w in (s.words or []) if w.word.strip()]
+    heard_norm = [_norm(w[0]) for w in heard]
+
+    script: list[tuple[int, str]] = []          # (indeks linii, słowo)
+    for i, line in enumerate(lines):
+        script += [(i, tok) for tok in line.text.split() if _norm(tok)]
+    script_norm = [_norm(tok) for _, tok in script]
+
+    matcher = difflib.SequenceMatcher(None, script_norm, heard_norm, autojunk=False)
+    mapping: dict[int, int] = {}
+    for block in matcher.get_matching_blocks():
+        for k in range(block.size):
+            mapping[block.a + k] = block.b + k
+
+    report = []
+    for i, line in enumerate(lines):
+        idx = [j for j, (li, _) in enumerate(script) if li == i]
+        matched = [mapping[j] for j in idx if j in mapping]
+        total_words = len(idx)
+        if not matched:
+            report.append({"id": line.id, "ok": False, "reason": "nie znaleziono w nagraniu"})
+            continue
+        first, last = min(matched), max(matched)
+        start = max(0.0, heard[first][1] - pad)
+        # koniec: do następnego usłyszanego słowa, żeby nie ucinać ogona głoski
+        end = heard[last][2] + pad
+        if last + 1 < len(heard):
+            end = min(end + 0.15, heard[last + 1][1] - 0.02)
+        target = work / f"{line.id}.mp3"
+        for stale in (work / f"{line.id}_fast.wav", work / f"{line.id}_words.json"):
+            stale.unlink(missing_ok=True)
+        ffmpeg.run(["-ss", f"{start:.3f}", "-to", f"{end:.3f}", "-i", str(recording),
+                    "-ac", "1", "-ar", "44100", "-c:a", "libmp3lame", "-q:a", "2", str(target)])
+        coverage = len(matched) / max(total_words, 1)
+        report.append({"id": line.id, "ok": coverage >= 0.7, "start": round(start, 2),
+                       "end": round(end, 2), "duration": round(end - start, 2),
+                       "coverage": round(coverage, 2), "file": str(target)})
+    (work / "split_report.json").write_text(json.dumps(report, ensure_ascii=False, indent=1),
+                                            encoding="utf-8")
+    return report
+
+
 def align(line_id: str, text: str, wav: Path, work: Path, model_size: str = "medium") -> list[dict]:
     """Czasy słów lektora. Tekst zawsze ze skryptu; whisper daje wyłącznie momenty."""
     global _WHISPER
