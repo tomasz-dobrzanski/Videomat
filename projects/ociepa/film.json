@@ -14,8 +14,8 @@
   "grey": "#9F9F9F",
   "accent": "#FFD900",
   "accent2": "#00E5FF",
-  "caption_size": 96,
-  "narration_size": 72,
+  "caption_size": 100,
+  "narration_size": 96,
   "grade": true
  },
  "assets": {
@@ -64,37 +64,44 @@
     "transcript": null,
     "fixes": {}
    },
-   "m_rozlam": {
-    "path": "assets/m_rozlam.mp4",
-    "crop": null,
-    "transcript": null,
-    "fixes": {}
-   },
    "m_serce": {
     "path": "mp4/Morawiecki.mp4",
     "crop": "crop=620:1102:0:200",
     "transcript": "work/Morawiecki_transcript.json",
     "fixes": {}
    },
-   "m_prezydium": {
-    "path": "assets/m_prezydium.mp4",
-    "crop": null,
+   "c_studio": {
+    "path": "mp4/signal-2026-09-18-13-01-35-138-2.mp4",
+    "crop": "crop=250:150:180:40",
+    "transcript": "work/signal-2026-09-18-13-01-35-138-2_transcript.json",
+    "fixes": {}
+   },
+   "c_close": {
+    "path": "mp4/signal-2026-09-18-13-01-35-138.mp4",
+    "crop": "crop=540:520:0:0",
+    "transcript": "work/signal-2026-09-18-13-01-35-138_transcript.json",
+    "fixes": {}
+   },
+   "news_rp": {
+    "path": "assets/news/news_1.png",
+    "crop": "crop=1080:540:0:0",
     "transcript": null,
     "fixes": {}
    },
-   "m_ociepa": {
-    "path": "assets/m_ociepa.mp4",
-    "crop": null,
+   "news_tvp": {
+    "path": "assets/news/news_4.png",
+    "crop": "crop=1080:1000:0:250",
+    "transcript": null,
+    "fixes": {}
+   },
+   "news_wp": {
+    "path": "assets/news/news_5.png",
+    "crop": "crop=1080:900:0:80",
     "transcript": null,
     "fixes": {}
    }
   },
-  "music": {
-   "main": {
-    "path": "assets/podklad.mp3",
-    "gain_db": -12.0
-   }
-  },
+  "music": {},
   "sfx": {
    "hit": {
     "path": "work/ojciec/sfx_hit.mp3",
@@ -234,11 +241,22 @@
  ],
  "scenes": [
   {
-   "id": "open_full",
+   "id": "open",
    "type": "still",
-   "clip": "img_pytanie",
+   "clip": "img_pytanie_crop",
    "at": 0,
-   "duration": 1.6,
+   "zoom": true,
+   "min_duration": 3.0,
+   "tail": 0.3,
+   "narration": [
+    {
+     "ref": "vo01",
+     "at": 0.2,
+     "captions": true,
+     "y": 1480,
+     "animation": "word_blast"
+    }
+   ],
    "sfx": [
     {
      "ref": "hit",
@@ -248,151 +266,116 @@
    ],
    "layers": [
     {
-     "type": "stamp",
-     "text": "WIKTORIA ŻOŁDAK  ·  X",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 36,
-     "spacing": 6,
-     "fade_in": 150,
-     "fade_out": 0
-    }
-   ]
-  },
-  {
-   "id": "open_zoom",
-   "type": "still",
-   "clip": "img_pytanie_crop",
-   "at": 0,
-   "zoom": true,
-   "min_duration": 3.0,
-   "tail": 0.4,
-   "narration": [
+     "type": "keyword",
+     "text": "#CZYIMI GŁOSAMI?",
+     "animation": "glitch",
+     "start": 0.2,
+     "end": 3.4,
+     "position": "top",
+     "size": 84
+    },
     {
-     "ref": "vo01",
-     "at": 0.2,
-     "captions": true,
-     "y": 1500
-    }
-   ],
-   "layers": [
-    {
-     "type": "headline",
-     "text": "NA KLOCKACH.",
+     "type": "hero",
+     "text": "NA *KLOCKACH*.",
      "y": 640,
-     "size": 130,
-     "start": "vo01.end-1.4"
+     "size": 110,
+     "kicker": "odpowiedź",
+     "start": "vo01.end-1.5"
     }
    ]
   },
   {
-   "id": "k1_graf",
+   "id": "graf",
    "type": "still",
    "clip": "img_poparcie",
    "at": 0,
-   "min_duration": 3.0,
-   "tail": 0.3,
-   "narration": [
-    {
-     "ref": "vo02",
-     "at": 0.3,
-     "captions": true,
-     "y": 1500
-    }
-   ],
+   "duration": 2.0,
    "layers": [
     {
-     "type": "stamp",
-     "text": "28 LIPCA 2026",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 40,
-     "spacing": 6,
-     "fade_in": 150,
-     "fade_out": 0
+     "type": "keyword",
+     "text": "28.07.2026",
+     "animation": "badge",
+     "start": 0.1,
+     "end": null,
+     "position": "top",
+     "size": 80
     },
     {
-     "type": "board",
-     "text": "MORAWIECKI  →  OCIEPA",
-     "align": 7,
-     "x": 80,
-     "y": 350,
-     "size": 56,
-     "color": "accent",
-     "start": 0.6,
-     "fade_in": 150,
-     "fade_out": 0
+     "type": "keyword",
+     "text": "POPRĘ OCIEPĘ",
+     "animation": "tooltip",
+     "start": 0.5,
+     "end": null,
+     "position": "upper",
+     "size": 64,
+     "target": [
+      430,
+      880
+     ]
     }
    ]
   },
   {
-   "id": "k1_clip",
+   "id": "ojciec",
    "type": "clip",
    "clip": "c_conf",
    "start": 0.05,
    "end": 3.6,
    "captions": true,
-   "caption_y": 1560,
+   "caption_y": 1520,
    "layers": [
     {
-     "type": "stamp",
-     "text": "28.07  ·  ORYGINAŁ",
-     "align": 9,
-     "x": 1000,
-     "y": 150,
-     "size": 36,
-     "spacing": 4,
-     "fade_in": 0,
-     "fade_out": 0
+     "type": "keyword",
+     "text": "OJCIEC CHRZESTNY",
+     "animation": "tooltip",
+     "start": 0.3,
+     "end": null,
+     "position": "top",
+     "size": 70,
+     "target": [
+      540,
+      480
+     ]
     }
    ]
   },
   {
-   "id": "k2_rozlam",
+   "id": "studio",
    "type": "clip",
-   "clip": "m_rozlam",
+   "clip": "c_studio",
    "start": 0.0,
-   "end": 9.5,
-   "captions": false,
-   "narration": [
-    {
-     "ref": "vo03",
-     "at": 0.4,
-     "captions": true,
-     "y": 1500
-    }
-   ],
+   "end": 2.1,
+   "captions": true,
+   "caption_y": 1520,
    "layers": [
     {
-     "type": "stamp",
-     "text": "LIPIEC 2026  ·  ROZŁAM",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 40,
-     "spacing": 6,
-     "fade_in": 150,
-     "fade_out": 0
-    },
-    {
-     "type": "headline",
-     "text": "ROZŁAM.",
-     "y": 700,
-     "size": 150,
-     "start": "vo03.start+0.9",
-     "end": "vo03.start+2.8"
+     "type": "keyword",
+     "text": "x2",
+     "animation": "glitch",
+     "start": 0.1,
+     "end": null,
+     "position": null,
+     "x": 960,
+     "y": 330,
+     "size": 110
     }
    ]
   },
   {
-   "id": "k3_serce",
+   "id": "serce",
    "type": "clip",
    "clip": "m_serce",
    "start": 4.25,
    "end": 8.85,
    "captions": true,
+   "caption_y": 1520,
+   "sfx": [
+    {
+     "ref": "stinger",
+     "at": 4.45,
+     "gain_db": -3.0
+    }
+   ],
    "layers": [
     {
      "type": "stamp",
@@ -402,270 +385,155 @@
      "y": 300,
      "size": 38,
      "spacing": 6,
-     "fade_in": 150,
+     "fade_in": 120,
      "fade_out": 0
     },
     {
-     "type": "headline",
-     "text": "SERCE.",
+     "type": "hero",
+     "text": "*SERCE*.",
      "y": 1230,
-     "size": 150,
-     "color": "accent",
+     "size": 120,
+     "kicker": "rada nr 1",
      "start": 2.95,
      "end": 4.6
     }
-   ],
-   "caption_y": 1560
+   ]
   },
   {
-   "id": "k3_cut",
+   "id": "pamiec",
    "type": "black",
-   "duration": 0.7,
-   "layers": []
-  },
-  {
-   "id": "k3_black",
-   "type": "black",
-   "tail": 0.3,
+   "tail": 0.25,
    "narration": [
     {
      "ref": "vo04",
-     "at": 0.2,
+     "at": 0.15,
      "captions": true,
-     "y": 1500
+     "y": 1480,
+     "animation": "word_blast"
     }
    ],
    "layers": [
     {
-     "type": "headline",
-     "text": "PAMIĘĆ.",
+     "type": "hero",
+     "text": "*PAMIĘĆ*.",
      "y": 800,
-     "size": 160,
-     "start": "vo04.end-1.6"
+     "size": 130,
+     "kicker": "rada nr 2 — od nas",
+     "start": "vo04.end-1.5"
     }
    ]
   },
   {
-   "id": "k3_flash",
-   "type": "freeze",
-   "clip": "c_conf",
-   "at": 1.5,
-   "zoom": true,
-   "min_duration": 3.0,
-   "tail": 0.5,
-   "narration": [
-    {
-     "ref": "vo05",
-     "at": 0.3,
-     "captions": true,
-     "y": 1500
-    }
-   ],
-   "layers": [
-    {
-     "type": "stamp",
-     "text": "FLASHBACK  ·  28.07",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 36,
-     "spacing": 6,
-     "fade_in": 150,
-     "fade_out": 0
-    }
-   ]
-  },
-  {
-   "id": "k4_screen",
+   "id": "komentarz",
    "type": "still",
    "clip": "img_komentarz",
    "at": 0,
    "zoom": true,
    "min_duration": 3.0,
-   "tail": 0.4,
-   "narration": [
-    {
-     "ref": "vo06",
-     "at": 0.3,
-     "captions": true,
-     "y": 1500
-    }
-   ],
-   "layers": [
-    {
-     "type": "stamp",
-     "text": "DOWÓD KORONNY",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 40,
-     "spacing": 8,
-     "color": "accent2",
-     "start": "vo06.start+0.8",
-     "fade_in": 100,
-     "fade_out": 0
-    }
-   ]
-  },
-  {
-   "id": "k4_black",
-   "type": "black",
-   "tail": 0.4,
+   "tail": 0.3,
    "narration": [
     {
      "ref": "vo07",
-     "at": 0.3,
+     "at": 0.2,
      "captions": true,
-     "y": 1500
-    },
-    {
-     "ref": "vo08",
-     "at": "vo07.end+0.5",
-     "captions": true,
-     "y": 1500
+     "y": 1480,
+     "animation": "highlight"
     }
    ],
    "layers": [
     {
-     "type": "headline",
-     "text": "SPOTKANIE\n≠\nGŁOSOWANIE",
-     "y": 800,
-     "size": 120,
-     "start": "vo07.end+0.1"
+     "type": "keyword",
+     "text": "DOWÓD KORONNY",
+     "animation": "badge",
+     "start": 0.1,
+     "end": 2.6,
+     "position": "top",
+     "size": 76
+    },
+    {
+     "type": "hero",
+     "text": "SPOTKANIE\n≠ *GŁOSOWANIE*",
+     "y": 700,
+     "size": 96,
+     "start": "vo07.end-2.4"
     }
    ]
   },
   {
-   "id": "k5_clip",
-   "type": "clip",
-   "clip": "m_prezydium",
-   "start": 0.0,
-   "end": 5.0,
-   "captions": false,
-   "layers": [
-    {
-     "type": "stamp",
-     "text": "PROPOZYCJA ROZWOJU PLUS",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 40,
-     "spacing": 6,
-     "fade_in": 150,
-     "fade_out": 0
-    }
-   ]
-  },
-  {
-   "id": "k5_black",
-   "type": "black",
-   "tail": 0.4,
-   "narration": [
-    {
-     "ref": "vo09",
-     "at": 0.3,
-     "captions": true,
-     "y": 1500
-    },
-    {
-     "ref": "vo10",
-     "at": "vo09.end+0.6",
-     "captions": true,
-     "y": 1500
-    }
-   ],
-   "layers": [
-    {
-     "type": "stamp",
-     "text": "PREZYDIUM SEJMU",
-     "align": 7,
-     "x": 80,
-     "y": 560,
-     "size": 36,
-     "spacing": 6,
-     "start": 0.3,
-     "fade_in": 150,
-     "fade_out": 0
-    },
-    {
-     "type": "board",
-     "text": "+2 WICEMARSZAŁKÓW",
-     "align": 7,
-     "x": 80,
-     "y": 620,
-     "size": 78,
-     "bold": true,
-     "color": "accent",
-     "pop": true,
-     "start": 0.9,
-     "fade_in": 150,
-     "fade_out": 0
-    },
-    {
-     "type": "board",
-     "text": "Rozwój Plus  ·  Centrum",
-     "align": 7,
-     "x": 80,
-     "y": 730,
-     "size": 52,
-     "color": "grey",
-     "start": 1.6,
-     "fade_in": 150,
-     "fade_out": 0
-    },
-    {
-     "type": "headline",
-     "text": "TEST.",
-     "y": 1150,
-     "size": 160,
-     "start": "vo10.start+1.2"
-    }
-   ]
-  },
-  {
-   "id": "k6_lista",
+   "id": "news1",
    "type": "still",
-   "clip": "img_lista",
+   "clip": "news_tvp",
    "at": 0,
    "zoom": true,
-   "duration": 2.6,
+   "duration": 1.7,
    "sfx": [
     {
      "ref": "stinger",
      "at": 0.0,
-     "gain_db": -2.0
+     "gain_db": -3.0
     }
    ],
    "layers": [
     {
-     "type": "stamp",
-     "text": "18.09.2026  ·  LISTA GŁOSOWAŃ  ·  ROZWÓJ PLUS",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 34,
-     "spacing": 4,
-     "fade_in": 100,
-     "fade_out": 0
+     "type": "keyword",
+     "text": "TVP INFO",
+     "animation": "slide_left",
+     "start": 0.0,
+     "end": null,
+     "position": "top",
+     "size": 64
     }
    ]
   },
   {
-   "id": "k6_board",
+   "id": "news2",
+   "type": "still",
+   "clip": "news_rp",
+   "at": 0,
+   "zoom": true,
+   "duration": 1.5,
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "RP.PL",
+     "animation": "slide_left",
+     "start": 0.0,
+     "end": null,
+     "position": "top",
+     "size": 64
+    }
+   ]
+  },
+  {
+   "id": "lista",
+   "type": "still",
+   "clip": "img_lista",
+   "at": 0,
+   "zoom": true,
+   "duration": 1.5,
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "LISTA GŁOSOWAŃ",
+     "animation": "slide_left",
+     "start": 0.0,
+     "end": null,
+     "position": "top",
+     "size": 64
+    }
+   ]
+  },
+  {
+   "id": "tablica",
    "type": "black",
-   "tail": 0.6,
+   "tail": 0.3,
    "narration": [
     {
      "ref": "vo11",
-     "at": 0.5,
+     "at": 0.3,
      "captions": false,
-     "y": 1500
-    },
-    {
-     "ref": "vo12",
-     "at": "vo11.end+0.6",
-     "captions": true,
-     "y": 1560
+     "y": 1500,
+     "animation": "karaoke"
     }
    ],
    "layers": [
@@ -677,8 +545,7 @@
      "y": 520,
      "size": 36,
      "spacing": 4,
-     "start": 0.2,
-     "fade_in": 150,
+     "fade_in": 120,
      "fade_out": 0
     },
     {
@@ -687,8 +554,8 @@
      "align": 7,
      "x": 80,
      "y": 660,
-     "size": 70,
-     "start": 0.7,
+     "size": 76,
+     "start": 0.3,
      "fade_in": 150,
      "fade_out": 0
     },
@@ -697,24 +564,24 @@
      "text": "254",
      "align": 9,
      "x": 1000,
-     "y": 640,
-     "size": 120,
+     "y": 630,
+     "size": 130,
+     "start": 0.6,
+     "fade_in": 150,
+     "fade_out": 0,
      "bold": true,
      "color": "accent",
-     "pop": true,
-     "start": 1.0,
-     "fade_in": 150,
-     "fade_out": 0
+     "pop": true
     },
     {
      "type": "shape",
      "align": 7,
      "x": 80,
-     "y": 790,
+     "y": 800,
      "width": 920,
      "height": 3,
      "color": "accent",
-     "start": 1.0,
+     "start": 0.6,
      "fade_in": 150,
      "fade_out": 0
     },
@@ -723,9 +590,9 @@
      "text": "OCIEPA",
      "align": 7,
      "x": 80,
-     "y": 840,
-     "size": 70,
-     "start": 2.4,
+     "y": 850,
+     "size": 76,
+     "start": 2.5,
      "fade_in": 150,
      "fade_out": 0
     },
@@ -735,221 +602,74 @@
      "align": 9,
      "x": 1000,
      "y": 820,
-     "size": 120,
+     "size": 130,
+     "start": 2.8,
+     "fade_in": 150,
+     "fade_out": 0,
      "bold": true,
      "color": "grey",
-     "pop": true,
-     "start": 2.7,
-     "fade_in": 150,
-     "fade_out": 0
+     "pop": true
     },
     {
      "type": "board",
      "text": "KO  →  HORAŁA",
      "align": 7,
      "x": 80,
-     "y": 1040,
-     "size": 60,
-     "color": "accent2",
-     "start": 5.2,
+     "y": 1060,
+     "size": 64,
+     "start": 5.3,
      "fade_in": 150,
-     "fade_out": 0
+     "fade_out": 0,
+     "color": "accent2"
     },
     {
      "type": "board",
      "text": "149",
      "align": 9,
      "x": 1000,
-     "y": 1010,
-     "size": 120,
+     "y": 1020,
+     "size": 130,
+     "start": 5.6,
+     "fade_in": 150,
+     "fade_out": 0,
      "bold": true,
      "color": "accent2",
-     "pop": true,
-     "start": 5.5,
-     "fade_in": 150,
-     "fade_out": 0
+     "pop": true
     },
     {
-     "type": "board",
-     "text": "„tajny deal”?  nie.        wynik głosowania.",
-     "align": 7,
-     "x": 80,
-     "y": 1200,
-     "size": 44,
-     "color": "grey",
-     "start": "vo12.start+0.6",
-     "fade_in": 200,
-     "fade_out": 0
-    }
-   ]
-  },
-  {
-   "id": "k7",
-   "type": "black",
-   "tail": 0.5,
-   "narration": [
-    {
-     "ref": "vo13",
-     "at": 0.3,
-     "captions": true,
-     "y": 1500
-    },
-    {
-     "ref": "vo14",
-     "at": "vo13.end+0.5",
-     "captions": true,
-     "y": 1500
-    }
-   ],
-   "layers": [
-    {
-     "type": "board",
-     "text": "CZYIMI GŁOSAMI\nMIAŁ WYGRAĆ OCIEPA?",
-     "align": 7,
-     "x": 80,
-     "y": 560,
-     "size": 64,
-     "color": "grey",
-     "start": 0.2,
-     "fade_in": 200,
-     "fade_out": 0
-    },
-    {
-     "type": "word_list",
-     "items": [
-      "JEDEN OBÓZ",
-      "SKLEIĆ…",
-      "CZY PODZIELIĆ NA STAŁE?"
-     ],
-     "align": 5,
+     "type": "keyword",
+     "text": "WYNIK, NIE OPINIA",
+     "animation": "glitch",
+     "start": 7.4,
+     "end": null,
+     "position": null,
      "x": 540,
-     "y": 880,
-     "line_height": 170,
-     "size": 84,
-     "spacing": 8,
-     "start": "vo14.start+0.6",
-     "step": null,
-     "fade_in": 120,
-     "fade_out": 200
+     "y": 1300,
+     "size": 72
     }
    ]
   },
   {
-   "id": "k8_black",
-   "type": "black",
-   "tail": 0.3,
-   "narration": [
-    {
-     "ref": "vo15",
-     "at": 0.3,
-     "captions": true,
-     "y": 1500
-    },
-    {
-     "ref": "vo16",
-     "at": "vo15.end+0.5",
-     "captions": true,
-     "y": 1500
-    }
-   ],
-   "layers": [
-    {
-     "type": "word_list",
-     "items": [
-      "PRZEGRAĆ, JEDNOCZĄC.",
-      "WYGRAĆ, DZIELĄC."
-     ],
-     "align": 5,
-     "x": 540,
-     "y": 860,
-     "line_height": 200,
-     "size": 88,
-     "spacing": 8,
-     "start": "vo16.start+0.8",
-     "step": null,
-     "fade_in": 120,
-     "fade_out": 200
-    }
-   ]
-  },
-  {
-   "id": "k8_clip",
+   "id": "glos",
    "type": "clip",
-   "clip": "m_ociepa",
-   "start": 0.0,
-   "end": 6.0,
-   "captions": false,
-   "layers": [
-    {
-     "type": "stamp",
-     "text": "MARCIN OCIEPA  ·  TVP INFO",
-     "align": 7,
-     "x": 80,
-     "y": 300,
-     "size": 40,
-     "spacing": 6,
-     "fade_in": 150,
-     "fade_out": 0
-    }
-   ]
-  },
-  {
-   "id": "fin_serce",
-   "type": "clip",
-   "clip": "m_serce",
-   "start": 4.25,
-   "end": 7.9,
+   "clip": "c_close",
+   "start": 5.15,
+   "end": 5.95,
    "captions": true,
-   "layers": [],
-   "caption_y": 1560
+   "caption_y": 1520,
+   "layers": []
   },
   {
-   "id": "fin_freeze",
-   "type": "freeze",
-   "clip": "m_serce",
-   "at": 7.75,
-   "zoom": true,
-   "min_duration": 4.0,
-   "tail": 0.6,
-   "narration": [
-    {
-     "ref": "vo17",
-     "at": 0.3,
-     "captions": true,
-     "y": 1500
-    }
-   ],
-   "layers": [
-    {
-     "type": "word_list",
-     "items": [
-      "PAMIĘĆ",
-      "KALKULATOR",
-      "WYNIKI GŁOSOWAŃ"
-     ],
-     "align": 5,
-     "x": 540,
-     "y": 620,
-     "line_height": 180,
-     "size": 96,
-     "spacing": 8,
-     "start": "vo17.start+3.8",
-     "step": 1.1,
-     "fade_in": 120,
-     "fade_out": 200
-    }
-   ]
-  },
-  {
-   "id": "cards",
+   "id": "szpila",
    "type": "black",
-   "tail": 3.2,
+   "tail": 1.7,
    "narration": [
     {
      "ref": "vo18",
-     "at": 0.4,
+     "at": 0.3,
      "captions": true,
-     "y": 1620
+     "y": 1560,
+     "animation": "highlight"
     }
    ],
    "layers": [
@@ -958,25 +678,25 @@
      "text": "„ZDRADA”   —   [c:grey]OCENA",
      "align": 7,
      "x": 80,
-     "y": 500,
-     "size": 62,
-     "color": "accent",
-     "pop": true,
+     "y": 480,
+     "size": 66,
      "start": 0.2,
      "fade_in": 150,
-     "fade_out": 0
+     "fade_out": 0,
+     "color": "accent",
+     "pop": true
     },
     {
      "type": "board",
      "text": "ROZŁAM   —   [c:grey]FAKT",
      "align": 7,
      "x": 80,
-     "y": 610,
-     "size": 62,
-     "pop": true,
+     "y": 600,
+     "size": 66,
      "start": 0.9,
      "fade_in": 150,
-     "fade_out": 0
+     "fade_out": 0,
+     "pop": true
     },
     {
      "type": "board",
@@ -984,92 +704,41 @@
      "align": 7,
      "x": 80,
      "y": 720,
-     "size": 62,
-     "pop": true,
+     "size": 66,
      "start": 1.6,
      "fade_in": 150,
-     "fade_out": 0
+     "fade_out": 0,
+     "pop": true
     },
     {
      "type": "board",
      "text": "149 KO → HORAŁA   —   [c:grey]FAKT",
      "align": 7,
      "x": 80,
-     "y": 830,
-     "size": 62,
-     "color": "accent2",
-     "pop": true,
+     "y": 840,
+     "size": 66,
      "start": 2.3,
      "fade_in": 150,
-     "fade_out": 0
+     "fade_out": 0,
+     "color": "accent2",
+     "pop": true
     },
     {
-     "type": "title",
-     "text": "A czy to było\n„jednoczenie prawicy”?",
-     "align": 5,
-     "x": 540,
-     "y": 1150,
-     "size": 78,
-     "spacing": 6,
-     "start": "vo18.end+0.3",
-     "fade_in": 300,
-     "fade_out": 300
-    },
-    {
-     "type": "subtitle",
-     "text": "Oceńcie sami.",
-     "align": 5,
-     "x": 540,
-     "y": 1330,
-     "size": 64,
-     "spacing": 8,
-     "color": "accent",
-     "start": "vo18.end+1.0",
-     "fade_in": 300,
-     "fade_out": 300
+     "type": "hero",
+     "text": "OCEŃCIE *SAMI*.",
+     "y": 1180,
+     "size": 104,
+     "kicker": "czy to było jednoczenie prawicy?",
+     "start": "vo18.end+0.3"
     }
    ]
   },
   {
    "id": "end",
    "type": "black",
-   "duration": 0.8,
+   "duration": 0.5,
    "layers": []
   }
  ],
- "music": {
-  "asset": "main",
-  "gain_db": -12.0,
-  "fade_in": 0.4,
-  "fade_out": 1.8,
-  "duck_after": 1.6,
-  "duck_factor": 0.6,
-  "events": [
-   {
-    "at": "k3_cut",
-    "action": "cut",
-    "gain_db": null
-   },
-   {
-    "at": "k3_black",
-    "action": "resume",
-    "gain_db": -15.0
-   },
-   {
-    "at": "k6_lista",
-    "action": "cut",
-    "gain_db": null
-   },
-   {
-    "at": "k7",
-    "action": "resume",
-    "gain_db": -15.0
-   },
-   {
-    "at": "cards.end",
-    "action": "fade_out",
-    "gain_db": null
-   }
-  ]
- }
+ "music": null
 }

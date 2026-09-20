@@ -24,7 +24,8 @@ SCHEMA_VERSION = 1
 
 SceneType = Literal["black", "clip", "freeze", "still"]
 LayerType = Literal["title", "subtitle", "headline", "stamp", "counter", "panel", "shape", "board",
-                    "word_list", "grid"]
+                    "word_list", "grid", "keyword", "hero"]
+CaptionAnimation = Literal["karaoke", "word_blast", "highlight"]
 MusicAction = Literal["start", "cut", "resume", "fade_out"]
 
 
@@ -110,6 +111,7 @@ class NarrationPlacement(Strict):
     ref: str = Field(description="Id linii z listy narration.")
     at: float | str = Field(default=0.0, description="Czas w scenie: liczba albo 'vo3.end+0.25'.")
     captions: bool = Field(default=True, description="Czy pokazać napisy karaoke pod lektorem.")
+    animation: CaptionAnimation = Field(default="karaoke", description="karaoke | word_blast (słowo po słowie, pop) | highlight")
     y: int = 1500
 
 
@@ -153,6 +155,11 @@ class Layer(Strict):
     # word_list: kolejne słowa pojawiające się jedno pod drugim
     items: list[str] = Field(default_factory=list)
     line_height: int | None = None
+    # keyword: badge | tooltip | glitch | slide_left | slide_right | pop | glow | fade;  hero: nagłówek z wipe i panelem
+    animation: str | None = None
+    position: str | None = Field(default=None, description="top | upper | center (keyword)")
+    target: list[int] | None = Field(default=None, description="[x, y] — dokąd celuje tooltip")
+    kicker: str | None = Field(default=None, description="mały nadtytuł nad hero")
 
 
 class Scene(Strict):

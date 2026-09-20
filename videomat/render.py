@@ -113,6 +113,8 @@ Style: Stamp,{t.sans},46,{gold},{gold},&H00101010,&H00000000,-1,0,0,0,100,100,8,
 Style: Board,{t.sans},60,{white},{white},&H00000000,&H00000000,-1,0,0,0,100,100,2,0,1,0,0,7,60,60,0,1
 Style: Hud,{t.mono},40,{cyan},{cyan},&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,7,60,60,0,1
 Style: Narr,{t.sans},{t.narration_size},{gold},{white},&H00101010,&H00000000,-1,0,0,0,100,100,0,0,1,4,0,2,70,70,0,1
+Style: Caption,{t.sans},{t.narration_size},{white},{white},&H00201005,&H96000000,-1,0,0,0,100,100,0,0,1,4,0,2,60,60,0,1
+Style: Keyword,{t.sans},92,{cyan},{cyan},&H00332200,&H96000000,-1,0,0,0,100,100,1,0,1,4,0,5,60,60,0,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Text
@@ -121,6 +123,42 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Text
 
 def _rect(width: int, height: int) -> str:
     return f"m 0 0 l {width} 0 l {width} {height} l 0 {height}"
+
+
+def motion_theme(theme) -> dict:
+    """Słownik stylów dla animacji z videomat.ass (word_blast, glitch, badge, tooltip, hero)."""
+    from . import ass as motion
+    th = dict(motion.THEMES["hitech"])
+    th["caption_color"] = hex_to_ass(theme.white)
+    th["accent"] = hex_to_ass(theme.accent2)       # cyjan — jak w oryginalnym skillu
+    th["accent2"] = hex_to_ass(theme.accent)       # złoto jako drugi kolor glitcha
+    th["scale"] = 1.0
+    th["caption_font_size"] = theme.narration_size
+    th["cap_fs"] = theme.narration_size
+    th["key_fs_base"] = th["keyword_font_size"]
+    return th
+
+
+def shift_events(events: list[str], offset: float) -> list[str]:
+    """Przesuwa czasy linii Dialogue o offset (sceny liczą czas od zera)."""
+    import re as _re
+    if abs(offset) < 1e-6:
+        return events
+    out = []
+    for line in events:
+        head, _, rest = line.partition(": ")
+        parts = rest.split(",", 9)
+        if len(parts) < 10:
+            out.append(line)
+            continue
+
+        def back(stamp: str) -> float:
+            h, m, s = stamp.split(":")
+            return int(h) * 3600 + int(m) * 60 + float(s)
+        parts[1] = ts(back(parts[1]) + offset)
+        parts[2] = ts(back(parts[2]) + offset)
+        out.append(head + ": " + ",".join(parts))
+    return out
 
 
 def local_time(value, local_times: dict[str, tuple[float, float]], fallback: float = 0.0) -> float:
@@ -230,6 +268,27 @@ def layer_events(layer: Layer, scene_end: float, theme, fmt,
             events.append(dialogue(0, start + i * step, end, "Title",
                                    "{" + tags + "}" + markup(word, theme, base)))
         return events
+
+    if kind == "keyword":
+        from . import ass as motion
+        spec = {"text": layer.text or "", "start": start, "end": end,
+                "animation": layer.animation or "badge",
+                "position": [layer.x, layer.y] if layer.x is not None and layer.y is not None
+                else (layer.position or "top")}
+        if layer.size:
+            spec["size"] = layer.size
+        if layer.target:
+            spec["target"] = layer.target
+        return motion.keyword_events(spec, fmt.width, fmt.height, motion_theme(theme), 1.0)
+
+    if kind == "hero":
+        from . import ass as motion
+        spec = {"text": layer.text or "", "start": start, "end": end, "animation": "headline",
+                "size": layer.size or 96, "y": layer.y if layer.y is not None else 640,
+                "panel": layer.opacity is None or layer.opacity < 255}
+        if layer.kicker:
+            spec["kicker"] = layer.kicker
+        return motion.caption_events(spec, cx, spec["y"], motion_theme(theme))
 
     if kind == "grid":
         count = layer.count or 0
@@ -353,14 +412,40 @@ class Renderer:
             return []
         return karaoke(group_words(words), scene.caption_y, "Quote", self.film.format.width // 2)
 
-    def narration_events(self, ref: str, local_start: float, y: int) -> list[str]:
+    def narration_events(self, ref: str, local_start: float, y: int,
+                         animation: str = "karaoke") -> list[str]:
         wav = self.speech_files().get(ref)
         if not wav:
             return []
         line = next(n for n in self.film.narration if n.id == ref)
         words = speech.align(ref, line.text, wav, self.work)
-        return karaoke(group_words(words), y, "Narr", self.film.format.width // 2,
-                       offset=local_start, layer=3)
+        cx = self.film.format.width // 2
+        if animation == "karaoke":
+            return karaoke(group_words(words), y, "Narr", cx, offset=local_start, layer=3)
+
+        from . import ass as motion
+        th = motion_theme(self.film.theme)
+        events: list[str] = []
+        if animation == "word_blast":
+            # Każde słowo osobno, z realnym czasem wypowiedzenia — pop jak w skillu, ale bez zgadywania rytmu.
+            for i, w in enumerate(words):
+                nxt = words[i + 1]["start"] if i + 1 < len(words) else w["end"] + 0.25
+                text = re.sub(r"[.,…]+$", "", w["w"])
+                if not text:
+                    continue
+                spec = {"text": text, "start": w["start"], "end": max(nxt, w["start"] + 0.18),
+                        "animation": "word_blast", "size": self.film.theme.narration_size, "y": y}
+                events += motion.caption_events(spec, cx, y, th)
+        else:  # highlight — fraza z przesuwającym się kolorem
+            for group in group_words(words):
+                if not group:
+                    continue
+                text = re.sub(r"[.]+$", "", " ".join(w["w"] for w in group))
+                spec = {"text": text, "start": group[0]["start"], "end": group[-1]["end"] + 0.2,
+                        "animation": "highlight", "size": self.film.theme.narration_size, "y": y,
+                        "drift": False}
+                events += motion.caption_events(spec, cx, y, th)
+        return shift_events(events, local_start)
 
     def scene_ass(self, scene: Scene, duration: float) -> str:
         events: list[str] = []
@@ -378,7 +463,8 @@ class Renderer:
                 continue
             entry = next((n for n in resolved.narration if n.id == placement.ref and n.scene == scene.id), None)
             if entry:
-                events += self.narration_events(placement.ref, entry.local_start, placement.y)
+                events += self.narration_events(placement.ref, entry.local_start, placement.y,
+                                                placement.animation)
         return styles_block(self.film) + "\n".join(events) + "\n"
 
     # -------------------------------------------------- filtry
