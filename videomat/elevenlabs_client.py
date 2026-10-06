@@ -41,7 +41,10 @@ def _explain(r: requests.Response) -> str:
         detail = r.json()
     except Exception:
         detail = r.text[:400]
-    return f"HTTP {r.status_code} ({hints.get(r.status_code, 'błąd')}): {detail}"
+    hint = hints.get(r.status_code, "błąd")
+    if "quota_exceeded" in str(detail):     # ElevenLabs zwraca 401 także przy wyczerpanym limicie znaków
+        hint = "wyczerpany limit znaków na koncie (to nie jest błąd klucza)"
+    return f"HTTP {r.status_code} ({hint}): {detail}"
 
 
 def _post(path: str, body: dict, params: dict | None = None, timeout: int = 300, retries: int = 2) -> requests.Response:

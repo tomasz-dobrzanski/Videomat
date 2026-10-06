@@ -300,7 +300,8 @@ def layer_events(layer: Layer, scene_end: float, theme, fmt,
                                    size=layer.size or 84, sans=theme.sans, mono=theme.mono)
         return hud.card_min_events(layer.text or "", start, end, layer.y if layer.y is not None else 470,
                                    layer.kicker, _measure_font(theme.sans),
-                                   size=layer.size or 80, sans=theme.sans)
+                                   size=layer.size or 80, x0=layer.x if layer.x is not None else 60,
+                                   sans=theme.sans)
     if kind == "hud":
         from . import hud
         return hud.hud_events(start, end, label=layer.text or "PATROL AUTONOMICZNY",
@@ -590,6 +591,19 @@ class Renderer:
         clip = self.film.assets.clips[scene.clip]  # type: ignore[index]
         return (clip.crop + "," if clip.crop else "") + self._fit(quality)
 
+    _AUDIO_CACHE: dict = {}
+
+    @classmethod
+    def _has_audio(cls, src: Path) -> bool:
+        key = str(src)
+        if key not in cls._AUDIO_CACHE:
+            try:
+                streams = ffmpeg.probe(src).get("streams", [])
+                cls._AUDIO_CACHE[key] = any(s.get("codec_type") == "audio" for s in streams)
+            except Exception:
+                cls._AUDIO_CACHE[key] = True
+        return cls._AUDIO_CACHE[key]
+
     @staticmethod
     def _speed_vf(scene: Scene, fps: int) -> str:
         """Zwolnienie/przyspieszenie klipu po skalowaniu (tanio: setpts + klatkowanie)."""
@@ -653,9 +667,15 @@ class Renderer:
         assert src is not None
 
         if scene.type == "clip":
-            ffmpeg.run(["-ss", f"{scene.start:.3f}", "-to", f"{scene.end:.3f}", "-i", str(src),
-                        "-filter_complex", self._clip_fit(scene, quality) + self._speed_vf(scene, fps) + f",ass='{subs}'",
-                        "-af", self._clip_af(scene)] + enc + [str(out)])
+            if self._has_audio(src):
+                ffmpeg.run(["-ss", f"{scene.start:.3f}", "-to", f"{scene.end:.3f}", "-i", str(src),
+                            "-filter_complex", self._clip_fit(scene, quality) + self._speed_vf(scene, fps) + f",ass='{subs}'",
+                            "-af", self._clip_af(scene)] + enc + [str(out)])
+            else:   # źródło bez dźwięku (np. render symulacji): cisza, żeby sklejanie i miks miały ścieżkę
+                ffmpeg.run(["-ss", f"{scene.start:.3f}", "-to", f"{scene.end:.3f}", "-i", str(src),
+                            "-f", "lavfi", "-t", f"{duration:.3f}", "-i", "anullsrc=r=48000:cl=stereo",
+                            "-filter_complex", "[0:v]" + self._clip_fit(scene, quality) + self._speed_vf(scene, fps)
+                            + f",ass='{subs}'[v]", "-map", "[v]", "-map", "1:a", "-shortest"] + enc + [str(out)])
             return out
 
         png = self.work / "frames" / f"{key}.png"

@@ -1,0 +1,368 @@
+{
+ "version": 1,
+ "name": "g1_zwiastun",
+ "format": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30
+ },
+ "theme": {
+  "sans": "Rajdhani SemiBold",
+  "serif": "Cambria",
+  "mono": "Consolas",
+  "white": "#F2F7FB",
+  "grey": "#93A2AF",
+  "accent": "#00C2FF",
+  "accent2": "#F2F7FB",
+  "caption_size": 64,
+  "narration_size": 64,
+  "grade": false,
+  "sharpen": 0.4,
+  "grain": 2
+ },
+ "assets": {
+  "clips": {
+   "ps_dzwig": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_przy_stole_dzwig.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "ps_dron": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_przy_stole_dron.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "ps_sledz": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_przy_stole_sledz.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "ps_nisko": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_przy_stole_nisko.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "pp_nisko": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_z_podjazdem_nisko.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "pp_dron": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_z_podjazdem_dron.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "pp_sledz": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_z_podjazdem_sledz.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "gl_nisko": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/glosnik_nisko.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "gl_sledz": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/glosnik_sledz.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "gl_dron": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/glosnik_dron.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "gl_gora": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/glosnik_gora.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "siatka": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/siatka_9_prob_timelapse.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "end": {
+    "path": "assets/endcard.png",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   }
+  },
+  "music": {
+   "score": {
+    "path": "assets/score.wav",
+    "gain_db": 0.0
+   }
+  },
+  "sfx": {},
+  "voice": {
+   "provider": "elevenlabs",
+   "voice_id": null,
+   "voice_order": [
+    "Jon",
+    "Adam"
+   ],
+   "model": "eleven_v3",
+   "stability": 0.4,
+   "similarity": 0.85,
+   "speed": 1.0,
+   "tempo": 1.0
+  }
+ },
+ "narration": [],
+ "scenes": [
+  {
+   "id": "hook",
+   "type": "clip",
+   "clip": "ps_sledz",
+   "start": 12.2,
+   "end": 13.7,
+   "speed": 0.5,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "tytul",
+   "type": "black",
+   "duration": 2.5,
+   "layers": [
+    {
+     "type": "hero",
+     "text": "ROBOT UCZY SIĘ\n*RUCHU*.",
+     "y": 700,
+     "size": 104,
+     "start": 0.15,
+     "kicker": "Unitree G1 · symulacja fizyczna MuJoCo"
+    }
+   ]
+  },
+  {
+   "id": "wstaje",
+   "type": "clip",
+   "clip": "ps_dzwig",
+   "start": 0.3,
+   "end": 5.3,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "dojazd",
+   "type": "clip",
+   "clip": "ps_dron",
+   "start": 3.6,
+   "end": 8.1,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "chwyt",
+   "type": "clip",
+   "clip": "ps_sledz",
+   "start": 10.0,
+   "end": 14.0,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "card",
+     "text": "PATRZY.\n*KORYGUJE*.",
+     "start": 0.4,
+     "end": 3.0,
+     "x": 96,
+     "y": 90,
+     "kicker": "kamera nadgarstka",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "id": "uniesienie",
+   "type": "clip",
+   "clip": "ps_nisko",
+   "start": 14.8,
+   "end": 17.8,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "odjazd",
+   "type": "clip",
+   "clip": "pp_nisko",
+   "start": 6.8,
+   "end": 9.8,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "card",
+     "text": "SAM\n*PODJEŻDŻA*.",
+     "start": 0.6,
+     "end": 3.0,
+     "x": 96,
+     "y": 90,
+     "kicker": "cel poza zasięgiem",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "id": "jazda",
+   "type": "clip",
+   "clip": "pp_dron",
+   "start": 14.0,
+   "end": 17.0,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "chwyt2",
+   "type": "clip",
+   "clip": "pp_sledz",
+   "start": 33.0,
+   "end": 35.5,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "proby",
+   "type": "clip",
+   "clip": "siatka",
+   "start": 0.0,
+   "end": 6.0,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "card",
+     "text": "SETKI\n*PRÓB*.",
+     "start": 0.5,
+     "end": 5.7,
+     "x": 96,
+     "y": 90,
+     "kicker": "każda zmierzona · także nieudane",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "id": "element",
+   "type": "clip",
+   "clip": "gl_nisko",
+   "start": 1.0,
+   "end": 5.5,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "card",
+     "text": "ELEMENT LINII\n*PRODUKCYJNEJ*.",
+     "start": 0.5,
+     "end": 4.3,
+     "x": 96,
+     "y": 90,
+     "kicker": "dwa chwytaki",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "id": "zacisk",
+   "type": "clip",
+   "clip": "gl_sledz",
+   "start": 3.6,
+   "end": 5.35,
+   "speed": 0.5,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "obrot",
+   "type": "clip",
+   "clip": "gl_dron",
+   "start": 12.0,
+   "end": 18.5,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "card",
+     "text": "OBRÓT\n*139°*.",
+     "start": 0.7,
+     "end": 6.1,
+     "x": 96,
+     "y": 90,
+     "kicker": "wynik symulacji",
+     "size": 70
+    }
+   ]
+  },
+  {
+   "id": "puszczenie",
+   "type": "clip",
+   "clip": "gl_gora",
+   "start": 24.0,
+   "end": 27.5,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": []
+  },
+  {
+   "id": "logo",
+   "type": "still",
+   "clip": "end",
+   "at": 0,
+   "duration": 5.5,
+   "layers": [
+    {
+     "type": "subtitle",
+     "text": "Z symulacji na stanowisko pracy",
+     "y": 760,
+     "start": 0.8,
+     "fade_in": 500,
+     "fade_out": 400,
+     "size": 44
+    }
+   ]
+  }
+ ],
+ "music": {
+  "asset": "score",
+  "gain_db": 0.0,
+  "events": [],
+  "fade_in": 0.0,
+  "fade_out": 0.5,
+  "duck_after": null,
+  "duck_factor": 0.6
+ }
+}
