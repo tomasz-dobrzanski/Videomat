@@ -245,6 +245,9 @@ class Theme(Strict):
     caption_size: int = 96
     narration_size: int = 72
     grade: bool = Field(default=True, description="Filmowy grading: kontrast, ziarno, winieta.")
+    sharpen: float = Field(default=0.0, ge=0.0, le=1.5,
+                           description="Wyostrzenie obrazu klipów (unsharp, siła). 0 = bez zmian.")
+    grain: int = Field(default=7, ge=0, le=20, description="Ziarno przy grade=true (noise alls).")
 
 
 class Film(Strict):

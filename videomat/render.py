@@ -520,8 +520,12 @@ class Renderer:
 
     def _fit(self, quality: str) -> str:
         w, h = self._size(quality)
-        grade = (",eq=contrast=1.10:saturation=0.85:gamma=0.97,noise=alls=7:allf=t,vignette=PI/4.5"
-                 if self.film.theme.grade else "")
+        th = self.film.theme
+        grain = f",noise=alls={th.grain}:allf=t" if th.grain else ""
+        grade = (f",eq=contrast=1.10:saturation=0.85:gamma=0.97{grain},vignette=PI/4.5"
+                 if th.grade else "")
+        if th.sharpen > 0:
+            grade = f",unsharp=5:5:{th.sharpen:.2f}:5:5:0.0" + grade
         return (f"split[a][b];[a]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},"
                 f"gblur=sigma=30,eq=brightness=-0.12:saturation=0.5[bg];"
                 f"[b]scale={w}:{h}:force_original_aspect_ratio=decrease[fg];"

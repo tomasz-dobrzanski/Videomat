@@ -346,28 +346,52 @@ def card_min_events(title: str, start: float, end: float, y0: int, kicker: str |
     y_t = y_k + (k_size + 18 if k else 0)
     h = y_t - y0 + len(lines) * lh + 30
     dur = int((end - start) * 1000)
-    fade = "\\fad(200,240)"
-    rise = "\\move(0,24,0,0,0,280)"
+    # Wjazd z boku: szybki ruch z rozmyciem ruchu, lądowanie ostre. Wyjście: krótki zanik z rozmyciem.
+    slide, t_in = 70, 240
+    fx = f"\\fad(120,0)\\blur5\\t(0,{t_in},\\blur0)\\t({max(dur - 220, t_in)},{dur},\\alpha&HFF&\\blur4)"
+    mv = f"\\move(-{slide},0,0,0,0,{t_in})"
+
+    def mvp(x: float, y: float) -> str:
+        return f"\\move({x - slide:.0f},{y:.0f},{x:.0f},{y:.0f},0,{t_in})"
+
     out = [
-        _d(1, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c{NAVY}\\1a&H30&\\3c&HFFFFFF&\\3a&HD8&\\bord1.2\\shad0{fade}{rise}}}"
-           + rrect(x0, y0, width, h, 16) + "{\\p0}"),
-        _d(2, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c{AZURE}\\bord0\\shad0{fade}{rise}"
-           f"\\clip({x0},{y0},{x0 + 6},{y0 + 1})\\t(100,460,\\clip({x0},{y0},{x0 + 6},{y0 + h}))}}"
+        _d(1, start, end, "Hud", f"{{\\an7\\p1\\1c{NAVY}\\1a&H30&\\3c&HFFFFFF&\\3a&HD8&\\bord1.2\\shad0{fx}{mv}}}"
+           + rrect(x0, y0, width, h, 14) + "{\\p0}"),
+        _d(2, start, end, "Hud", f"{{\\an7\\p1\\1c{AZURE}\\bord0\\shad0{fx}{mv}"
+           f"\\clip({x0},{y0},{x0 + 6},{y0 + 1})\\t(120,420,\\clip({x0},{y0},{x0 + 6},{y0 + h}))}}"
            + rrect(x0, y0 + 14, 4, h - 28, 2) + "{\\p0}"),
     ]
-    if k:
-        out.append(_d(3, start + 0.12, end, "Hud",
-                      f"{{\\an7\\move({x0 + pad},{y_k + 20},{x0 + pad},{y_k},120,400)\\fn{sans}\\fs{k_size}\\fsp{k_sp}\\b1"
-                      f"\\c{ICE}\\bord0\\shad0{fade}}}" + _esc(k)))
+    # narożniki celownika zatrzaskują się na rogach (z zewnątrz do środka)
+    arm, th, off, far = 24, 3, 10, 34
+    corners = [
+        (x0 - off, y0 - off, -far, -far, f"m 0 0 l {arm} 0 l {arm} {th} l {th} {th} l {th} {arm} l 0 {arm}"),
+        (x0 + width + off - arm, y0 - off, far, -far, f"m 0 0 l {arm} 0 l {arm} {arm} l {arm - th} {arm} l {arm - th} {th} l 0 {th}"),
+        (x0 - off, y0 + h + off - arm, -far, far, f"m 0 0 l {th} 0 l {th} {arm - th} l {arm} {arm - th} l {arm} {arm} l 0 {arm}"),
+        (x0 + width + off - arm, y0 + h + off - arm, far, far,
+         f"m {arm - th} 0 l {arm} 0 l {arm} {arm} l 0 {arm} l 0 {arm - th} l {arm - th} {arm - th}"),
+    ]
+    for cx, cy, dx, dy, shape in corners:
+        out.append(_d(5, start + 0.16, end, "Hud",
+                      f"{{\\an7\\move({cx + dx},{cy + dy},{cx},{cy},0,200)\\p1\\1c{ICE}\\bord0\\shad0"
+                      f"\\fad(90,0)\\t({max(dur - 380, 200)},{max(dur - 160, 220)},\\alpha&HFF&)}}" + shape + "{\\p0}"))
+    if k:   # nadtytuł: z rozstrzelenia liter do normalnego odstępu
+        out.append(_d(3, start + 0.1, end, "Hud",
+                      f"{{\\an7{mvp(x0 + pad, y_k)}\\fn{sans}\\fs{k_size}\\fsp{k_sp + 14}\\t(0,420,\\fsp{k_sp})\\b1"
+                      f"\\c{ICE}\\bord0\\shad0{fx}}}" + _esc(k)))
     for i, (text, accent) in enumerate(texts):
         y = y_t + i * lh
-        a = 200 + i * 130
-        clip = _wipe(x0 + pad, y - 6, width - pad, lh + 12, a, a + 340)
+        a = 180 + i * 120
+        clip = _wipe(x0 + pad - slide, y - 6, width - pad + slide, lh + 12, a, a + 300)
         out.append(_d(4, start, end, "Hud",
-                      f"{{\\an7\\pos({x0 + pad},{y})\\fn{sans}\\fs{size}\\b1\\c{LIGHT if accent else WHITE}"
-                      f"\\bord0\\shad0{fade}{clip}}}" + _esc(text)))
+                      f"{{\\an7{mvp(x0 + pad, y)}\\fn{sans}\\fs{size}\\b1\\c{LIGHT if accent else WHITE}"
+                      f"\\bord0\\shad0{fx}{clip}}}" + _esc(text)))
+    # błysk: jeden pas światła przelatuje przez kartę po odsłonięciu tytułu
+    t0 = 620 + 120 * len(texts)
+    out.append(_d(6, start + t0 / 1000, min(end, start + (t0 + 520) / 1000), "Hud",
+                  f"{{\\an7\\move({x0 - 140},{y0},{x0 + width + 40},{y0},0,500)\\p1\\1c&HFFFFFF&\\1a&HC8&\\bord0\\shad0"
+                  f"\\blur8\\clip({x0},{y0},{x0 + width},{y0 + h})}}m 40 0 l 100 0 l 60 {h} l 0 {h}{{\\p0}}"))
     bx, by = x0 + pad, y0 + h - 14
-    out.append(_d(3, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c{AZURE}\\1a&H30&\\bord0\\shad0{fade}"
+    out.append(_d(3, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c{AZURE}\\1a&H30&\\bord0\\shad0{fx}"
                   f"\\clip({bx},{by - 2},{bx + 1},{by + 5})\\t(0,{dur},\\clip({bx},{by - 2},{x0 + width - pad},{by + 5}))}}"
                   + rrect(bx, by, width - 2 * pad, 2.5, 1.2) + "{\\p0}"))
     return out

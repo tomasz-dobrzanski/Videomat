@@ -16,7 +16,9 @@
   "accent2": "#F2F7FB",
   "caption_size": 90,
   "narration_size": 84,
-  "grade": true
+  "grade": true,
+  "sharpen": 0.7,
+  "grain": 3
  },
  "assets": {
   "clips": {
@@ -184,15 +186,6 @@
      "end": 45.0,
      "y": 420,
      "kicker": "schody · stacja ładowania",
-     "size": 80
-    },
-    {
-     "type": "card",
-     "text": "*dcsrobotics.pl*",
-     "start": 58.0,
-     "end": null,
-     "y": 880,
-     "kicker": "DCS Robotics",
      "size": 80
     }
    ]
