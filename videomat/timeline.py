@@ -250,6 +250,16 @@ class Theme(Strict):
     grain: int = Field(default=7, ge=0, le=20, description="Ziarno przy grade=true (noise alls).")
 
 
+class Watermark(Strict):
+    """Znak (np. logo na plakietce) nałożony na cały film po zmontowaniu."""
+    path: str
+    x: int = 40
+    y: int = 40
+    width: int = 220
+    opacity: float = Field(default=0.92, ge=0.0, le=1.0)
+    hide: list[list[float]] = Field(default_factory=list, description="Przedziały [od, do] w sekundach bez znaku.")
+
+
 class Film(Strict):
     version: int = SCHEMA_VERSION
     name: str = "film"
@@ -259,6 +269,7 @@ class Film(Strict):
     narration: list[NarrationLine] = Field(default_factory=list)
     scenes: list[Scene] = Field(default_factory=list)
     music: MusicTrack | None = None
+    watermark: "Watermark | None" = None
 
     @model_validator(mode="after")
     def _check(self) -> "Film":

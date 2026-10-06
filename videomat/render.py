@@ -834,8 +834,20 @@ class Renderer:
         if out is None:
             stem = self.film.name + ("" if quality == "final" else f"_{quality}")
             out = config.next_version_path(config.OUT, stem)
-        ffmpeg.run(inputs + ["-filter_complex", ";".join(chains), "-map", "0:v", "-map", "[aout]",
-                             "-c:v", "copy"] + ffmpeg.AUDIO_ARGS + ffmpeg.MUX_ARGS + [str(out)])
+        wm = self.film.watermark
+        wm_path = self.asset_path(wm.path) if wm else None
+        if wm and wm_path and wm_path.exists():
+            # znak wodny: osobny przebieg obrazu (reszta montażu zostaje kopiowana bez zmian)
+            hide = "+".join(f"between(t,{a:.3f},{b:.3f})" for a, b in wm.hide)
+            enable = f":enable='not({hide})'" if hide else ""
+            chains.append(f"[{inputs.count('-i')}:v]scale={wm.width}:-1,format=rgba,"
+                          f"colorchannelmixer=aa={wm.opacity:.2f}[wm];[0:v][wm]overlay={wm.x}:{wm.y}{enable}[vout]")
+            inputs += ["-i", str(wm_path)]
+            ffmpeg.run(inputs + ["-filter_complex", ";".join(chains), "-map", "[vout]", "-map", "[aout]"]
+                       + self._encoder(quality) + ffmpeg.AUDIO_ARGS + ffmpeg.MUX_ARGS + [str(out)])
+        else:
+            ffmpeg.run(inputs + ["-filter_complex", ";".join(chains), "-map", "0:v", "-map", "[aout]",
+                                 "-c:v", "copy"] + ffmpeg.AUDIO_ARGS + ffmpeg.MUX_ARGS + [str(out)])
         if on_progress:
             on_progress(1.0, "gotowe")
 

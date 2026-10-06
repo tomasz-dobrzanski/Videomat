@@ -99,6 +99,12 @@
     "crop": null,
     "transcript": null,
     "fixes": {}
+   },
+   "pp_dzwig": {
+    "path": "C:/AI TOMASZ PLIKI/Appki/RobotChwytak/media/rolka_sim_2026-10-06/ujecia_hd/pilka_z_podjazdem_dzwig.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
    }
   },
   "music": {
@@ -228,15 +234,26 @@
    ]
   },
   {
-   "id": "jazda",
+   "id": "obrot_bazy",
    "type": "clip",
-   "clip": "pp_dron",
-   "start": 14.0,
-   "end": 17.0,
+   "clip": "pp_dzwig",
+   "start": 10.9,
+   "end": 13.9,
    "speed": 1.0,
    "captions": false,
    "audio_gain_db": -60.0,
-   "layers": []
+   "layers": [
+    {
+     "type": "card",
+     "text": "OBRACA SIĘ\n*I USTAWIA*.",
+     "start": 0.3,
+     "end": 2.8,
+     "x": 96,
+     "y": 90,
+     "kicker": "jazda bazą do celu",
+     "size": 70
+    }
+   ]
   },
   {
    "id": "chwyt2",
@@ -343,17 +360,7 @@
    "clip": "end",
    "at": 0,
    "duration": 5.5,
-   "layers": [
-    {
-     "type": "subtitle",
-     "text": "Z symulacji na stanowisko pracy",
-     "y": 760,
-     "start": 0.8,
-     "fade_in": 500,
-     "fade_out": 400,
-     "size": 44
-    }
-   ]
+   "layers": []
   }
  ],
  "music": {
@@ -364,5 +371,26 @@
   "fade_out": 0.5,
   "duck_after": null,
   "duck_factor": 0.6
+ },
+ "watermark": {
+  "path": "assets/watermark.png",
+  "x": 1690,
+  "y": 36,
+  "width": 190,
+  "opacity": 0.92,
+  "hide": [
+   [
+    3.0,
+    5.5
+   ],
+   [
+    30.5,
+    36.5
+   ],
+   [
+    54.5,
+    60.0
+   ]
+  ]
  }
 }
