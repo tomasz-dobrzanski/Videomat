@@ -1,0 +1,360 @@
+{
+ "version": 1,
+ "name": "dcs_ppe_autonomia",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30
+ },
+ "theme": {
+  "sans": "Rajdhani SemiBold",
+  "serif": "Cambria",
+  "mono": "Consolas",
+  "white": "#F2F7FB",
+  "grey": "#93A2AF",
+  "accent": "#00C2FF",
+  "accent2": "#F2F7FB",
+  "caption_size": 84,
+  "narration_size": 84,
+  "grade": false
+ },
+ "assets": {
+  "clips": {
+   "matrix": {
+    "path": "assets/matrix.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "detect": {
+    "path": "assets/detect.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   }
+  },
+  "music": {
+   "pad": {
+    "path": "assets/pad.mp3",
+    "gain_db": -17.0
+   }
+  },
+  "sfx": {
+   "whoosh": {
+    "path": null,
+    "prompt": "soft clean digital whoosh, subtle, modern technology, no music",
+    "duration": 1.0,
+    "loop": false
+   },
+   "tick": {
+    "path": null,
+    "prompt": "single soft electronic confirmation tone, short, clean, calm",
+    "duration": 0.8,
+    "loop": false
+   }
+  },
+  "voice": {
+   "provider": "elevenlabs",
+   "voice_id": null,
+   "voice_order": [
+    "Brian",
+    "Daniel"
+   ],
+   "model": "eleven_v3",
+   "stability": 0.5,
+   "similarity": 0.84,
+   "speed": 1.0,
+   "tempo": 1.0
+  }
+ },
+ "narration": [
+  {
+   "id": "vo1",
+   "text": "Na bezpiecznej budowie liczy się każdy szczegół.",
+   "fallback": 4.0,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo2",
+   "text": "Testujemy autonomicznego robota z modelem, który rozpoznaje kaski i kamizelki.",
+   "fallback": 4.0,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo3",
+   "text": "Model uczył się na tysiącach obrazów, także tych, które sami wygenerowaliśmy.",
+   "fallback": 4.0,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo4",
+   "text": "Robot sprawdza, czy osoba ma kask i kamizelkę.",
+   "fallback": 4.0,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo5",
+   "text": "Informacja trafia do człowieka. Decyzja zawsze należy do nadzoru.",
+   "fallback": 4.0,
+   "gain_db": 2.0
+  },
+  {
+   "id": "vo6",
+   "text": "Autonomia, która wspiera już bezpieczną budowę.",
+   "fallback": 4.0,
+   "gain_db": 2.0
+  }
+ ],
+ "scenes": [
+  {
+   "id": "open",
+   "type": "clip",
+   "clip": "matrix",
+   "start": 0.0,
+   "end": 4.1,
+   "captions": false,
+   "narration": [
+    {
+     "ref": "vo1",
+     "at": 0.55,
+     "captions": true,
+     "y": 1440,
+     "animation": "highlight"
+    }
+   ],
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "DCS ROBOTICS",
+     "animation": "badge",
+     "start": 0.2,
+     "end": null,
+     "position": "top",
+     "size": 64
+    },
+    {
+     "type": "hero",
+     "text": "KAŻDY *SZCZEGÓŁ*.",
+     "y": 760,
+     "size": 100,
+     "start": "vo1.start+1.2"
+    }
+   ]
+  },
+  {
+   "id": "robot",
+   "type": "clip",
+   "clip": "matrix",
+   "start": 4.1,
+   "end": 10.3,
+   "captions": false,
+   "narration": [
+    {
+     "ref": "vo2",
+     "at": 0.25,
+     "captions": true,
+     "y": 1440,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "whoosh",
+     "at": 0.0,
+     "gain_db": -9.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "AUTONOMICZNY ROBOT + MODEL AI",
+     "animation": "badge",
+     "start": 0.2,
+     "end": null,
+     "position": "top",
+     "size": 56
+    },
+    {
+     "type": "keyword",
+     "text": "KASKI",
+     "animation": "slide_left",
+     "start": "vo2.start+3.5",
+     "end": null,
+     "position": "upper",
+     "size": 84
+    },
+    {
+     "type": "keyword",
+     "text": "KAMIZELKI",
+     "animation": "slide_left",
+     "start": "vo2.start+4.3",
+     "end": null,
+     "position": "center",
+     "size": 84
+    }
+   ]
+  },
+  {
+   "id": "dane",
+   "type": "clip",
+   "clip": "matrix",
+   "start": 10.3,
+   "end": 15.85,
+   "captions": false,
+   "narration": [
+    {
+     "ref": "vo3",
+     "at": 0.25,
+     "captions": true,
+     "y": 1440,
+     "animation": "highlight"
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "*MATRYCA* DANYCH.",
+     "y": 700,
+     "size": 100,
+     "start": 0.5,
+     "kicker": "wygenerowane do treningu",
+     "end": "vo3.start+3.0"
+    },
+    {
+     "type": "keyword",
+     "text": "DANE SYNTETYCZNE",
+     "animation": "badge",
+     "start": "vo3.start+3.2",
+     "end": null,
+     "position": "top",
+     "size": 60
+    },
+    {
+     "type": "stamp",
+     "text": "Obrazy syntetyczne · wizualizacja",
+     "align": 5,
+     "x": 540,
+     "y": 1625,
+     "size": 34,
+     "spacing": 3,
+     "start": 0.4,
+     "fade_in": 300,
+     "fade_out": 300
+    }
+   ]
+  },
+  {
+   "id": "detekcja",
+   "type": "clip",
+   "clip": "detect",
+   "start": 0.0,
+   "end": 3.75,
+   "captions": false,
+   "narration": [
+    {
+     "ref": "vo4",
+     "at": 0.2,
+     "captions": true,
+     "y": 1540,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "tick",
+     "at": 0.3,
+     "gain_db": -8.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "stamp",
+     "text": "Obrazy syntetyczne · wynik modelu",
+     "align": 5,
+     "x": 540,
+     "y": 1625,
+     "size": 34,
+     "spacing": 3,
+     "start": 0.2,
+     "fade_in": 300,
+     "fade_out": 300
+    }
+   ]
+  },
+  {
+   "id": "czlowiek",
+   "type": "clip",
+   "clip": "detect",
+   "start": 3.75,
+   "end": 8.85,
+   "captions": false,
+   "narration": [
+    {
+     "ref": "vo5",
+     "at": 0.25,
+     "captions": true,
+     "y": 1560,
+     "animation": "highlight"
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "*CZŁOWIEK* DECYDUJE.",
+     "y": 1250,
+     "size": 92,
+     "start": "vo5.start+2.3",
+     "kicker": "informacja dla nadzoru"
+    },
+    {
+     "type": "stamp",
+     "text": "Obrazy syntetyczne · wynik modelu",
+     "align": 5,
+     "x": 540,
+     "y": 1625,
+     "size": 34,
+     "spacing": 3,
+     "start": 0.2,
+     "fade_in": 300,
+     "fade_out": 300
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "type": "clip",
+   "clip": "matrix",
+   "start": 11.2,
+   "end": 15.8,
+   "captions": false,
+   "narration": [
+    {
+     "ref": "vo6",
+     "at": 0.35,
+     "captions": true,
+     "y": 1440,
+     "animation": "highlight"
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "AUTONOMIA, KTÓRA *WSPIERA*.",
+     "y": 760,
+     "size": 96,
+     "start": 0.4,
+     "kicker": "DCS Robotics"
+    }
+   ]
+  }
+ ],
+ "music": {
+  "asset": "pad",
+  "gain_db": -17.0,
+  "events": [],
+  "fade_in": 1.2,
+  "fade_out": 2.5,
+  "duck_after": null,
+  "duck_factor": 0.6
+ }
+}
