@@ -13,12 +13,16 @@ Film 9:16, 29 s. Ton spokojny, rzeczowy. Bez nazw klientów, bez liczb skuteczno
 
 ## Co jest na ekranie
 
-| Scena | Obraz | Skąd pochodzi |
-|---|---|---|
-| 1–3, 6 | Nieskończona matryca: każdy kafel zawiera kolejną matrycę, z czasem pojawiają się ramki modelu | obrazy syntetyczne z `dcs-vision-ai/datasets/ppe-gen*`, ramki z `run_ppe.py` |
-| 4–5 | Trzy kadry z rzeczywistym wynikiem modelu, potem jeden dłużej z napisem „człowiek decyduje” | jak wyżej |
+Żadnych napisów ani opisów, tylko obraz i ramki modelu: **zielona** = wykryty kask lub kamizelka, **czerwona** = brak kasku
+lub kamizelki.
 
-Podpis na ekranie: „Obrazy syntetyczne · wizualizacja” oraz „Obrazy syntetyczne · wynik modelu”.
+| Scena | Obraz |
+|---|---|
+| 1–3, 6 | Nieskończona matryca: każdy kafel zawiera kolejną matrycę, z czasem pojawiają się ramki modelu |
+| 4–5 | Szybki montaż 30 różnych kadrów (chód, noszenie kabla, tablet, wózek paletowy, klęczenie), cięcia przyspieszają od 0,5 do 0,2 s, ramka zatrzaskuje się w 2 klatkach |
+
+Obrazy to syntetyczne zdjęcia z `dcs-vision-ai/datasets/ppe-gen*`, ramki z `run_ppe.py`.
+Na życzenie usunięto podpisy „obrazy syntetyczne”; przy publikacji warto dać tę informację w opisie filmu.
 
 ## Do potwierdzenia przed wysyłką
 
@@ -27,6 +31,8 @@ Podpis na ekranie: „Obrazy syntetyczne · wizualizacja” oraz „Obrazy synte
   że weszły do wytrenowanego punktu kontrolnego. Jeśli nie, zdanie zmienić na „…oraz na obrazach syntetycznych”.
 - **Ramki to wynik modelu na obrazach syntetycznych, a nie ocena skuteczności.** Bramka wydaniowa modelu (test hold-out)
   nie jest domknięta, najsłabsza klasa to brak kamizelki. Dlatego w filmie nie ma żadnych liczb skuteczności.
+- **Czerwone ramki.** Pokazane tylko tam, gdzie model słusznie wskazuje brak (bluzy, czapki, garnitur). Białe i szare
+  kamizelki model błędnie oznacza jako brak, więc ich nie ma w filmie.
 - **Robot.** Film mówi „autonomiczny robot”. Nie pokazuje sprzętu ani funkcji poza wykrywaniem kasków i kamizelek,
   bo nie mamy nagrań z testów, które można pokazać.
 - **Akceptacja nadawcy** (zasady TomAi): film do klienta dopiero po akceptacji Marka Miałkowskiego, potem tag i wpis w CHANGELOG.

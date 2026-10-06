@@ -117,29 +117,12 @@
     {
      "ref": "vo1",
      "at": 0.55,
-     "captions": true,
+     "captions": false,
      "y": 1440,
      "animation": "highlight"
     }
    ],
-   "layers": [
-    {
-     "type": "keyword",
-     "text": "DCS ROBOTICS",
-     "animation": "badge",
-     "start": 0.2,
-     "end": null,
-     "position": "top",
-     "size": 64
-    },
-    {
-     "type": "hero",
-     "text": "KAŻDY *SZCZEGÓŁ*.",
-     "y": 760,
-     "size": 100,
-     "start": "vo1.start+1.2"
-    }
-   ]
+   "layers": []
   },
   {
    "id": "robot",
@@ -152,7 +135,7 @@
     {
      "ref": "vo2",
      "at": 0.25,
-     "captions": true,
+     "captions": false,
      "y": 1440,
      "animation": "highlight"
     }
@@ -164,35 +147,7 @@
      "gain_db": -9.0
     }
    ],
-   "layers": [
-    {
-     "type": "keyword",
-     "text": "AUTONOMICZNY ROBOT + MODEL AI",
-     "animation": "badge",
-     "start": 0.2,
-     "end": null,
-     "position": "top",
-     "size": 56
-    },
-    {
-     "type": "keyword",
-     "text": "KASKI",
-     "animation": "slide_left",
-     "start": "vo2.start+3.5",
-     "end": null,
-     "position": "upper",
-     "size": 84
-    },
-    {
-     "type": "keyword",
-     "text": "KAMIZELKI",
-     "animation": "slide_left",
-     "start": "vo2.start+4.3",
-     "end": null,
-     "position": "center",
-     "size": 84
-    }
-   ]
+   "layers": []
   },
   {
    "id": "dane",
@@ -205,43 +160,12 @@
     {
      "ref": "vo3",
      "at": 0.25,
-     "captions": true,
+     "captions": false,
      "y": 1440,
      "animation": "highlight"
     }
    ],
-   "layers": [
-    {
-     "type": "hero",
-     "text": "*MATRYCA* DANYCH.",
-     "y": 700,
-     "size": 100,
-     "start": 0.5,
-     "kicker": "wygenerowane do treningu",
-     "end": "vo3.start+3.0"
-    },
-    {
-     "type": "keyword",
-     "text": "DANE SYNTETYCZNE",
-     "animation": "badge",
-     "start": "vo3.start+3.2",
-     "end": null,
-     "position": "top",
-     "size": 60
-    },
-    {
-     "type": "stamp",
-     "text": "Obrazy syntetyczne · wizualizacja",
-     "align": 5,
-     "x": 540,
-     "y": 1625,
-     "size": 34,
-     "spacing": 3,
-     "start": 0.4,
-     "fade_in": 300,
-     "fade_out": 300
-    }
-   ]
+   "layers": []
   },
   {
    "id": "detekcja",
@@ -254,7 +178,7 @@
     {
      "ref": "vo4",
      "at": 0.2,
-     "captions": true,
+     "captions": false,
      "y": 1540,
      "animation": "highlight"
     }
@@ -266,20 +190,7 @@
      "gain_db": -8.0
     }
    ],
-   "layers": [
-    {
-     "type": "stamp",
-     "text": "Obrazy syntetyczne · wynik modelu",
-     "align": 5,
-     "x": 540,
-     "y": 1625,
-     "size": 34,
-     "spacing": 3,
-     "start": 0.2,
-     "fade_in": 300,
-     "fade_out": 300
-    }
-   ]
+   "layers": []
   },
   {
    "id": "czlowiek",
@@ -292,33 +203,12 @@
     {
      "ref": "vo5",
      "at": 0.25,
-     "captions": true,
+     "captions": false,
      "y": 1560,
      "animation": "highlight"
     }
    ],
-   "layers": [
-    {
-     "type": "hero",
-     "text": "*CZŁOWIEK* DECYDUJE.",
-     "y": 1250,
-     "size": 92,
-     "start": "vo5.start+2.3",
-     "kicker": "informacja dla nadzoru"
-    },
-    {
-     "type": "stamp",
-     "text": "Obrazy syntetyczne · wynik modelu",
-     "align": 5,
-     "x": 540,
-     "y": 1625,
-     "size": 34,
-     "spacing": 3,
-     "start": 0.2,
-     "fade_in": 300,
-     "fade_out": 300
-    }
-   ]
+   "layers": []
   },
   {
    "id": "final",
@@ -331,21 +221,12 @@
     {
      "ref": "vo6",
      "at": 0.35,
-     "captions": true,
+     "captions": false,
      "y": 1440,
      "animation": "highlight"
     }
    ],
-   "layers": [
-    {
-     "type": "hero",
-     "text": "AUTONOMIA, KTÓRA *WSPIERA*.",
-     "y": 760,
-     "size": 96,
-     "start": 0.4,
-     "kicker": "DCS Robotics"
-    }
-   ]
+   "layers": []
   }
  ],
  "music": {
