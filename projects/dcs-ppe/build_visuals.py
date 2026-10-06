@@ -33,7 +33,7 @@ DET = json.loads((ROOT / "work/dcs-ppe/ppe_detections.json").read_text(encoding=
 W, H, FPS = 1080, 1920, 30
 LEVEL_SECONDS = 3.6          # czas jednego trzykrotnego zbliżenia matrycy
 BOXES_FROM, BOXES_SPREAD = 3.0, 3.0
-MATRIX_SECONDS = 15.9
+MATRIX_SECONDS = 19.8
 DETECT_SECONDS = 8.85
 CUTS = 30
 
@@ -199,8 +199,10 @@ def build_detect(path: Path) -> None:
             for f in range(n):
                 p = ease_out(f / max(n - 1, 1))
                 z = 1.0 + (zoom_to - 1.0) * p
-                tx = dx * p + W / 2 * (1 - z)
-                ty = dy * p + H / 2 * (1 - z)
+                bob = 16 * math.sin(2 * math.pi * 2.2 * (f / FPS)) * min(1.0, f / 3)   # krok robota
+                sway = 9 * math.sin(2 * math.pi * 1.1 * (f / FPS))
+                tx = dx * p + sway + W / 2 * (1 - z)
+                ty = dy * p + bob + H / 2 * (1 - z)
                 M = np.float32([[z, 0, tx], [0, z, ty]])
                 frame = cv2.warpAffine(img, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REPLICATE)
                 frame = np.clip(frame.astype(np.float32) * shade, 0, 255).astype(np.uint8)

@@ -70,13 +70,13 @@
  "narration": [
   {
    "id": "vo1",
-   "text": "Na bezpiecznej budowie liczy się każdy szczegół.",
+   "text": "DCS Robotics. Na bezpiecznej budowie liczy się każdy szczegół.",
    "fallback": 4.0,
    "gain_db": 2.0
   },
   {
    "id": "vo2",
-   "text": "Testujemy autonomicznego robota z modelem, który rozpoznaje kaski i kamizelki.",
+   "text": "Na autonomicznym robocie Go2 testujemy model, który rozpoznaje kaski i kamizelki.",
    "fallback": 4.0,
    "gain_db": 2.0
   },
@@ -111,7 +111,7 @@
    "type": "clip",
    "clip": "matrix",
    "start": 0.0,
-   "end": 4.1,
+   "end": 5.5,
    "captions": false,
    "narration": [
     {
@@ -128,8 +128,8 @@
    "id": "robot",
    "type": "clip",
    "clip": "matrix",
-   "start": 4.1,
-   "end": 10.3,
+   "start": 5.5,
+   "end": 12.0,
    "captions": false,
    "narration": [
     {
@@ -153,8 +153,8 @@
    "id": "dane",
    "type": "clip",
    "clip": "matrix",
-   "start": 10.3,
-   "end": 15.85,
+   "start": 12.0,
+   "end": 17.55,
    "captions": false,
    "narration": [
     {
@@ -214,8 +214,8 @@
    "id": "final",
    "type": "clip",
    "clip": "matrix",
-   "start": 11.2,
-   "end": 15.8,
+   "start": 15.2,
+   "end": 19.8,
    "captions": false,
    "narration": [
     {
