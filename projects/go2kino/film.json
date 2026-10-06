@@ -1,0 +1,428 @@
+{
+ "version": 1,
+ "name": "go2_kino",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30
+ },
+ "theme": {
+  "sans": "Rajdhani SemiBold",
+  "serif": "Cambria",
+  "mono": "Consolas",
+  "white": "#F2F7FB",
+  "grey": "#93A2AF",
+  "accent": "#00C2FF",
+  "accent2": "#F2F7FB",
+  "caption_size": 88,
+  "narration_size": 88,
+  "grade": true
+ },
+ "assets": {
+  "clips": {
+   "g5": {
+    "path": "GOTOWE FILMY/Go2 (5).mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   }
+  },
+  "music": {},
+  "sfx": {
+   "riser": {
+    "path": null,
+    "prompt": "cinematic tension riser, rising pitch and rumble building for three seconds, ends abruptly, no melody",
+    "duration": 3.0,
+    "loop": false
+   },
+   "hit": {
+    "path": null,
+    "prompt": "single deep cinematic impact boom with sub bass drop and dark reverb tail",
+    "duration": 2.5,
+    "loop": false
+   },
+   "resolve": {
+    "path": null,
+    "prompt": "warm resolving cinematic synth pad chord, hopeful, gentle, 4 seconds",
+    "duration": 4.0,
+    "loop": false
+   },
+   "step": {
+    "path": null,
+    "prompt": "soft whoosh transition, subtle, modern",
+    "duration": 0.9,
+    "loop": false
+   }
+  },
+  "voice": {
+   "provider": "elevenlabs",
+   "voice_id": null,
+   "voice_order": [
+    "Brian"
+   ],
+   "model": "eleven_v3",
+   "stability": 0.3,
+   "similarity": 0.85,
+   "speed": 1.0,
+   "tempo": 1.0
+  }
+ },
+ "narration": [
+  {
+   "id": "vo1",
+   "text": "Innowacje potrzebują pionierów.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo2",
+   "text": "Tych, którzy widzą wcześniej. I działają, zanim pojawi się problem.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo3",
+   "text": "Na budowie liczą się szczegóły. Kask. Kamizelka. Człowiek we właściwym miejscu.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo4",
+   "text": "Dlatego robot idzie pierwszy.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo5",
+   "text": "Autonomicznie. Mapuje przestrzeń. Zna swoją trasę.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo6",
+   "text": "I sprawdza najważniejsze. Kask i kamizelkę.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo7",
+   "text": "Nauczył się tego na tysiącach obrazów.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo8",
+   "text": "Kask jest. Kamizelka jest. Tu czegoś brakuje.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo9",
+   "text": "Gdy widzi różnicę, nie czeka. Oznacza miejsce. Informuje. Daje obraz i kontekst.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo10",
+   "text": "Robot nie zastępuje specjalisty BHP. Daje mu dodatkowe oczy na budowie.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo11",
+   "text": "DCS Robotics. Programujemy roboty, które widzą więcej.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  }
+ ],
+ "scenes": [
+  {
+   "id": "open",
+   "type": "clip",
+   "clip": "g5",
+   "start": 0.0,
+   "end": 7.5,
+   "captions": false,
+   "audio_gain_db": -1.0,
+   "narration": [
+    {
+     "ref": "vo1",
+     "at": 0.5,
+     "captions": true,
+     "y": 1500,
+     "animation": "word_blast"
+    },
+    {
+     "ref": "vo2",
+     "at": 3.0,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "*PIONIERZY*.",
+     "y": 640,
+     "size": 104,
+     "start": "vo1.end-0.4",
+     "end": "vo2.start+1.6"
+    }
+   ]
+  },
+  {
+   "id": "hala",
+   "type": "clip",
+   "clip": "g5",
+   "start": 7.5,
+   "end": 14.47,
+   "captions": false,
+   "audio_gain_db": -1.0,
+   "narration": [
+    {
+     "ref": "vo3",
+     "at": 0.3,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "step",
+     "at": 0.0,
+     "gain_db": -16.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "KASK · KAMIZELKA · CZŁOWIEK",
+     "animation": "slide_left",
+     "start": "vo3.start+2.3",
+     "end": null,
+     "position": "top",
+     "size": 56
+    }
+   ]
+  },
+  {
+   "id": "mapa",
+   "type": "clip",
+   "clip": "g5",
+   "start": 14.47,
+   "end": 25.03,
+   "captions": false,
+   "audio_gain_db": -1.0,
+   "narration": [
+    {
+     "ref": "vo4",
+     "at": 0.1,
+     "captions": true,
+     "y": 1500,
+     "animation": "word_blast"
+    },
+    {
+     "ref": "vo5",
+     "at": 1.8,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    },
+    {
+     "ref": "vo6",
+     "at": 6.0,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "step",
+     "at": 0.0,
+     "gain_db": -16.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "ROBOT IDZIE *PIERWSZY*.",
+     "y": 640,
+     "size": 92,
+     "start": "vo4.start+0.2",
+     "end": "vo4.end+1.0"
+    },
+    {
+     "type": "keyword",
+     "text": "AUTONOMIA",
+     "animation": "badge",
+     "start": "vo5.start+0.2",
+     "end": "vo5.end+0.6",
+     "position": "top",
+     "size": 64
+    }
+   ]
+  },
+  {
+   "id": "dane",
+   "type": "clip",
+   "clip": "g5",
+   "start": 25.03,
+   "end": 29.03,
+   "captions": false,
+   "audio_gain_db": -1.0,
+   "narration": [
+    {
+     "ref": "vo7",
+     "at": 0.3,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "riser",
+     "at": 1.0,
+     "gain_db": -9.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "TYSIĄCE *OBRAZÓW*.",
+     "y": 640,
+     "size": 92,
+     "start": 0.3,
+     "kicker": "dane do treningu modelu",
+     "end": 3.6
+    }
+   ]
+  },
+  {
+   "id": "detekcje",
+   "type": "clip",
+   "clip": "g5",
+   "start": 29.03,
+   "end": 38.0,
+   "captions": false,
+   "audio_gain_db": -1.0,
+   "narration": [
+    {
+     "ref": "vo8",
+     "at": 0.25,
+     "captions": true,
+     "y": 1500,
+     "animation": "word_blast"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "hit",
+     "at": 0.0,
+     "gain_db": -10.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "WIDZI *RÓŻNICĘ*.",
+     "y": 1180,
+     "size": 96,
+     "start": "vo8.end+0.3",
+     "end": "vo8.end+2.6"
+    }
+   ]
+  },
+  {
+   "id": "schody",
+   "type": "clip",
+   "clip": "g5",
+   "start": 38.0,
+   "end": 45.0,
+   "captions": false,
+   "audio_gain_db": -1.0,
+   "narration": [
+    {
+     "ref": "vo9",
+     "at": 0.2,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "step",
+     "at": 0.0,
+     "gain_db": -16.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "OZNACZA · INFORMUJE · KONTEKST",
+     "animation": "slide_left",
+     "start": "vo9.start+2.6",
+     "end": null,
+     "position": "top",
+     "size": 54
+    }
+   ]
+  },
+  {
+   "id": "final",
+   "type": "clip",
+   "clip": "g5",
+   "start": 45.0,
+   "end": 60.73,
+   "captions": false,
+   "audio_gain_db": -1.0,
+   "narration": [
+    {
+     "ref": "vo10",
+     "at": 0.5,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    },
+    {
+     "ref": "vo11",
+     "at": 6.7,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "resolve",
+     "at": 0.0,
+     "gain_db": -14.0
+    }
+   ],
+   "layers": [
+    {
+     "type": "hero",
+     "text": "DODATKOWE *OCZY*\nNA BUDOWIE.",
+     "y": 1180,
+     "size": 92,
+     "start": "vo10.start+2.7",
+     "end": "vo10.end+1.2"
+    },
+    {
+     "type": "hero",
+     "text": "dcsrobotics.pl",
+     "y": 1300,
+     "size": 92,
+     "start": "vo11.end+0.3",
+     "kicker": "DCS Robotics"
+    }
+   ]
+  }
+ ],
+ "music": null
+}
