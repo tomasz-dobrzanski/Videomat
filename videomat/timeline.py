@@ -103,8 +103,14 @@ class Assets(Strict):
 class NarrationLine(Strict):
     id: str
     text: str
+    say: str | None = Field(default=None, description="Tekst dla syntezatora, gdy wymowa ma być inna niż "
+                                                      "napis (np. 'be ha pe' dla BHP). Puste = text.")
     fallback: float = Field(default=3.0, description="Długość używana, gdy nie ma jeszcze pliku audio.")
     gain_db: float = 3.5
+
+    @property
+    def spoken(self) -> str:
+        return self.say or self.text
 
 
 class NarrationPlacement(Strict):

@@ -68,7 +68,7 @@ def pick_voice(film: Film, work: Path, probe: NarrationLine) -> str:
         try:
             if target.exists():
                 target.unlink()
-            tts(probe.text, target, voice_id=vid, model_id=voice.model, timestamps=False,
+            tts(probe.spoken, target, voice_id=vid, model_id=voice.model, timestamps=False,
                 stability=voice.stability, similarity=voice.similarity, speed=voice.speed)
             used.write_text(vid, encoding="utf-8")
             return vid
@@ -102,7 +102,7 @@ def ensure_lines(film: Film, work: Path, only: list[str] | None = None,
             for stale in (raw.with_name(f"{line.id}_fast.wav"), raw.with_name(f"{line.id}_words.json")):
                 stale.unlink(missing_ok=True)
         if not raw.exists():
-            tts(line.text, raw, voice_id=vid or pick_voice(film, work, line), model_id=voice.model,
+            tts(line.spoken, raw, voice_id=vid or pick_voice(film, work, line), model_id=voice.model,
                 timestamps=False, stability=voice.stability, similarity=voice.similarity, speed=voice.speed)
         out[line.id] = _fast(raw, voice.tempo)
     return out
