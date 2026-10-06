@@ -176,6 +176,10 @@ class Scene(Strict):
     zoom: bool = False
     captions: bool = Field(default=True, description="Napisy karaoke z transkrypcji (tylko typ clip).")
     caption_y: int = 1560
+    speed: float = Field(default=1.0, gt=0.1, le=4.0,
+                         description="Tempo klipu (typ clip): 0.5 = zwolnienie dwukrotne. Długość sceny = (end-start)/speed.")
+    audio_gain_db: float | None = Field(default=None,
+                                        description="Głośność dźwięku z klipu w dB (typ clip); -60 = cisza. Puste = bez zmian.")
     layers: list[Layer] = Field(default_factory=list)
     narration: list[NarrationPlacement] = Field(default_factory=list)
     sfx: list[SfxPlacement] = Field(default_factory=list)
@@ -377,7 +381,7 @@ def scene_duration(scene: Scene, placed: dict[str, tuple[float, float]]) -> floa
     if scene.duration is not None:
         return float(scene.duration)
     if scene.type == "clip":
-        return float(scene.end) - float(scene.start)  # type: ignore[arg-type]
+        return (float(scene.end) - float(scene.start)) / scene.speed  # type: ignore[arg-type]
     last = max((s + d for s, d in placed.values()), default=0.0)
     return max(scene.min_duration, last + scene.tail)
 

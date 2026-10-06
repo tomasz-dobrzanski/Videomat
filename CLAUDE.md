@@ -29,6 +29,10 @@ Komenda `film` nie dogrywa lektora — linie TTS generuje studio (`POST /api/tts
   Bez asekuracyjnych dopisków („to opinia”, etykiety OCENA/FAKT), jeśli użytkownik ich nie chce.
 - **Użyj wszystkiego, co dostarczono** (klipy, zrzuty, nagranie lektora) albo powiedz wprost, co i dlaczego wypadło.
 - **Napisy duże, animowane** (word_blast/highlight/hero/keyword), nie statyczny tekst na dole.
+- **Prawdziwe nagrania zamiast generowanych.** Gdy są ujęcia z testu, film buduje się z nich (`GOTOWE FILMY/`).
+  Generowane roboty, drony i plansze „z przyszłości” klient odrzuca — pokazujemy tylko to, co testowane.
+- Scena `clip` ma `speed` (zwolnienie, np. 0.6 na kulminację) i `audio_gain_db` (-60 = cisza). Dźwięk źródła
+  w gotowych filmach wyciszamy, a napięcie budujemy lektorem, riserem, urwanym padem i uderzeniem.
 - Repozytorium jest publiczne i firmowe: tylko treści DCS/neutralne. Materiały prywatne i polityczne nie wchodzą.
 
 ## Twarde zasady

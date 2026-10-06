@@ -552,6 +552,23 @@ class Renderer:
         clip = self.film.assets.clips[scene.clip]  # type: ignore[index]
         return (clip.crop + "," if clip.crop else "") + self._fit(quality)
 
+    @staticmethod
+    def _speed_vf(scene: Scene, fps: int) -> str:
+        """Zwolnienie/przyspieszenie klipu po skalowaniu (tanio: setpts + klatkowanie)."""
+        if abs(scene.speed - 1.0) < 1e-6:
+            return ""
+        return f",setpts=PTS/{scene.speed:.4f},fps={fps}"
+
+    @staticmethod
+    def _clip_af(scene: Scene) -> str:
+        """Dźwięk klipu: do stereo 48 kHz, opcjonalnie ściszony; przy zmianie tempa cisza."""
+        af = "aformat=sample_rates=48000:channel_layouts=stereo"
+        if abs(scene.speed - 1.0) > 1e-6:
+            return af + ",volume=0"
+        if scene.audio_gain_db is not None:
+            af += f",volume={scene.audio_gain_db:.1f}dB"
+        return af
+
     # -------------------------------------------------- render scen
     def scene_key(self, scene: Scene, duration: float, ass_text: str, quality: str) -> str:
         sources: list[Path] = []
@@ -599,8 +616,8 @@ class Renderer:
 
         if scene.type == "clip":
             ffmpeg.run(["-ss", f"{scene.start:.3f}", "-to", f"{scene.end:.3f}", "-i", str(src),
-                        "-filter_complex", self._clip_fit(scene, quality) + f",ass='{subs}'",
-                        "-af", "aformat=sample_rates=48000:channel_layouts=stereo"] + enc + [str(out)])
+                        "-filter_complex", self._clip_fit(scene, quality) + self._speed_vf(scene, fps) + f",ass='{subs}'",
+                        "-af", self._clip_af(scene)] + enc + [str(out)])
             return out
 
         png = self.work / "frames" / f"{key}.png"
@@ -649,7 +666,7 @@ class Renderer:
         assert src is not None
         if scene.type == "clip":
             ffmpeg.run(["-ss", f"{scene.start:.3f}", "-i", str(src),
-                        "-filter_complex", self._clip_fit(scene, quality) + f",ass='{subs}'",
+                        "-filter_complex", self._clip_fit(scene, quality) + self._speed_vf(scene, fps) + f",ass='{subs}'",
                         "-ss", f"{local:.3f}", "-frames:v", "1", str(out)])
             return out
 

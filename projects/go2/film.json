@@ -1,0 +1,456 @@
+{
+ "version": 1,
+ "name": "go2_budowa_test",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30
+ },
+ "theme": {
+  "sans": "Rajdhani SemiBold",
+  "serif": "Cambria",
+  "mono": "Consolas",
+  "white": "#F2F7FB",
+  "grey": "#93A2AF",
+  "accent": "#00C2FF",
+  "accent2": "#F2F7FB",
+  "caption_size": 88,
+  "narration_size": 88,
+  "grade": true
+ },
+ "assets": {
+  "clips": {
+   "go2": {
+    "path": "GOTOWE FILMY/20260911_160751.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "hala": {
+    "path": "GOTOWE FILMY/708.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "test": {
+    "path": "GOTOWE FILMY/712.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "matrix": {
+    "path": "projects/dcs-ppe/assets/matrix.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   },
+   "logo": {
+    "path": "assets/endcard.png",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   }
+  },
+  "music": {
+   "drone": {
+    "path": "work/go2/drone.mp3",
+    "gain_db": -19.0
+   }
+  },
+  "sfx": {
+   "riser": {
+    "path": null,
+    "prompt": "cinematic tension riser, rising pitch and rumble building for three seconds, ends abruptly, no melody",
+    "duration": 3.0,
+    "loop": false
+   },
+   "hit": {
+    "path": null,
+    "prompt": "single deep cinematic impact boom with sub bass drop and dark reverb tail",
+    "duration": 2.5,
+    "loop": false
+   },
+   "alert": {
+    "path": null,
+    "prompt": "short low electronic alert pulse, soft, minimal, one beat",
+    "duration": 0.8,
+    "loop": false
+   },
+   "chime": {
+    "path": null,
+    "prompt": "soft clean electronic confirmation chime, calm, short, positive",
+    "duration": 1.2,
+    "loop": false
+   },
+   "resolve": {
+    "path": null,
+    "prompt": "warm resolving cinematic synth pad chord, hopeful, gentle, 4 seconds",
+    "duration": 4.0,
+    "loop": false
+   },
+   "step": {
+    "path": null,
+    "prompt": "soft whoosh transition, subtle, modern",
+    "duration": 0.9,
+    "loop": false
+   }
+  },
+  "voice": {
+   "provider": "elevenlabs",
+   "voice_id": null,
+   "voice_order": [
+    "Harrison",
+    "Brian"
+   ],
+   "model": "eleven_v3",
+   "stability": 0.32,
+   "similarity": 0.85,
+   "speed": 1.0,
+   "tempo": 0.97
+  }
+ },
+ "narration": [
+  {
+   "id": "vo1",
+   "text": "Plac budowy. Ostatnie minuty przed testem.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo2",
+   "text": "Inżynierowie wchodzą na teren. Razem z nimi robot Go2. Autonomiczny.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo3",
+   "text": "Zanim tu trafił, widział tysiące obrazów. Także takich, które sami wygenerowaliśmy.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo4",
+   "text": "Teraz ktoś idzie w jego stronę.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo5",
+   "text": "Kamizelka jest. Kasku nie ma.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo6",
+   "text": "Człowiek zakłada kask. Model widzi zmianę.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo7",
+   "text": "Decyzja zawsze należy do człowieka.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  },
+  {
+   "id": "vo8",
+   "text": "DCS Robotics. Autonomia, która wspiera bezpieczną budowę.",
+   "fallback": 3.0,
+   "gain_db": 3.0
+  }
+ ],
+ "scenes": [
+  {
+   "id": "start",
+   "type": "clip",
+   "clip": "go2",
+   "start": 4.2,
+   "end": 8.7,
+   "captions": false,
+   "speed": 1.0,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "TEST NA BUDOWIE",
+     "animation": "badge",
+     "start": 0.4,
+     "end": null,
+     "position": "top",
+     "size": 58
+    }
+   ],
+   "narration": [
+    {
+     "ref": "vo1",
+     "at": 0.5,
+     "captions": true,
+     "y": 1500,
+     "animation": "word_blast"
+    }
+   ]
+  },
+  {
+   "id": "teren",
+   "type": "clip",
+   "clip": "hala",
+   "start": 0.6,
+   "end": 7.0,
+   "captions": false,
+   "speed": 1.0,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "keyword",
+     "text": "ROBOT GO2",
+     "animation": "slide_left",
+     "start": 3.2,
+     "end": null,
+     "position": "top",
+     "size": 64
+    }
+   ],
+   "narration": [
+    {
+     "ref": "vo2",
+     "at": 0.3,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "step",
+     "at": 0.0,
+     "gain_db": -14.0
+    }
+   ]
+  },
+  {
+   "id": "dane",
+   "type": "clip",
+   "clip": "matrix",
+   "start": 4.5,
+   "end": 11.3,
+   "captions": false,
+   "speed": 1.0,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "hero",
+     "text": "TYSIĄCE *OBRAZÓW*.",
+     "y": 640,
+     "size": 92,
+     "start": 0.4,
+     "kicker": "dane do treningu modelu",
+     "end": 3.0
+    }
+   ],
+   "narration": [
+    {
+     "ref": "vo3",
+     "at": 0.3,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "step",
+     "at": 0.0,
+     "gain_db": -14.0
+    }
+   ]
+  },
+  {
+   "id": "idzie",
+   "type": "clip",
+   "clip": "test",
+   "start": 14.6,
+   "end": 16.6,
+   "captions": false,
+   "speed": 1.0,
+   "audio_gain_db": -60.0,
+   "layers": [],
+   "narration": [
+    {
+     "ref": "vo4",
+     "at": 0.1,
+     "captions": true,
+     "y": 1500,
+     "animation": "word_blast"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "riser",
+     "at": 0.0,
+     "gain_db": -9.0
+    }
+   ]
+  },
+  {
+   "id": "czerwone",
+   "type": "clip",
+   "clip": "test",
+   "start": 11.0,
+   "end": 13.4,
+   "captions": false,
+   "speed": 0.6,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "hero",
+     "text": "BRAK *KASKA*.",
+     "y": 1180,
+     "size": 96,
+     "start": 1.5,
+     "kicker": "model widzi różnicę"
+    }
+   ],
+   "narration": [
+    {
+     "ref": "vo5",
+     "at": 0.6,
+     "captions": true,
+     "y": 1500,
+     "animation": "word_blast"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "alert",
+     "at": 0.2,
+     "gain_db": -12.0
+    },
+    {
+     "ref": "hit",
+     "at": 1.55,
+     "gain_db": -10.0
+    }
+   ]
+  },
+  {
+   "id": "kask",
+   "type": "clip",
+   "clip": "test",
+   "start": 17.2,
+   "end": 20.8,
+   "captions": false,
+   "speed": 1.0,
+   "audio_gain_db": -60.0,
+   "layers": [],
+   "narration": [
+    {
+     "ref": "vo6",
+     "at": 0.2,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ]
+  },
+  {
+   "id": "zielone",
+   "type": "clip",
+   "clip": "test",
+   "start": 22.0,
+   "end": 25.1,
+   "captions": false,
+   "speed": 1.0,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "hero",
+     "text": "*KASK* NA GŁOWIE.",
+     "y": 1180,
+     "size": 92,
+     "start": 0.3,
+     "kicker": "zielona ramka",
+     "end": 1.8
+    }
+   ],
+   "narration": [
+    {
+     "ref": "vo7",
+     "at": 0.5,
+     "captions": true,
+     "y": 1500,
+     "animation": "highlight"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "chime",
+     "at": 0.1,
+     "gain_db": -12.0
+    }
+   ]
+  },
+  {
+   "id": "robot",
+   "type": "clip",
+   "clip": "go2",
+   "start": 7.3,
+   "end": 12.6,
+   "captions": false,
+   "speed": 1.0,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "hero",
+     "text": "AUTONOMIA, KTÓRA *WSPIERA*.",
+     "y": 640,
+     "size": 92,
+     "start": 0.9,
+     "kicker": "DCS Robotics"
+    }
+   ],
+   "narration": [
+    {
+     "ref": "vo8",
+     "at": 0.3,
+     "captions": true,
+     "y": 1500,
+     "animation": "word_blast"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "resolve",
+     "at": 0.0,
+     "gain_db": -13.0
+    }
+   ]
+  },
+  {
+   "id": "end",
+   "type": "still",
+   "clip": "logo",
+   "at": 0,
+   "duration": 1.6,
+   "layers": []
+  }
+ ],
+ "music": {
+  "asset": "drone",
+  "gain_db": -19.0,
+  "events": [
+   {
+    "at": "czerwone.start+0.35",
+    "action": "cut"
+   },
+   {
+    "at": "czerwone.start+2.1",
+    "action": "resume",
+    "gain_db": -21.0
+   }
+  ],
+  "fade_in": 1.5,
+  "fade_out": 2.6,
+  "duck_after": null,
+  "duck_factor": 0.6
+ }
+}
