@@ -1,6 +1,6 @@
 {
  "version": 1,
- "name": "go2_kino_soc",
+ "name": "go2_kino_min",
  "format": {
   "width": 1080,
   "height": 1920,
@@ -81,87 +81,10 @@
  },
  "narration": [
   {
-   "id": "k01",
-   "text": "Na budowie liczy się każdy szczegół.",
+   "id": "lektor",
+   "text": "Na budowie liczy się każdy szczegół. W dynamicznym środowisku bezpieczeństwo zależy od szybkiej identyfikacji zagrożeń. Dlatego na najbardziej wymagające odcinki jako pierwszy wchodzi robot. System skanerów i kamer tworzy precyzyjną mapę przestrzeni w czasie rzeczywistym. Gdy pojawiają się nowe ściany i przeszkody, trasa dostosowuje się sama. Sercem systemu jest zaawansowana analityka obrazu, wyszkolona na tysiącach rzeczywistych sytuacji. Robot na bieżąco weryfikuje wyposażenie ochronne, obecność kasku czy kamizelki. Gdy brakuje kluczowych elementów, zespół nadzoru dowiaduje się o tym natychmiast. Urządzenie pokonuje schody, sprawdza kolejne kondygnacje i samodzielnie wraca do stacji ładowania. To niezawodne, dodatkowe wsparcie dla inspektorów BHP na całej budowie każdego dnia. DCS Robotics. Programujemy roboty, które widzą więcej. dcsrobotics.pl",
    "say": null,
-   "fallback": 2.06,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k02",
-   "text": "W dynamicznym środowisku bezpieczeństwo zależy od szybkiej identyfikacji zagrożeń.",
-   "say": null,
-   "fallback": 5.2,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k03",
-   "text": "Dlatego na najbardziej wymagające odcinki jako pierwszy wchodzi robot.",
-   "say": null,
-   "fallback": 4.28,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k04",
-   "text": "System skanerów i kamer tworzy precyzyjną mapę przestrzeni w czasie rzeczywistym.",
-   "say": null,
-   "fallback": 4.74,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k05",
-   "text": "Gdy pojawiają się nowe ściany i przeszkody, trasa dostosowuje się sama.",
-   "say": null,
-   "fallback": 4.86,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k06",
-   "text": "Sercem systemu jest zaawansowana analityka obrazu, wyszkolona na tysiącach rzeczywistych sytuacji.",
-   "say": null,
-   "fallback": 6.12,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k07",
-   "text": "Robot na bieżąco weryfikuje wyposażenie ochronne, obecność kasku czy kamizelki.",
-   "say": null,
-   "fallback": 5.86,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k08",
-   "text": "Gdy brakuje kluczowych elementów, zespół nadzoru dowiaduje się o tym natychmiast.",
-   "say": null,
-   "fallback": 4.84,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k09",
-   "text": "Urządzenie pokonuje schody, sprawdza kolejne kondygnacje i samodzielnie wraca do stacji ładowania.",
-   "say": null,
-   "fallback": 5.8,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k10",
-   "text": "To niezawodne, dodatkowe wsparcie dla inspektorów BHP na całej budowie każdego dnia.",
-   "say": null,
-   "fallback": 6.38,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k11",
-   "text": "DCS Robotics. Programujemy roboty, które widzą więcej.",
-   "say": null,
-   "fallback": 4.48,
-   "gain_db": 1.0
-  },
-  {
-   "id": "k12",
-   "text": "dcsrobotics.pl",
-   "say": null,
-   "fallback": 2.5,
+   "fallback": 59.7,
    "gain_db": 1.0
   }
  ],
@@ -176,96 +99,8 @@
    "audio_gain_db": -7.0,
    "narration": [
     {
-     "ref": "k01",
-     "at": 1.0,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "eye"
-    },
-    {
-     "ref": "k02",
-     "at": 3.2,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "shield"
-    },
-    {
-     "ref": "k03",
-     "at": 8.6,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "pin"
-    },
-    {
-     "ref": "k04",
-     "at": 13.2,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "radar"
-    },
-    {
-     "ref": "k05",
-     "at": 18.1,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "route"
-    },
-    {
-     "ref": "k06",
-     "at": 23.1,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "chip"
-    },
-    {
-     "ref": "k07",
-     "at": 29.3,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "helmet"
-    },
-    {
-     "ref": "k08",
-     "at": 35.3,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "bell"
-    },
-    {
-     "ref": "k09",
-     "at": 40.3,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "stairs"
-    },
-    {
-     "ref": "k10",
-     "at": 46.3,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "vest"
-    },
-    {
-     "ref": "k11",
-     "at": 52.9,
-     "captions": true,
-     "y": 1480,
-     "animation": "karaoke_pro",
-     "icon": "eye"
-    },
-    {
-     "ref": "k12",
-     "at": 57.6,
+     "ref": "lektor",
+     "at": 0.6,
      "captions": true,
      "y": 1480,
      "animation": "karaoke_pro",
@@ -316,125 +151,48 @@
    ],
    "layers": [
     {
-     "type": "hud",
-     "text": "PATROL AUTONOMICZNY",
-     "kicker": "ANALIZA AI",
-     "y": 250,
-     "start": 3.6,
-     "end": 44.8
-    },
-    {
-     "type": "card",
-     "text": "KAŻDY\n*SZCZEGÓŁ*.",
-     "start": 1.3,
-     "end": 3.5,
-     "y": 470,
-     "kicker": "bezpieczeństwo na budowie",
-     "icon": "eye",
-     "items": [],
-     "size": 84
-    },
-    {
      "type": "card",
      "text": "ROBOT WCHODZI\n*PIERWSZY*.",
-     "start": "k03.start+1.2",
-     "end": "k03.end+0.4",
+     "start": 10.4,
+     "end": 14.2,
      "y": 470,
      "kicker": "autonomiczny Go2",
-     "icon": "shield",
-     "items": [],
-     "size": 84
-    },
-    {
-     "type": "card",
-     "text": "MAPA\n*NA ŻYWO*.",
-     "start": "k04.start+0.9",
-     "end": "k04.end+0.4",
-     "y": 470,
-     "kicker": "nawigacja autonomiczna",
-     "icon": "radar",
-     "items": [
-      "radar|LIDAR 360°",
-      "camera|KAMERY GŁĘBI",
-      "route|SLAM"
-     ],
-     "size": 84
-    },
-    {
-     "type": "card",
-     "text": "NOWA ŚCIANA?\n*NOWA TRASA*.",
-     "start": "k05.start+0.9",
-     "end": 20.75,
-     "y": 470,
-     "kicker": "mapa zmienia się z budową",
-     "icon": "route",
-     "items": [],
-     "size": 84
-    },
-    {
-     "type": "card",
-     "text": "TYSIĄCE\n*SYTUACJI*.",
-     "start": 25.2,
-     "end": 29.0,
-     "y": 470,
-     "kicker": "analityka obrazu AI",
-     "icon": "chip",
-     "items": [],
-     "size": 84
-    },
-    {
-     "type": "card",
-     "text": "KASK.\n*KAMIZELKA*.",
-     "start": "k07.start+0.6",
-     "end": "k07.end+0.2",
-     "y": 880,
-     "kicker": "weryfikacja na bieżąco",
-     "icon": "helmet",
-     "items": [],
      "size": 80
     },
     {
      "type": "card",
-     "text": "NADZÓR\n*WIE OD RAZU*.",
-     "start": "k08.start+0.8",
-     "end": "k08.end+0.2",
+     "text": "MAPA\n*NA ŻYWO*.",
+     "start": 14.8,
+     "end": 20.6,
+     "y": 470,
+     "kicker": "lidar 360° · kamery głębi · SLAM",
+     "size": 80
+    },
+    {
+     "type": "card",
+     "text": "KASK.\n*KAMIZELKA*.",
+     "start": 31.2,
+     "end": 35.0,
      "y": 880,
-     "kicker": "gdy czegoś brakuje",
-     "icon": "bell",
-     "items": [],
+     "kicker": "weryfikacja na bieżąco",
      "size": 80
     },
     {
      "type": "card",
      "text": "KOLEJNE\n*KONDYGNACJE*.",
-     "start": 40.4,
+     "start": 40.6,
      "end": 45.0,
      "y": 420,
      "kicker": "schody · stacja ładowania",
-     "icon": "stairs",
-     "items": [],
-     "size": 84
-    },
-    {
-     "type": "card",
-     "text": "BHP\n*KAŻDEGO DNIA*.",
-     "start": "k10.start+0.8",
-     "end": "k10.end+0.2",
-     "y": 880,
-     "kicker": "wsparcie dla inspektorów",
-     "icon": "vest",
-     "items": [],
      "size": 80
     },
     {
      "type": "card",
      "text": "*dcsrobotics.pl*",
-     "start": "k12.start+0.1",
+     "start": 58.0,
      "end": null,
      "y": 880,
      "kicker": "DCS Robotics",
-     "icon": "eye",
-     "items": [],
      "size": 80
     }
    ]

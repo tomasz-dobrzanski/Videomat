@@ -174,6 +174,17 @@ def local_time(value, local_times: dict[str, tuple[float, float]], fallback: flo
     return (finish if anchor == "end" else begin) + delta
 
 
+def _measure_font(family: str) -> str:
+    """Plik fontu do mierzenia szerokości tekstu. libass bierze fonty systemowe; gdy rodziny z motywu nie ma
+    w systemie (Rajdhani nie jest zainstalowany), renderuje Arialem — mierzymy więc Arial Bold."""
+    import os
+    sysfonts = Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts"
+    for name in (family.replace(" ", "") + ".ttf", family.replace(" ", "-") + ".ttf"):
+        if (sysfonts / name).exists():
+            return str(sysfonts / name)
+    return str(sysfonts / "arialbd.ttf")
+
+
 def layer_events(layer: Layer, scene_end: float, theme, fmt,
                  local_times: dict[str, tuple[float, float]] | None = None) -> list[str]:
     """Jedna warstwa opisu -> linie Dialogue."""
@@ -283,9 +294,13 @@ def layer_events(layer: Layer, scene_end: float, theme, fmt,
 
     if kind == "card":
         from . import hud
-        return hud.card_events(layer.text or "", start, end, layer.y if layer.y is not None else 470,
-                               kicker=layer.kicker, icon=layer.icon, items=list(layer.items),
-                               size=layer.size or 84, sans=theme.sans, mono=theme.mono)
+        if layer.animation == "soc":
+            return hud.card_events(layer.text or "", start, end, layer.y if layer.y is not None else 470,
+                                   kicker=layer.kicker, icon=layer.icon, items=list(layer.items),
+                                   size=layer.size or 84, sans=theme.sans, mono=theme.mono)
+        return hud.card_min_events(layer.text or "", start, end, layer.y if layer.y is not None else 470,
+                                   layer.kicker, _measure_font(theme.sans),
+                                   size=layer.size or 80, sans=theme.sans)
     if kind == "hud":
         from . import hud
         return hud.hud_events(start, end, label=layer.text or "PATROL AUTONOMICZNY",

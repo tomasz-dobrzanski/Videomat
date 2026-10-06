@@ -316,3 +316,58 @@ def caption_badge(name: str, cx: float, y: float, start: float, end: float) -> l
     out += icon_events(name, cx - size / 2, y + r - size / 2, size, start, end, layer=6, color=ICE,
                        motion="spin" if name == "radar" else "pulse", bord=2.4)
     return out
+
+
+# ------------------------------------------------------------------ karta minimalistyczna
+_FONTS: dict = {}
+
+
+def text_width(text: str, size: int, font_file: str) -> float:
+    """Szerokość tekstu w px z metryk fontu (PIL), z zapasem na pogrubienie libass."""
+    from PIL import ImageFont
+    key = (font_file, size)
+    if key not in _FONTS:
+        _FONTS[key] = ImageFont.truetype(font_file, size)
+    return _FONTS[key].getlength(text) * 1.02
+
+
+def card_min_events(title: str, start: float, end: float, y0: int, kicker: str | None,
+                    font_file: str, size: int = 80, x0: int = 60, sans: str = "Rajdhani SemiBold") -> list[str]:
+    """Spokojna karta: cienka ramka dopasowana do tekstu, lazurowa listwa, odsłanianie linii, kreska czasu."""
+    lines = [ln for ln in title.split("\n") if ln.strip()]
+    texts = [_accent_split(ln) for ln in lines]
+    pad, lh = 34, round(size * 1.08)
+    k = (kicker or "").upper()
+    k_size, k_sp = 26, 4
+    k_w = text_width(k, k_size, font_file) + k_sp * len(k) if k else 0
+    w_text = max([text_width(t, size, font_file) for t, _ in texts] + [k_w])
+    width = int(min(960, w_text + 2 * pad + 8))
+    y_k = y0 + 26
+    y_t = y_k + (k_size + 18 if k else 0)
+    h = y_t - y0 + len(lines) * lh + 30
+    dur = int((end - start) * 1000)
+    fade = "\\fad(200,240)"
+    rise = "\\move(0,24,0,0,0,280)"
+    out = [
+        _d(1, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c{NAVY}\\1a&H30&\\3c&HFFFFFF&\\3a&HD8&\\bord1.2\\shad0{fade}{rise}}}"
+           + rrect(x0, y0, width, h, 16) + "{\\p0}"),
+        _d(2, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c{AZURE}\\bord0\\shad0{fade}{rise}"
+           f"\\clip({x0},{y0},{x0 + 6},{y0 + 1})\\t(100,460,\\clip({x0},{y0},{x0 + 6},{y0 + h}))}}"
+           + rrect(x0, y0 + 14, 4, h - 28, 2) + "{\\p0}"),
+    ]
+    if k:
+        out.append(_d(3, start + 0.12, end, "Hud",
+                      f"{{\\an7\\move({x0 + pad},{y_k + 20},{x0 + pad},{y_k},120,400)\\fn{sans}\\fs{k_size}\\fsp{k_sp}\\b1"
+                      f"\\c{ICE}\\bord0\\shad0{fade}}}" + _esc(k)))
+    for i, (text, accent) in enumerate(texts):
+        y = y_t + i * lh
+        a = 200 + i * 130
+        clip = _wipe(x0 + pad, y - 6, width - pad, lh + 12, a, a + 340)
+        out.append(_d(4, start, end, "Hud",
+                      f"{{\\an7\\pos({x0 + pad},{y})\\fn{sans}\\fs{size}\\b1\\c{LIGHT if accent else WHITE}"
+                      f"\\bord0\\shad0{fade}{clip}}}" + _esc(text)))
+    bx, by = x0 + pad, y0 + h - 14
+    out.append(_d(3, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c{AZURE}\\1a&H30&\\bord0\\shad0{fade}"
+                  f"\\clip({bx},{by - 2},{bx + 1},{by + 5})\\t(0,{dur},\\clip({bx},{by - 2},{x0 + width - pad},{by + 5}))}}"
+                  + rrect(bx, by, width - 2 * pad, 2.5, 1.2) + "{\\p0}"))
+    return out
