@@ -281,6 +281,16 @@ def layer_events(layer: Layer, scene_end: float, theme, fmt,
             spec["target"] = layer.target
         return motion.keyword_events(spec, fmt.width, fmt.height, motion_theme(theme), 1.0)
 
+    if kind == "card":
+        from . import hud
+        return hud.card_events(layer.text or "", start, end, layer.y if layer.y is not None else 470,
+                               kicker=layer.kicker, icon=layer.icon, items=list(layer.items),
+                               size=layer.size or 84, sans=theme.sans, mono=theme.mono)
+    if kind == "hud":
+        from . import hud
+        return hud.hud_events(start, end, label=layer.text or "PATROL AUTONOMICZNY",
+                              right=layer.kicker or "ANALIZA AI", y=layer.y if layer.y is not None else 250,
+                              sans=theme.sans)
     if kind == "hero":
         from . import ass as motion
         spec = {"text": layer.text or "", "start": start, "end": end, "animation": "headline",
@@ -422,6 +432,10 @@ class Renderer:
         cx = self.film.format.width // 2
         if animation == "karaoke":
             return karaoke(group_words(words), y, "Narr", cx, offset=local_start, layer=3)
+        if animation == "karaoke_pro":
+            from . import hud
+            return hud.karaoke_pro(group_words(words), y, cx, self.film.theme.narration_size,
+                                   offset=local_start, sans=self.film.theme.sans)
 
         from . import ass as motion
         th = motion_theme(self.film.theme)
@@ -465,6 +479,11 @@ class Renderer:
             if entry:
                 events += self.narration_events(placement.ref, entry.local_start, placement.y,
                                                 placement.animation)
+                if placement.icon:
+                    from . import hud
+                    events += hud.caption_badge(placement.icon, self.film.format.width / 2, placement.y + 26,
+                                                entry.local_start,
+                                                min(duration, entry.local_start + entry.duration + 0.3))
         return styles_block(self.film) + "\n".join(events) + "\n"
 
     # -------------------------------------------------- filtry

@@ -24,8 +24,8 @@ SCHEMA_VERSION = 1
 
 SceneType = Literal["black", "clip", "freeze", "still"]
 LayerType = Literal["title", "subtitle", "headline", "stamp", "counter", "panel", "shape", "board",
-                    "word_list", "grid", "keyword", "hero"]
-CaptionAnimation = Literal["karaoke", "word_blast", "highlight"]
+                    "word_list", "grid", "keyword", "hero", "card", "hud"]
+CaptionAnimation = Literal["karaoke", "word_blast", "highlight", "karaoke_pro"]
 MusicAction = Literal["start", "cut", "resume", "fade_out"]
 
 
@@ -119,6 +119,7 @@ class NarrationPlacement(Strict):
     captions: bool = Field(default=True, description="Czy pokazać napisy karaoke pod lektorem.")
     animation: CaptionAnimation = Field(default="karaoke", description="karaoke | word_blast (słowo po słowie, pop) | highlight")
     y: int = 1500
+    icon: str | None = Field(default=None, description="Animowana ikonka pod napisem (nazwy jak w hud.ICONS).")
 
 
 class SfxPlacement(Strict):
@@ -166,6 +167,7 @@ class Layer(Strict):
     position: str | None = Field(default=None, description="top | upper | center (keyword)")
     target: list[int] | None = Field(default=None, description="[x, y] — dokąd celuje tooltip")
     kicker: str | None = Field(default=None, description="mały nadtytuł nad hero")
+    icon: str | None = Field(default=None, description="ikona karty (card): shield, eye, pin, radar, route, chip, helmet, vest, bell, stairs, bolt, camera")
 
 
 class Scene(Strict):

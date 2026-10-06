@@ -1,6 +1,6 @@
 {
  "version": 1,
- "name": "go2_kino_jon",
+ "name": "go2_kino_soc",
  "format": {
   "width": 1080,
   "height": 1920,
@@ -15,7 +15,7 @@
   "accent": "#00C2FF",
   "accent2": "#F2F7FB",
   "caption_size": 90,
-  "narration_size": 90,
+  "narration_size": 84,
   "grade": true
  },
  "assets": {
@@ -81,87 +81,87 @@
  },
  "narration": [
   {
-   "id": "j01",
+   "id": "k01",
    "text": "Na budowie liczy się każdy szczegół.",
    "say": null,
-   "fallback": 2.22,
+   "fallback": 2.06,
    "gain_db": 1.0
   },
   {
-   "id": "j02",
+   "id": "k02",
    "text": "W dynamicznym środowisku bezpieczeństwo zależy od szybkiej identyfikacji zagrożeń.",
    "say": null,
-   "fallback": 5.06,
+   "fallback": 5.2,
    "gain_db": 1.0
   },
   {
-   "id": "j03",
+   "id": "k03",
    "text": "Dlatego na najbardziej wymagające odcinki jako pierwszy wchodzi robot.",
    "say": null,
-   "fallback": 4.44,
+   "fallback": 4.28,
    "gain_db": 1.0
   },
   {
-   "id": "j04",
+   "id": "k04",
    "text": "System skanerów i kamer tworzy precyzyjną mapę przestrzeni w czasie rzeczywistym.",
    "say": null,
-   "fallback": 4.92,
+   "fallback": 4.74,
    "gain_db": 1.0
   },
   {
-   "id": "j05",
+   "id": "k05",
    "text": "Gdy pojawiają się nowe ściany i przeszkody, trasa dostosowuje się sama.",
    "say": null,
-   "fallback": 4.7,
+   "fallback": 4.86,
    "gain_db": 1.0
   },
   {
-   "id": "j06",
+   "id": "k06",
    "text": "Sercem systemu jest zaawansowana analityka obrazu, wyszkolona na tysiącach rzeczywistych sytuacji.",
    "say": null,
-   "fallback": 6.3,
+   "fallback": 6.12,
    "gain_db": 1.0
   },
   {
-   "id": "j07",
+   "id": "k07",
    "text": "Robot na bieżąco weryfikuje wyposażenie ochronne, obecność kasku czy kamizelki.",
    "say": null,
-   "fallback": 5.58,
+   "fallback": 5.86,
    "gain_db": 1.0
   },
   {
-   "id": "j08",
+   "id": "k08",
    "text": "Gdy brakuje kluczowych elementów, zespół nadzoru dowiaduje się o tym natychmiast.",
    "say": null,
-   "fallback": 4.88,
+   "fallback": 4.84,
    "gain_db": 1.0
   },
   {
-   "id": "j09",
+   "id": "k09",
    "text": "Urządzenie pokonuje schody, sprawdza kolejne kondygnacje i samodzielnie wraca do stacji ładowania.",
    "say": null,
-   "fallback": 5.96,
+   "fallback": 5.8,
    "gain_db": 1.0
   },
   {
-   "id": "j10",
-   "text": "To niezawodne, dodatkowe wsparcie dla inspektorów BHP.",
+   "id": "k10",
+   "text": "To niezawodne, dodatkowe wsparcie dla inspektorów BHP na całej budowie każdego dnia.",
    "say": null,
-   "fallback": 3.94,
+   "fallback": 6.38,
    "gain_db": 1.0
   },
   {
-   "id": "j11",
-   "text": "Na całej budowie, każdego dnia.",
-   "say": null,
-   "fallback": 2.5,
-   "gain_db": 1.0
-  },
-  {
-   "id": "j12",
+   "id": "k11",
    "text": "DCS Robotics. Programujemy roboty, które widzą więcej.",
    "say": null,
-   "fallback": 4.4,
+   "fallback": 4.48,
+   "gain_db": 1.0
+  },
+  {
+   "id": "k12",
+   "text": "dcsrobotics.pl",
+   "say": null,
+   "fallback": 2.5,
    "gain_db": 1.0
   }
  ],
@@ -176,88 +176,100 @@
    "audio_gain_db": -7.0,
    "narration": [
     {
-     "ref": "j01",
+     "ref": "k01",
      "at": 1.0,
      "captions": true,
-     "y": 1500,
-     "animation": "word_blast"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "eye"
     },
     {
-     "ref": "j02",
+     "ref": "k02",
      "at": 3.2,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "shield"
     },
     {
-     "ref": "j03",
-     "at": 8.2,
+     "ref": "k03",
+     "at": 8.6,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "pin"
     },
     {
-     "ref": "j04",
-     "at": 12.8,
+     "ref": "k04",
+     "at": 13.2,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "radar"
     },
     {
-     "ref": "j05",
-     "at": 17.65,
+     "ref": "k05",
+     "at": 18.1,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "route"
     },
     {
-     "ref": "j06",
-     "at": 22.45,
+     "ref": "k06",
+     "at": 23.1,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "chip"
     },
     {
-     "ref": "j07",
-     "at": 28.85,
+     "ref": "k07",
+     "at": 29.3,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "helmet"
     },
     {
-     "ref": "j08",
-     "at": 34.35,
+     "ref": "k08",
+     "at": 35.3,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "bell"
     },
     {
-     "ref": "j09",
+     "ref": "k09",
      "at": 40.3,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "stairs"
     },
     {
-     "ref": "j10",
-     "at": 46.5,
+     "ref": "k10",
+     "at": 46.3,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "vest"
     },
     {
-     "ref": "j11",
-     "at": 50.6,
+     "ref": "k11",
+     "at": 52.9,
      "captions": true,
-     "y": 1500,
-     "animation": "highlight"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": "eye"
     },
     {
-     "ref": "j12",
-     "at": 53.4,
+     "ref": "k12",
+     "at": 57.6,
      "captions": true,
-     "y": 1500,
-     "animation": "word_blast"
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": null
     }
    ],
    "sfx": [
@@ -304,94 +316,126 @@
    ],
    "layers": [
     {
-     "type": "hero",
+     "type": "hud",
+     "text": "PATROL AUTONOMICZNY",
+     "kicker": "ANALIZA AI",
+     "y": 250,
+     "start": 3.6,
+     "end": 44.8
+    },
+    {
+     "type": "card",
      "text": "KAŻDY\n*SZCZEGÓŁ*.",
-     "y": 640,
-     "size": 92,
-     "start": "j01.start+0.9",
-     "end": "j02.start+2.0",
-     "kicker": "bezpieczeństwo na budowie"
+     "start": 1.3,
+     "end": 3.5,
+     "y": 470,
+     "kicker": "bezpieczeństwo na budowie",
+     "icon": "eye",
+     "items": [],
+     "size": 84
     },
     {
-     "type": "hero",
+     "type": "card",
      "text": "ROBOT WCHODZI\n*PIERWSZY*.",
-     "y": 640,
-     "size": 92,
-     "start": "j03.start+2.6",
-     "end": "j03.end+0.6",
-     "kicker": "autonomiczny Go2"
+     "start": "k03.start+1.2",
+     "end": "k03.end+0.4",
+     "y": 470,
+     "kicker": "autonomiczny Go2",
+     "icon": "shield",
+     "items": [],
+     "size": 84
     },
     {
-     "type": "hero",
-     "text": "*MAPA*\nNA ŻYWO.",
-     "y": 640,
-     "size": 92,
-     "start": "j04.start+2.2",
-     "end": "j04.end+0.4",
-     "kicker": "skanery · kamery · SLAM"
+     "type": "card",
+     "text": "MAPA\n*NA ŻYWO*.",
+     "start": "k04.start+0.9",
+     "end": "k04.end+0.4",
+     "y": 470,
+     "kicker": "nawigacja autonomiczna",
+     "icon": "radar",
+     "items": [
+      "radar|LIDAR 360°",
+      "camera|KAMERY GŁĘBI",
+      "route|SLAM"
+     ],
+     "size": 84
     },
     {
-     "type": "hero",
+     "type": "card",
      "text": "NOWA ŚCIANA?\n*NOWA TRASA*.",
-     "y": 1180,
-     "size": 92,
-     "start": "j05.start+1.6",
-     "end": "j05.end+0.3",
-     "kicker": "mapa zmienia się z budową"
+     "start": "k05.start+0.9",
+     "end": 20.75,
+     "y": 470,
+     "kicker": "mapa zmienia się z budową",
+     "icon": "route",
+     "items": [],
+     "size": 84
     },
     {
-     "type": "hero",
+     "type": "card",
      "text": "TYSIĄCE\n*SYTUACJI*.",
-     "y": 640,
-     "size": 92,
-     "start": 25.1,
-     "end": "j06.end+0.1",
-     "kicker": "analityka obrazu AI"
+     "start": 25.2,
+     "end": 29.0,
+     "y": 470,
+     "kicker": "analityka obrazu AI",
+     "icon": "chip",
+     "items": [],
+     "size": 84
     },
     {
-     "type": "hero",
+     "type": "card",
      "text": "KASK.\n*KAMIZELKA*.",
-     "y": 1180,
-     "size": 92,
-     "start": "j07.start+3.0",
-     "end": "j07.end+0.3",
-     "kicker": "weryfikacja na bieżąco"
+     "start": "k07.start+0.6",
+     "end": "k07.end+0.2",
+     "y": 880,
+     "kicker": "weryfikacja na bieżąco",
+     "icon": "helmet",
+     "items": [],
+     "size": 80
     },
     {
-     "type": "hero",
+     "type": "card",
      "text": "NADZÓR\n*WIE OD RAZU*.",
-     "y": 1180,
-     "size": 92,
-     "start": "j08.start+2.2",
-     "end": "j08.end+0.7",
-     "kicker": "gdy czegoś brakuje"
+     "start": "k08.start+0.8",
+     "end": "k08.end+0.2",
+     "y": 880,
+     "kicker": "gdy czegoś brakuje",
+     "icon": "bell",
+     "items": [],
+     "size": 80
     },
     {
-     "type": "hero",
+     "type": "card",
      "text": "KOLEJNE\n*KONDYGNACJE*.",
-     "y": 640,
-     "size": 92,
-     "start": 40.5,
+     "start": 40.4,
      "end": 45.0,
-     "kicker": "schody · stacja ładowania"
+     "y": 420,
+     "kicker": "schody · stacja ładowania",
+     "icon": "stairs",
+     "items": [],
+     "size": 84
     },
     {
-     "type": "hero",
-     "text": "*BHP*\nKAŻDEGO DNIA.",
-     "y": 1180,
-     "size": 92,
-     "start": "j10.start+2.2",
-     "end": "j11.end+0.4",
-     "kicker": "wsparcie dla inspektorów"
+     "type": "card",
+     "text": "BHP\n*KAŻDEGO DNIA*.",
+     "start": "k10.start+0.8",
+     "end": "k10.end+0.2",
+     "y": 880,
+     "kicker": "wsparcie dla inspektorów",
+     "icon": "vest",
+     "items": [],
+     "size": 80
     },
     {
-     "type": "hero",
-     "text": "dcsrobotics.pl",
-     "y": 1300,
-     "size": 92,
-     "start": "j12.end+0.3",
+     "type": "card",
+     "text": "*dcsrobotics.pl*",
+     "start": "k12.start+0.1",
      "end": null,
-     "kicker": "DCS Robotics"
+     "y": 880,
+     "kicker": "DCS Robotics",
+     "icon": "eye",
+     "items": [],
+     "size": 80
     }
    ]
   }
