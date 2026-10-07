@@ -4,6 +4,26 @@ Klatka referencyjna: `GOTOWE FILMY/veo_ref_korytarz_9x16.jpg` (z `710.mp4`, 2,8 
 ścianie, pracownik w kasku i kamizelce w głębi). Kamera jedzie jak robot przez budowę, a budowa wokół niej rośnie w timelapsie. Odcinki
 sklejamy w jedną podróż długości lektora.
 
+## WERSJA JEDNOUJĘCIOWA — 8 s (obowiązująca)
+
+Klatka startowa: `GOTOWE FILMY/veo_ref_korytarz_9x16.jpg` (Go2 stoi przy ścianie w ceglanym korytarzu).
+
+```
+Vertical 9:16, one continuous 8-second shot, photorealistic, cinematic, natural daylight.
+0–2 s: start from the exact reference image — a yellow-and-grey quadruped robot stands still in a raw brick corridor
+of a building under renovation. The camera glides in from behind the robot, closes in on the camera module on its
+head and passes into the lens.
+2–3 s: we now see through the robot's eyes, low at 50 cm above the floor, looking down the corridor: bare red bricks,
+empty window openings without glass, dusty concrete floor.
+3–7 s: the robot starts walking forward and the transformation begins like magic in fast time-lapse around the moving
+camera: rubble vanishes, workers in white hard hats and high-visibility vests rush past carrying materials,
+walls get plastered and painted white, windows get glass, ceiling lights switch on one after another, the floor
+becomes smooth and clean.
+7–8 s: the camera arrives in a bright, clean, finished space and slows down; a red ribbon stretched across the
+corridor is cut and falls gracefully.
+Smooth seamless motion, no cuts, no text, no logos, no on-screen graphics.
+```
+
 ## Prompt główny — kamera jedzie jak robot (hyperlapse)
 
 > Vertical 9:16 first-person hyperlapse from the point of view of a quadruped inspection robot, camera mounted low at
