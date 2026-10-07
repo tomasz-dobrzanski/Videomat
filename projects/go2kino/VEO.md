@@ -30,18 +30,71 @@ korytarzem, ludzie w kaskach i kamizelkach).
 w Videomacie spokojny HUD: cienkie narożniki kadru, czerwona kropka REC z pulsem, licznik czasu, „GO2 · KAMERA
 CZOŁOWA”, delikatna siatka celownika na środku. Zostaje do końca podróży (odcinki 1–8), znika na planszy DCS.
 
-## Odcinki (8 s każdy; każdy startuje z ostatniej klatki poprzedniego, kamera jedzie dalej tą samą trasą)
+## Odcinki 1–8 — jak zmienia się budowa (gotowe prompty, każdy 8 s, start z ostatniej klatki poprzedniego)
 
-| # | Do promptu głównego dopisz |
-|---|---|
-| 1 | Present day: bare brick walls and dusty floor; the camera lowers to robot height and starts moving forward; a worker with a laptop steps aside. |
-| 2 | Debris is carried out in bags, a cart rolls past, the floor becomes clean as the camera passes. |
-| 3 | Scaffolding rises along the right wall as the camera approaches; two workers assemble it in fast motion. |
-| 4 | Cable trays and conduits appear along the ceiling above the moving camera, installed piece by piece. |
-| 5 | The camera turns gently around a corner; a new drywall partition grows panel by panel beside it. |
-| 6 | Walls get plastered smooth and light grey, scaffolding disappears as the camera glides on. |
-| 7 | Walls turn white, ceiling lights switch on one after another ahead of the camera, floor gets finished. |
-| 8 | The camera arrives in a bright finished corridor and slows to a stop; a worker in a hard hat checks a tablet. |
+### Odcinek 1
+
+**Co się zmienia:** Stan dzisiejszy: gołe cegły, kurz na podłodze. Pracownik z laptopem schodzi z drogi, w głębi dwie osoby rozmawiają przy planie.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. Bare brick walls, dusty concrete floor. A worker holding a laptop steps aside to let the robot pass; further down two workers study a drawing, then walk away in fast motion.
+```
+
+### Odcinek 2
+
+**Co się zmienia:** Sprzątanie: ludzie w przyspieszeniu wynoszą gruz w workach, wózek przejeżdża obok, podłoga za kamerą robi się czysta.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. Workers in fast motion carry rubble out in big bags, a hand cart rolls past the camera, sweeping brushes move, and the floor becomes clean behind them.
+```
+
+### Odcinek 3
+
+**Co się zmienia:** Rusztowania: wzdłuż prawej ściany ustawiają się rusztowania, dwóch pracowników składa je element po elemencie, ktoś podaje rury.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. Along the right wall scaffolding towers rise section by section; two workers assemble frames and planks while a third hands them steel tubes.
+```
+
+### Odcinek 4
+
+**Co się zmienia:** Instalacje: pod sufitem pojawiają się korytka kablowe i rury, elektryk na drabinie prowadzi przewody, kolejne odcinki dosuwają się same.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. Cable trays and conduits appear along the ceiling piece by piece; an electrician on a ladder pulls cables through them, new sections slide into place.
+```
+
+### Odcinek 5
+
+**Co się zmienia:** Ścianki: kamera skręca za róg, obok rośnie nowa ścianka z płyt g-k, panel po panelu; pracownik przenosi płytę przed robotem.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. The camera turns gently around a corner; a new plasterboard partition grows beside it panel by panel, a worker carries a board across in front of the robot.
+```
+
+### Odcinek 6
+
+**Co się zmienia:** Tynk: ściany wygładzają się i robią jasnoszare, rusztowania znikają w przyspieszeniu, ludzie przechodzą z kubłami.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. Walls are plastered smooth and turn light grey in fast motion, scaffolding is taken down and disappears, workers pass by carrying buckets.
+```
+
+### Odcinek 7
+
+**Co się zmienia:** Wykończenie: ściany bieleją, lampy pod sufitem zapalają się jedna po drugiej przed kamerą, podłoga dostaje równą posadzkę.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. Walls are painted white, ceiling lights switch on one after another ahead of the camera, the floor gets a smooth finished surface.
+```
+
+### Odcinek 8
+
+**Co się zmienia:** Finał: jasny, gotowy korytarz; robot zwalnia i staje, pracownik w kasku sprawdza tablet i kiwa głową.
+
+```
+Vertical 9:16 first-person hyperlapse from a quadruped robot's camera, 50 cm above the floor, smooth forward glide with a subtle walking bob, continuing from the last frame. Time-lapse of construction progress around the moving camera. Workers always in white hard hats and high-visibility vests, tidy organised site. Photorealistic, daylight, one take, no text, no logos. A bright finished corridor; the camera slows down and stops, a worker in a hard hat checks a tablet and nods. Calm ending.
+```
 
 Ciągłość: zawsze ta sama wysokość kamery, kierunek jazdy i pora dnia. Zła klatka końcowa = generujemy odcinek
 ponownie, nie sklejamy na siłę. 8 × 8 s = 64 s, montaż przycina do lektora (≈ 60 s) i dokłada lekkie
