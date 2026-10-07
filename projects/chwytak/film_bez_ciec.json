@@ -1,0 +1,211 @@
+{
+ "version": 1,
+ "name": "robot_nagrania_bez_ciec",
+ "format": {
+  "width": 1080,
+  "height": 1920,
+  "fps": 30
+ },
+ "theme": {
+  "sans": "Rajdhani SemiBold",
+  "serif": "Cambria",
+  "mono": "Consolas",
+  "white": "#F2F7FB",
+  "grey": "#93A2AF",
+  "accent": "#00C2FF",
+  "accent2": "#F2F7FB",
+  "caption_size": 80,
+  "narration_size": 80,
+  "grade": false,
+  "sharpen": 0.3,
+  "grain": 0
+ },
+ "assets": {
+  "clips": {
+   "uncut": {
+    "path": "assets/uncut.mp4",
+    "crop": null,
+    "transcript": null,
+    "fixes": {}
+   }
+  },
+  "music": {
+   "drone": {
+    "path": "assets/drone.mp3",
+    "gain_db": -3.0
+   }
+  },
+  "sfx": {},
+  "voice": {
+   "provider": "elevenlabs",
+   "voice_id": null,
+   "voice_order": [],
+   "model": "eleven_v3",
+   "stability": 0.5,
+   "similarity": 0.84,
+   "speed": 1.0,
+   "tempo": 1.0
+  }
+ },
+ "narration": [],
+ "scenes": [
+  {
+   "id": "film",
+   "type": "clip",
+   "clip": "uncut",
+   "start": 0.0,
+   "end": 62.5,
+   "speed": 1.0,
+   "captions": false,
+   "audio_gain_db": -60.0,
+   "layers": [
+    {
+     "type": "card",
+     "text": "UJĘCIE 1\n*NAGRANIE ROBOTA*.",
+     "start": 0.3,
+     "end": 3.0,
+     "y": 330,
+     "kicker": "trzy powtórzenia · bez cięć",
+     "size": 76
+    },
+    {
+     "type": "card",
+     "text": "UJĘCIE 2\n*NAGRANIE ROBOTA*.",
+     "start": 31.44,
+     "end": 34.14,
+     "y": 330,
+     "kicker": "inny kąt · bez cięć",
+     "size": 76
+    },
+    {
+     "type": "card",
+     "text": "UJĘCIE 3\n*NAGRANIE ROBOTA*.",
+     "start": 50.62,
+     "end": 53.32,
+     "y": 330,
+     "kicker": "z boku stołu · bez cięć",
+     "size": 76
+    },
+    {
+     "type": "keyword",
+     "text": "ZACISK",
+     "animation": "badge",
+     "start": 3.7,
+     "end": 4.4,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "UNIESIENIE",
+     "animation": "badge",
+     "start": 4.4,
+     "end": 4.7,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "OBRÓT",
+     "animation": "badge",
+     "start": 4.7,
+     "end": 6.1,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "ODŁOŻENIE",
+     "animation": "badge",
+     "start": 6.1,
+     "end": 7.3,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "ZACISK",
+     "animation": "badge",
+     "start": 14.2,
+     "end": 14.9,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "UNIESIENIE",
+     "animation": "badge",
+     "start": 14.9,
+     "end": 15.2,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "OBRÓT",
+     "animation": "badge",
+     "start": 15.2,
+     "end": 16.6,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "ODŁOŻENIE",
+     "animation": "badge",
+     "start": 16.6,
+     "end": 17.8,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "RESET STANOWISKA",
+     "animation": "badge",
+     "start": 8.4,
+     "end": 11.4,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    },
+    {
+     "type": "keyword",
+     "text": "RESET STANOWISKA",
+     "animation": "badge",
+     "start": 21.3,
+     "end": 23.6,
+     "position": null,
+     "x": 540,
+     "y": 1560,
+     "size": 60
+    }
+   ]
+  }
+ ],
+ "music": {
+  "asset": "drone",
+  "gain_db": -3.0,
+  "events": [],
+  "fade_in": 1.5,
+  "fade_out": 2.0,
+  "duck_after": null,
+  "duck_factor": 0.6
+ }
+}
