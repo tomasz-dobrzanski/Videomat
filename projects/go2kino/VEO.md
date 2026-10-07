@@ -14,6 +14,22 @@ sklejamy w jedną podróż długości lektora.
 > Workers always wear white hard hats and high-visibility vests; the site is tidy and well organised.
 > Photorealistic, natural daylight, documentary style, continuous single take, no cuts, no text, no logos.
 
+## Odcinek 0 — wejście w robota (8 s, przed odcinkiem 1)
+
+Klatka referencyjna: `GOTOWE FILMY/veo_ref_wejscie_9x16.jpg` (z `708.mp4`, 0,5 s: długa hala z cegły, Go2 idzie
+korytarzem, ludzie w kaskach i kamizelkach).
+
+> Vertical 9:16 cinematic shot starting from the exact framing of the reference image. The camera swoops down and
+> flies smoothly forward over the floor, catching up with the yellow-and-grey quadruped robot from behind,
+> moving closer and closer to the camera module on the robot's head, until it passes right into the lens —
+> the image dissolves into the robot's own point of view at about 50 cm above the floor, looking forward along
+> the corridor as the robot keeps walking. Photorealistic, natural daylight, one continuous move, no cuts,
+> no text, no logos, no on-screen graphics.
+
+**Ekran nagrywania robota NIE w Veo** — generatory psują napisy i liczby. Gdy kadr przejdzie w widok robota, nakładam
+w Videomacie spokojny HUD: cienkie narożniki kadru, czerwona kropka REC z pulsem, licznik czasu, „GO2 · KAMERA
+CZOŁOWA”, delikatna siatka celownika na środku. Zostaje do końca podróży (odcinki 1–8), znika na planszy DCS.
+
 ## Odcinki (8 s każdy; każdy startuje z ostatniej klatki poprzedniego, kamera jedzie dalej tą samą trasą)
 
 | # | Do promptu głównego dopisz |
