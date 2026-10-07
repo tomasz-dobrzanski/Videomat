@@ -96,7 +96,7 @@
  "narration": [
   {
    "id": "lektor",
-   "text": "Na budowie liczy się każdy szczegół. W dynamicznym środowisku kluczem jest szybka identyfikacja zagrożeń i pełna kontrola nad procesem. Dlatego na najbardziej wymagające odcinki jako pierwszy wchodzi robot. System skanerów i kamer tworzy precyzyjną mapę w czasie rzeczywistym. Gdy rosną nowe ściany i zmienia się otoczenie, urządzenie automatycznie dostosowuje trasę. Sercem systemu jest zaawansowana analityka obrazu. Robot na bieżąco weryfikuje wyposażenie ochronne, kask czy kamizelkę. Gdy brakuje kluczowych elementów, zespół nadzoru dowiaduje się o tym natychmiast. Ale to nie wszystko. Każdego dnia patroluje trasę, precyzyjnie dokumentując stan obiektu. Porównuje obraz, rejestruje zmiany i dostarcza obiektywnych danych o postępie prac. To niezawodne, dodatkowe wsparcie na placu budowy. Mniej ryzyka, pełna dokumentacja, każdego dnia. DCS Robotics. Programujemy roboty, które widzą więcej.",
+   "text": "Na budowie liczy się każdy szczegół. W dynamicznym środowisku kluczem jest szybka identyfikacja zagrożeń i pełna kontrola nad procesem. Dlatego na najbardziej wymagające odcinki jako pierwszy wchodzi robot. System skanerów i kamer tworzy precyzyjną mapę w czasie rzeczywistym. Gdy rosną nowe ściany i zmienia się otoczenie, urządzenie automatycznie dostosowuje trasę. Sercem systemu jest zaawansowana analityka obrazu. Robot na bieżąco weryfikuje wyposażenie ochronne, kask czy kamizelkę. Gdy brakuje kluczowych elementów, zespół nadzoru dowiaduje się o tym natychmiast. Ale to nie wszystko. Każdego dnia patroluje trasę, precyzyjnie dokumentując stan obiektu. Porównuje obraz, rejestruje zmiany i dostarcza obiektywnych danych o postępie prac. To niezawodne, dodatkowe wsparcie na placu budowy. Mniej ryzyka, pełna dokumentacja, każdego dnia. DCS Robotics. Programujemy roboty, które widzą więcej. dcsrobotics.pl",
    "say": null,
    "fallback": 59.7,
    "gain_db": 1.0
@@ -108,7 +108,7 @@
    "type": "clip",
    "clip": "base",
    "start": 0.0,
-   "end": 61.75,
+   "end": 63.3,
    "speed": 1.0,
    "captions": false,
    "audio_gain_db": -60.0,
@@ -155,22 +155,22 @@
     },
     {
      "ref": "riser",
-     "at": 43.2,
+     "at": 42.5,
      "gain_db": -12
     },
     {
      "ref": "ribbon",
-     "at": 46.55,
+     "at": 45.3,
      "gain_db": -8
     },
     {
      "ref": "hit",
-     "at": 47.46,
+     "at": 46.04,
      "gain_db": -14
     },
     {
      "ref": "resolve",
-     "at": 52.5,
+     "at": 54.0,
      "gain_db": -15
     }
    ],
@@ -206,14 +206,14 @@
      "type": "hud",
      "animation": "rec",
      "text": "KAMERA GO2",
-     "start": 41.3,
-     "end": 47.3
+     "start": 40.6,
+     "end": 46.0
     },
     {
      "type": "card",
      "text": "POSTĘP PRAC\n*DZIEŃ PO DNIU*.",
-     "start": 42.0,
-     "end": 46.2,
+     "start": 41.5,
+     "end": 46.0,
      "y": 470,
      "kicker": "monitoring budowy",
      "size": 80
