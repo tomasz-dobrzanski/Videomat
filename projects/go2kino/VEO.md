@@ -1,32 +1,35 @@
 # Efekt „budowa się zmienia” — Veo (9:16) i plan B
 
 Klatka referencyjna: `GOTOWE FILMY/veo_ref_korytarz_9x16.jpg` (z `710.mp4`, 2,8 s: korytarz z cegły, robot Go2 przy
-ścianie, pracownik w kasku i kamizelce w głębi). Kamera STOI — zmienia się tylko korytarz. Tak łatwiej trzymać
-ciągłość między odcinkami i sklejać je w jeden timelapse długości lektora.
+ścianie, pracownik w kasku i kamizelce w głębi). Kamera jedzie jak robot przez budowę, a budowa wokół niej rośnie w timelapsie. Odcinki
+sklejamy w jedną podróż długości lektora.
 
-## Prompt główny (do każdego odcinka, po angielsku — Veo lepiej trzyma się angielskich opisów)
+## Prompt główny — kamera jedzie jak robot (hyperlapse)
 
-> Static locked-off vertical shot, the exact framing of the reference image: an old brick corridor in a building under
-> renovation, concrete floor, windows at the far end. Time-lapse of construction progress, smooth and calm.
-> A yellow-and-grey quadruped robot walks slowly along the same route by the left wall in every stage.
+> Vertical 9:16 first-person hyperlapse from the point of view of a quadruped inspection robot, camera mounted low at
+> about 50 cm above the floor, smooth steady forward glide with a very subtle walking bob, slowly moving through an old
+> brick corridor of a building under renovation, starting from the exact framing of the reference image.
+> As the camera travels forward, time passes around it: the construction site visibly progresses in time-lapse —
+> people move quickly like in a time-lapse, materials appear and are carried, structures grow.
 > Workers always wear white hard hats and high-visibility vests; the site is tidy and well organised.
-> Photorealistic, natural daylight, documentary style, no text, no logos, no camera movement, no cuts.
+> Photorealistic, natural daylight, documentary style, continuous single take, no cuts, no text, no logos.
 
-## Odcinki (8 s każdy; każdy kolejny startuje z ostatniej klatki poprzedniego)
+## Odcinki (8 s każdy; każdy startuje z ostatniej klatki poprzedniego, kamera jedzie dalej tą samą trasą)
 
 | # | Do promptu głównego dopisz |
 |---|---|
-| 1 | Stage: the corridor as it is now; one worker walks toward the camera carrying a laptop, the robot patrols. |
-| 2 | Stage: workers carry out old debris in bags and roll a cart away; floor gets cleaner. |
-| 3 | Stage: scaffolding is set up along the right wall; two workers in hard hats and vests install it. |
-| 4 | Stage: new electrical conduits and cable trays appear along the ceiling, installed piece by piece. |
-| 5 | Stage: a new drywall partition rises on the right, panel by panel; a worker carries a board past the robot. |
-| 6 | Stage: walls are plastered and become smooth and light grey; scaffolding is taken down. |
-| 7 | Stage: walls painted white, ceiling lights installed and switched on, floor finished. |
-| 8 | Stage: finished bright corridor, the robot walks the same route, one worker in hard hat checks a tablet. |
+| 1 | Present day: bare brick walls and dusty floor; the camera lowers to robot height and starts moving forward; a worker with a laptop steps aside. |
+| 2 | Debris is carried out in bags, a cart rolls past, the floor becomes clean as the camera passes. |
+| 3 | Scaffolding rises along the right wall as the camera approaches; two workers assemble it in fast motion. |
+| 4 | Cable trays and conduits appear along the ceiling above the moving camera, installed piece by piece. |
+| 5 | The camera turns gently around a corner; a new drywall partition grows panel by panel beside it. |
+| 6 | Walls get plastered smooth and light grey, scaffolding disappears as the camera glides on. |
+| 7 | Walls turn white, ceiling lights switch on one after another ahead of the camera, floor gets finished. |
+| 8 | The camera arrives in a bright finished corridor and slows to a stop; a worker in a hard hat checks a tablet. |
 
-8 × 8 s = 64 s — przytniemy do długości lektora (≈ 60 s) przy montażu. Jeśli narzędzie nie przyjmuje 9:16,
-generuj 16:9 z tym samym promptem, a ja wykadruję do pionu.
+Ciągłość: zawsze ta sama wysokość kamery, kierunek jazdy i pora dnia. Zła klatka końcowa = generujemy odcinek
+ponownie, nie sklejamy na siłę. 8 × 8 s = 64 s, montaż przycina do lektora (≈ 60 s) i dokłada lekkie
+przenikanie 6 klatek na łączeniach.
 
 ## Plan B — 50 zdjęć generowanych
 
