@@ -304,6 +304,9 @@ def layer_events(layer: Layer, scene_end: float, theme, fmt,
                                    sans=theme.sans)
     if kind == "hud":
         from . import hud
+        if layer.animation == "rec":
+            return hud.rec_events(start, end, label=layer.text or "KAMERA GO2", w=fmt.width, h=fmt.height,
+                                  sans=theme.sans)
         return hud.hud_events(start, end, label=layer.text or "PATROL AUTONOMICZNY",
                               right=layer.kicker or "ANALIZA AI", y=layer.y if layer.y is not None else 250,
                               sans=theme.sans)

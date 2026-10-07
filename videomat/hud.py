@@ -209,6 +209,36 @@ def card_events(title: str, start: float, end: float, y0: int, kicker: str | Non
 
 
 # ------------------------------------------------------------------ HUD w rogach
+def rec_events(start: float, end: float, label: str = "KAMERA GO2", w: int = 1080, h: int = 1920,
+               sans: str = "Rajdhani SemiBold") -> list[str]:
+    """Ekran nagrywania: cienkie narożniki kadru, pulsująca czerwona kropka REC, podpis. Wejście krótkim błyskiem."""
+    out: list[str] = []
+    dur = int((end - start) * 1000)
+    m, arm, th = 70, 70, 3
+    fade = "\\fad(160,200)"
+    corners = [
+        (m, m, f"m 0 0 l {arm} 0 l {arm} {th} l {th} {th} l {th} {arm} l 0 {arm}"),
+        (w - m - arm, m, f"m 0 0 l {arm} 0 l {arm} {arm} l {arm - th} {arm} l {arm - th} {th} l 0 {th}"),
+        (m, h - m - arm, f"m 0 0 l {th} 0 l {th} {arm - th} l {arm} {arm - th} l {arm} {arm} l 0 {arm}"),
+        (w - m - arm, h - m - arm, f"m {arm - th} 0 l {arm} 0 l {arm} {arm} l 0 {arm} l 0 {arm - th} l {arm - th} {arm - th}"),
+    ]
+    for x, y, shape in corners:
+        cx, cy = x + arm / 2, y + arm / 2
+        out.append(_d(5, start, end, "Hud",
+                      f"{{\\an7\\pos({x},{y})\\org({cx:.0f},{cy:.0f})\\p1\\1c&HFFFFFF&\\1a&H30&\\bord0\\shad0{fade}"
+                      f"\\fscx118\\fscy118\\t(0,220,\\fscx100\\fscy100)}}" + shape + "{\\p0}"))
+    blink, t = "", 0
+    while t + 1000 < dur and len(blink) < 2400:
+        blink += f"\\t({t + 500},{t + 700},\\alpha&HC0&)\\t({t + 800},{t + 1000},\\alpha&H00&)"
+        t += 1000
+    y0 = m + 40
+    out.append(_d(6, start, end, "Hud", f"{{\\an7\\pos(0,0)\\p1\\1c&H3C3CFF&\\bord0\\shad0\\blur0.8{fade}{blink}}}"
+                  + circle(m + 40, y0 + 22, 11) + "{\\p0}"))
+    out.append(_d(6, start, end, "Hud", f"{{\\an4\\pos({m + 62},{y0 + 22})\\fn{sans}\\fs34\\fsp4\\b1\\c&HFFFFFF&"
+                  f"\\bord0\\shad1\\4c&H000000&\\4a&H80&{fade}}}REC  ·  " + _esc(label)))
+    return out
+
+
 def hud_events(start: float, end: float, label: str = "PATROL AUTONOMICZNY", right: str = "ANALIZA AI",
                y: int = 250, sans: str = "Rajdhani SemiBold") -> list[str]:
     """Lewy chip: pulsujący punkt + etykieta. Prawy chip: radar + korektor „analizy” (dekoracja, nie dane)."""
