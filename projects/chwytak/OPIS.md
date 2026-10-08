@@ -60,3 +60,8 @@ w pauzie przed „DCS Robotics”), napisy karaoke z czasów słów, stoper w le
 37–54,9 MicrosoftTeams-video w całości do drugiego odłożenia (stopery 1,4 s i 1,4 s) · 54,9–62,8 outro Veo, „DCS Robotics.
 Uczymy roboty pracy.” Nagranie MicrosoftTeams-video (1) usunięte. Stoper: start gdy kosz rusza, stop gdy stoi w gnieździe
 (±0,1 s). Lektor przecięty raz w pauzie przed „DCS Robotics”. -14,8 LUFS, szczyt -1,2 dB.
+
+## Wersja 10/11 (8.10, 03:00) — 59,1 s
+Symulacja przyspieszona (dojazd ×1,6, obrót ×1,3, zacisk w czasie rzeczywistym), bez plakietek SYMULACJA i stoperów,
+logo w prawym dolnym rogu. Nagrania: VID 2–18 s · wstawka sim na „Setki tysięcy powtórzeń” · Teams tylko ostatni ruch
+(11,0 s–koniec, czyste wejście) · Teams (1) 7,0–12,2 s (czyste wejście) · outro. Muzyka z build_score2 (-4 dB).
