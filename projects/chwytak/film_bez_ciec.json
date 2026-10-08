@@ -23,7 +23,7 @@
  "assets": {
   "clips": {
    "uncut": {
-    "path": "assets/uncut9.mp4",
+    "path": "assets/uncut10.mp4",
     "crop": null,
     "transcript": null,
     "fixes": {}
@@ -31,7 +31,7 @@
   },
   "music": {
    "score": {
-    "path": "assets/score3.wav",
+    "path": "assets/score4.wav",
     "gain_db": -4.0
    }
   },
@@ -88,6 +88,15 @@
    "audio_gain_db": -60.0,
    "layers": [
     {
+     "type": "card",
+     "text": "JEDEN RUCH.\n*TYSIĄCE POWTÓRZEŃ*.",
+     "start": 0.5,
+     "end": 2.8,
+     "y": 1040,
+     "kicker": "symulacja · robot · linia",
+     "size": 80
+    },
+    {
      "type": "keyword",
      "text": "RESET STANOWISKA",
      "animation": "badge",
@@ -100,16 +109,16 @@
     },
     {
      "type": "card",
-     "text": "NAGRANIE ROBOTA.\n*PRÓBA 1*.",
+     "text": "*NAGRANIE ROBOTA*.",
      "start": 18.53,
      "end": 21.93,
      "y": 330,
-     "kicker": "bez cięć",
+     "kicker": "pierwsza próba · bez cięć",
      "size": 76
     },
     {
      "type": "card",
-     "text": "KOLEJNA *PRÓBA*.\nPRÓBA 2.",
+     "text": "*KOLEJNA PRÓBA*.",
      "start": 38.13,
      "end": 41.73,
      "y": 330,
@@ -118,7 +127,7 @@
     },
     {
      "type": "card",
-     "text": "KOLEJNA *PRÓBA*.\nPRÓBA 3.",
+     "text": "*KOLEJNA PRÓBA*.",
      "start": 46.3,
      "end": 49.7,
      "y": 330,

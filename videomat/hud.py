@@ -397,7 +397,7 @@ def card_min_events(title: str, start: float, end: float, y0: int, kicker: str |
     pad, lh = 34, round(size * 1.08)
     k = (kicker or "").upper()
     k_size, k_sp = 26, 4
-    k_w = text_width(k, k_size, font_file) + k_sp * len(k) if k else 0
+    k_w = text_width(k, k_size, font_file) + (k_sp + 14) * len(k) if k else 0   # +14 = start animacji trackingu
     w_text = max([text_width(t, size, font_file) for t, _ in texts] + [k_w])
     width = int(min(960, w_text + 2 * pad + 8))
     y_k = y0 + 26
