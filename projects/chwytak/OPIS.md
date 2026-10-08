@@ -71,3 +71,11 @@ Podkład dostarczony przez użytkownika: `GOTOWE FILMY/RobotChwytak/mfcc-backgro
 ok. 58 s — pasuje do 59,1 s filmu bez cięcia). W miksie -11 dB pod lektorem (+2 dB), całość -13,6 LUFS, szczyt -0,4 dB.
 Własne kompozycje (`build_score2/3/4.py`) zostają w repo jako zapas. Licencję utworu sprawdza użytkownik (plik z serwisu
 z muzyką stockową — przed publikacją potwierdzić warunki użycia komercyjnego).
+
+## Sekwencja symulacji z trzech kamer (8.10, rano) — 56,5 s
+`render_sim3.py`: jeden przebieg fizyki (konfiguracja zalecana, płyta szablonu +0,6 mm — bez z-fightingu) renderowany
+z trzech kamer naraz: **przód** (śledzi tułów i kosz), **oczy robota** (wysoko przed głową, patrzy na chwytak) i **kamera
+przy chwytaku** (z boku, zbliżenie palców na koszu). Cięcie dynamiczne ze zmianą tempa (interpolacja ruchu, 30 kl./s):
+dojazd ×4 (przód) → zejście ×1,5 (oczy) → **zacisk ×0,4, slow motion** (chwytak) → uniesienie ×2 (oczy) → obrót ×2,6 (przód)
+→ powrót nad gniazdo ×4,5 (chwytak). Cała sekwencja 12,6 s, potem prawdziwe nagrania. Wstawka sim na „Setki tysięcy powtórzeń”
+z kamery przedniej ×1,8.

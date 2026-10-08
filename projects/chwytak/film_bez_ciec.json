@@ -23,7 +23,7 @@
  "assets": {
   "clips": {
    "uncut": {
-    "path": "assets/uncut11.mp4",
+    "path": "assets/uncut12.mp4",
     "crop": null,
     "transcript": null,
     "fixes": {}
@@ -82,7 +82,7 @@
    "type": "clip",
    "clip": "uncut",
    "start": 0.0,
-   "end": 59.17,
+   "end": 56.5,
    "speed": 1.0,
    "captions": false,
    "audio_gain_db": -60.0,
@@ -100,8 +100,8 @@
      "type": "keyword",
      "text": "RESET STANOWISKA",
      "animation": "badge",
-     "start": 24.7,
-     "end": 27.7,
+     "start": 22.03,
+     "end": 25.03,
      "position": null,
      "x": 540,
      "y": 1300,
@@ -110,8 +110,8 @@
     {
      "type": "card",
      "text": "*NAGRANIE ROBOTA*.",
-     "start": 18.6,
-     "end": 22.0,
+     "start": 15.93,
+     "end": 19.33,
      "y": 330,
      "kicker": "pierwsza próba · bez cięć",
      "size": 76
@@ -119,8 +119,8 @@
     {
      "type": "card",
      "text": "*KOLEJNA PRÓBA*.",
-     "start": 38.2,
-     "end": 41.8,
+     "start": 43.7,
+     "end": 47.1,
      "y": 330,
      "kicker": "ten sam ruch · bez cięć",
      "size": 76
@@ -128,8 +128,8 @@
     {
      "type": "card",
      "text": "*KOLEJNA PRÓBA*.",
-     "start": 46.37,
-     "end": 49.77,
+     "start": 43.7,
+     "end": 47.1,
      "y": 330,
      "kicker": "ten sam ruch · bez cięć",
      "size": 76
@@ -147,7 +147,7 @@
     },
     {
      "ref": "lekB",
-     "at": 51.87,
+     "at": 49.2,
      "captions": true,
      "y": 1480,
      "animation": "karaoke_pro",
@@ -177,8 +177,8 @@
     3.0
    ],
    [
-    51.27,
-    59.2
+    48.6,
+    56.53
    ]
   ]
  }
