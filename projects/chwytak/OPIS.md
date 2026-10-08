@@ -53,3 +53,10 @@ trzy nagrania robota (ujęcie 1 dwa powtórzenia bez cięć 16,8 s, ujęcia 2 i 
 z G1-D przy linii, „DCS Robotics. Uczymy roboty pracy.” na planszy. Lektor jako dwa ciągłe fragmenty (cięcie raz,
 w pauzie przed „DCS Robotics”), napisy karaoke z czasów słów, stoper w lewym górnym rogu, muzyka `build_score2.py`
 (uderzenia na zaciskach, impact na przejściu sim→robot, akord na outro). -14,6 LUFS, szczyt -0,7 dB.
+
+## Wersja finalna (8.10, 02:30) — 62,8 s, lektor 02:15
+0–3 tytuł w symulacji · 3–17,4 symulacja tylko kluczowy ruch (zacisk zwolniony ×2, uniesienie i obrót) · 17,4–33,4 VID 2–18 s
+(dwa powtórzenia, bez cięć; stopery 2,4 s i 2,6 s) · 33,4–37 wstawka z symulacji na „Setki tysięcy powtórzeń…” ·
+37–54,9 MicrosoftTeams-video w całości do drugiego odłożenia (stopery 1,4 s i 1,4 s) · 54,9–62,8 outro Veo, „DCS Robotics.
+Uczymy roboty pracy.” Nagranie MicrosoftTeams-video (1) usunięte. Stoper: start gdy kosz rusza, stop gdy stoi w gnieździe
+(±0,1 s). Lektor przecięty raz w pauzie przed „DCS Robotics”. -14,8 LUFS, szczyt -1,2 dB.
