@@ -65,3 +65,9 @@ Uczymy roboty pracy.” Nagranie MicrosoftTeams-video (1) usunięte. Stoper: sta
 Symulacja przyspieszona (dojazd ×1,6, obrót ×1,3, zacisk w czasie rzeczywistym), bez plakietek SYMULACJA i stoperów,
 logo w prawym dolnym rogu. Nagrania: VID 2–18 s · wstawka sim na „Setki tysięcy powtórzeń” · Teams tylko ostatni ruch
 (11,0 s–koniec, czyste wejście) · Teams (1) 7,0–12,2 s (czyste wejście) · outro. Muzyka z build_score2 (-4 dB).
+
+## Muzyka (8.10, finał)
+Podkład dostarczony przez użytkownika: `GOTOWE FILMY/RobotChwytak/mfcc-background-music-274290.mp3` (61,6 s, wycisza się
+ok. 58 s — pasuje do 59,1 s filmu bez cięcia). W miksie -11 dB pod lektorem (+2 dB), całość -13,6 LUFS, szczyt -0,4 dB.
+Własne kompozycje (`build_score2/3/4.py`) zostają w repo jako zapas. Licencję utworu sprawdza użytkownik (plik z serwisu
+z muzyką stockową — przed publikacją potwierdzić warunki użycia komercyjnego).

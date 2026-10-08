@@ -30,9 +30,9 @@
    }
   },
   "music": {
-   "score": {
-    "path": "assets/score4.wav",
-    "gain_db": -4.0
+   "mfcc": {
+    "path": "assets/music_mfcc.mp3",
+    "gain_db": -11.0
    }
   },
   "sfx": {
@@ -66,14 +66,14 @@
    "text": "Jeden ruch. Zanim system wykona go na fizycznym stanowisku, uczy się na swoim cyfrowym bliźniaku. Chwyt, uniesienie, obrót, odłożenie. Każda milisekunda zmierzona. Każdy wektor zoptymalizowany. To nie jest zwykła wizualizacja. To czysta fizyka. Punkty styku, kinematyka, wyliczona siła docisku. Gotowy model trafia bezpośrednio do robota. Jeden płynny cykl. Maszyna nie zgaduje. Przetwarza dane, adaptuje się i powtarza, aż osiągnie absolutną precyzję. Setki tysięcy powtórzeń w symulowanym środowisku. Jutro dowolny komponent na Twojej linii produkcyjnej. Jeden cel. Praca wykonana dobrze. Za każdym razem. Niezawodny w działaniu. Gotowy do wdrożenia.",
    "say": null,
    "fallback": 47.3,
-   "gain_db": 1.0
+   "gain_db": 2.0
   },
   {
    "id": "lekB",
    "text": "DCS Robotics. Uczymy roboty pracy.",
    "say": null,
    "fallback": 3.3,
-   "gain_db": 1.0
+   "gain_db": 2.0
   }
  ],
  "scenes": [
@@ -157,11 +157,11 @@
   }
  ],
  "music": {
-  "asset": "score",
-  "gain_db": -4.0,
+  "asset": "mfcc",
+  "gain_db": -11.0,
   "events": [],
   "fade_in": 0.0,
-  "fade_out": 0.6,
+  "fade_out": 1.0,
   "duck_after": null,
   "duck_factor": 0.6
  },
