@@ -88,33 +88,6 @@
    "audio_gain_db": -60.0,
    "layers": [
     {
-     "type": "card",
-     "text": "UJĘCIE 1\n*NAGRANIE ROBOTA*.",
-     "start": 18.53,
-     "end": 21.23,
-     "y": 330,
-     "kicker": "nagranie robota · bez cięć",
-     "size": 76
-    },
-    {
-     "type": "card",
-     "text": "UJĘCIE 2\n*NAGRANIE ROBOTA*.",
-     "start": 38.13,
-     "end": 39.93,
-     "y": 330,
-     "kicker": "inny kąt",
-     "size": 76
-    },
-    {
-     "type": "card",
-     "text": "UJĘCIE 3\n*NAGRANIE ROBOTA*.",
-     "start": 46.3,
-     "end": 48.1,
-     "y": 330,
-     "kicker": "z boku stołu",
-     "size": 76
-    },
-    {
      "type": "keyword",
      "text": "RESET STANOWISKA",
      "animation": "badge",
@@ -126,13 +99,31 @@
      "size": 56
     },
     {
-     "type": "hero",
-     "text": "*dcsrobotics.pl*",
-     "y": 1150,
-     "size": 84,
-     "start": 52.4,
-     "end": 56.4,
-     "kicker": "Uczymy roboty pracy"
+     "type": "card",
+     "text": "NAGRANIE ROBOTA.\n*PRÓBA 1*.",
+     "start": 18.53,
+     "end": 21.93,
+     "y": 330,
+     "kicker": "bez cięć",
+     "size": 76
+    },
+    {
+     "type": "card",
+     "text": "KOLEJNA *PRÓBA*.\nPRÓBA 2.",
+     "start": 38.13,
+     "end": 41.73,
+     "y": 330,
+     "kicker": "ten sam ruch · bez cięć",
+     "size": 76
+    },
+    {
+     "type": "card",
+     "text": "KOLEJNA *PRÓBA*.\nPRÓBA 3.",
+     "start": 46.3,
+     "end": 49.7,
+     "y": 330,
+     "kicker": "ten sam ruch · bez cięć",
+     "size": 76
     }
    ],
    "sfx": [],
