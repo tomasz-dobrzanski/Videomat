@@ -1,6 +1,6 @@
 {
  "version": 1,
- "name": "robot_nagrania_bez_ciec",
+ "name": "robot_jeden_ruch",
  "format": {
   "width": 1080,
   "height": 1920,
@@ -23,7 +23,7 @@
  "assets": {
   "clips": {
    "uncut": {
-    "path": "assets/uncut.mp4",
+    "path": "assets/uncut2.mp4",
     "crop": null,
     "transcript": null,
     "fixes": {}
@@ -54,34 +54,61 @@
    "type": "clip",
    "clip": "uncut",
    "start": 0.0,
-   "end": 49.37,
+   "end": 59.77,
    "speed": 1.0,
    "captions": false,
    "audio_gain_db": -60.0,
    "layers": [
     {
+     "type": "hero",
+     "text": "JEDEN RUCH.\n*TYSIĄCE* POWTÓRZEŃ.",
+     "y": 560,
+     "size": 100,
+     "start": 0.3,
+     "end": 2.8,
+     "kicker": "symulacja fizyczna · robot"
+    },
+    {
      "type": "card",
      "text": "UJĘCIE 1\n*NAGRANIE ROBOTA*.",
-     "start": 0.3,
-     "end": 3.0,
+     "start": 3.3,
+     "end": 6.0,
      "y": 330,
      "kicker": "dwa powtórzenia · bez cięć",
      "size": 76
     },
     {
+     "type": "keyword",
+     "text": "SYMULACJA",
+     "animation": "badge",
+     "start": 21.2,
+     "end": 24.6,
+     "position": "top",
+     "size": 56
+    },
+    {
      "type": "card",
      "text": "UJĘCIE 2\n*NAGRANIE ROBOTA*.",
-     "start": 18.3,
-     "end": 21.0,
+     "start": 25.1,
+     "end": 27.8,
      "y": 330,
      "kicker": "inny kąt · bez cięć",
      "size": 76
     },
     {
+     "type": "keyword",
+     "text": "SYMULACJA",
+     "animation": "badge",
+     "start": 44.18,
+     "end": 47.38,
+     "position": "top",
+     "size": 56
+    },
+    {
      "type": "card",
      "text": "UJĘCIE 3\n*NAGRANIE ROBOTA*.",
-     "start": 37.48,
-     "end": 40.18,
+     "start": 47.88,
+     "end": 50.580000000000005,
      "y": 330,
      "kicker": "z boku stołu · bez cięć",
      "size": 76
@@ -89,40 +116,40 @@
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 4.2,
-     "end": 6.6,
+     "start": 7.2,
+     "end": 9.6,
      "x": 60,
      "y": 1380
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 14.0,
-     "end": 16.6,
+     "start": 17.0,
+     "end": 19.6,
      "x": 60,
      "y": 1380
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 22.4,
-     "end": 23.8,
+     "start": 29.2,
+     "end": 30.6,
      "x": 60,
      "y": 1380
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 33.6,
-     "end": 35.2,
+     "start": 40.4,
+     "end": 42.0,
      "x": 60,
      "y": 1380
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 45.08,
-     "end": 46.38,
+     "start": 55.48,
+     "end": 56.78,
      "x": 60,
      "y": 1380
     },
@@ -130,8 +157,8 @@
      "type": "keyword",
      "text": "RESET STANOWISKA",
      "animation": "badge",
-     "start": 8.4,
-     "end": 11.4,
+     "start": 11.4,
+     "end": 14.4,
      "position": null,
      "x": 540,
      "y": 1660,
@@ -148,5 +175,18 @@
   "fade_out": 2.0,
   "duck_after": null,
   "duck_factor": 0.6
+ },
+ "watermark": {
+  "path": "assets/watermark.png",
+  "x": 850,
+  "y": 36,
+  "width": 190,
+  "opacity": 0.92,
+  "hide": [
+   [
+    0,
+    3.0
+   ]
+  ]
  }
 }
