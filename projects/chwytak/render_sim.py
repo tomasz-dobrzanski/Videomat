@@ -53,6 +53,11 @@ def main() -> None:
     r = C.Reka(s)
     m, d = s.model, s.data
     m.vis.global_.offwidth, m.vis.global_.offheight = W, H
+    # Z-fighting: wizualna płyta szablonu (contype 0) ma górną ścianę dokładnie na blacie (z=-0,200).
+    # Unosimy ją o 0,6 mm tylko w renderze — fizyka używa osobnych geomów kolizyjnych.
+    for gi in range(m.ngeom):
+        if m.geom(gi).name == "fx_fixture_black":
+            m.geom_pos[gi][2] += 0.0006
     mujoco.mj_forward(m, d)
     ren = mujoco.Renderer(m, H, W)
     cam = mujoco.MjvCamera()
