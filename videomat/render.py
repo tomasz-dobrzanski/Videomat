@@ -302,6 +302,10 @@ def layer_events(layer: Layer, scene_end: float, theme, fmt,
                                    layer.kicker, _measure_font(theme.sans),
                                    size=layer.size or 80, x0=layer.x if layer.x is not None else 60,
                                    sans=theme.sans)
+    if kind == "timer":
+        from . import hud
+        return hud.timer_events(start, end, layer.text or "czas", layer.x if layer.x is not None else 60,
+                                layer.y if layer.y is not None else 1380, sans=theme.sans)
     if kind == "hud":
         from . import hud
         if layer.animation == "rec":

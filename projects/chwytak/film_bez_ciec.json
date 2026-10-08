@@ -54,7 +54,7 @@
    "type": "clip",
    "clip": "uncut",
    "start": 0.0,
-   "end": 62.5,
+   "end": 49.37,
    "speed": 1.0,
    "captions": false,
    "audio_gain_db": -60.0,
@@ -65,14 +65,14 @@
      "start": 0.3,
      "end": 3.0,
      "y": 330,
-     "kicker": "trzy powtórzenia · bez cięć",
+     "kicker": "dwa powtórzenia · bez cięć",
      "size": 76
     },
     {
      "type": "card",
      "text": "UJĘCIE 2\n*NAGRANIE ROBOTA*.",
-     "start": 31.44,
-     "end": 34.14,
+     "start": 18.3,
+     "end": 21.0,
      "y": 330,
      "kicker": "inny kąt · bez cięć",
      "size": 76
@@ -80,99 +80,51 @@
     {
      "type": "card",
      "text": "UJĘCIE 3\n*NAGRANIE ROBOTA*.",
-     "start": 50.62,
-     "end": 53.32,
+     "start": 37.48,
+     "end": 40.18,
      "y": 330,
      "kicker": "z boku stołu · bez cięć",
      "size": 76
     },
     {
-     "type": "keyword",
-     "text": "ZACISK",
-     "animation": "badge",
-     "start": 3.7,
-     "end": 4.4,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
+     "type": "timer",
+     "text": "podniesienie → odłożenie",
+     "start": 4.2,
+     "end": 6.6,
+     "x": 60,
+     "y": 1380
     },
     {
-     "type": "keyword",
-     "text": "UNIESIENIE",
-     "animation": "badge",
-     "start": 4.4,
-     "end": 4.7,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
-    },
-    {
-     "type": "keyword",
-     "text": "OBRÓT",
-     "animation": "badge",
-     "start": 4.7,
-     "end": 6.1,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
-    },
-    {
-     "type": "keyword",
-     "text": "ODŁOŻENIE",
-     "animation": "badge",
-     "start": 6.1,
-     "end": 7.3,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
-    },
-    {
-     "type": "keyword",
-     "text": "ZACISK",
-     "animation": "badge",
-     "start": 14.2,
-     "end": 14.9,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
-    },
-    {
-     "type": "keyword",
-     "text": "UNIESIENIE",
-     "animation": "badge",
-     "start": 14.9,
-     "end": 15.2,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
-    },
-    {
-     "type": "keyword",
-     "text": "OBRÓT",
-     "animation": "badge",
-     "start": 15.2,
+     "type": "timer",
+     "text": "podniesienie → odłożenie",
+     "start": 14.0,
      "end": 16.6,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
+     "x": 60,
+     "y": 1380
     },
     {
-     "type": "keyword",
-     "text": "ODŁOŻENIE",
-     "animation": "badge",
-     "start": 16.6,
-     "end": 17.8,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
+     "type": "timer",
+     "text": "podniesienie → odłożenie",
+     "start": 22.4,
+     "end": 23.8,
+     "x": 60,
+     "y": 1380
+    },
+    {
+     "type": "timer",
+     "text": "podniesienie → odłożenie",
+     "start": 33.6,
+     "end": 35.2,
+     "x": 60,
+     "y": 1380
+    },
+    {
+     "type": "timer",
+     "text": "podniesienie → odłożenie",
+     "start": 45.08,
+     "end": 46.38,
+     "x": 60,
+     "y": 1380
     },
     {
      "type": "keyword",
@@ -182,19 +134,8 @@
      "end": 11.4,
      "position": null,
      "x": 540,
-     "y": 1560,
-     "size": 60
-    },
-    {
-     "type": "keyword",
-     "text": "RESET STANOWISKA",
-     "animation": "badge",
-     "start": 21.3,
-     "end": 23.6,
-     "position": null,
-     "x": 540,
-     "y": 1560,
-     "size": 60
+     "y": 1660,
+     "size": 56
     }
    ]
   }

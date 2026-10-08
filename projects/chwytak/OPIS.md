@@ -29,3 +29,19 @@ python projects/chwytak/build_score.py     # muzyka pod cięcia
 python -m videomat.cli film projects/chwytak/film.json
 python -m videomat.cli film projects/chwytak/film_bez_ciec.json   # baza: assets/uncut.mp4 (każde nagranie osobno, autoobrót)
 ```
+
+## Zmiany 8.10 (wieczór)
+- Ujęcie 1 kończy się w 18 s (bez trzeciego powtórzenia i drugiego resetu) — film 49,4 s.
+- Stoper „podniesienie → odłożenie”: start, gdy kosz odrywa się od gniazda, stop, gdy z powrotem w nim stoi
+  (przed puszczeniem). Momenty odczytane z klatek co 0,2 s, więc dokładność ±0,2 s:
+  ujęcie 1: 2,4 s i 2,6 s · ujęcie 2: 1,4 s i 1,6 s · ujęcie 3: 1,3 s.
+
+## Sora (sim → real, efekt lidaru) — prompt gotowy, klucz OpenAI w .env odrzucony (401)
+Klatka startowa: dowolna z `assets/sim_obrot180.mp4` (biały G1-D przy stole), klatka końcowa: z nagrania robota.
+```
+Vertical 9:16, 8 seconds, one continuous shot. Start from the reference simulation render: a white humanoid robot arm
+grips a black speaker basket on a table in a dark 3D simulation. A cyan LiDAR scan sweeps from top to bottom: the scene
+turns into a dense point cloud and wireframe, glowing cyan points flow and re-assemble, and the same moment
+materialises as a real photographed lab: a silver humanoid robot lifting and rotating the real speaker basket on a
+black fixture. Clean high-tech look, precise, no text, no logos, no people's faces.
+```

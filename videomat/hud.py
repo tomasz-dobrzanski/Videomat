@@ -348,6 +348,34 @@ def caption_badge(name: str, cx: float, y: float, start: float, end: float) -> l
     return out
 
 
+# ------------------------------------------------------------------ stoper
+def timer_events(start: float, end: float, label: str, x: int, y: int, hold: float = 1.6,
+                 sans: str = "Rajdhani SemiBold") -> list[str]:
+    """Stoper: liczy od `start` do `end` co 0,1 s, potem trzyma wynik w akcencie przez `hold` sekund."""
+    out: list[str] = []
+    total = end - start
+    w, h = 330, 150
+    box = (f"{{\\an7\\pos(0,0)\\p1\\1c{NAVY}\\1a&H30&\\3c&HFFFFFF&\\3a&HD8&\\bord1.2\\shad0\\fad(150,250)}}"
+           + rrect(x, y, w, h, 14) + "{\\p0}")
+    out.append(_d(1, start - 0.25, end + hold, "Hud", box))
+    out.append(_d(2, start - 0.25, end + hold, "Hud",
+                  f"{{\\an7\\pos({x + 24},{y + 18})\\fn{sans}\\fs24\\fsp3\\b1\\c{ICE}\\bord0\\shad0\\fad(150,250)}}"
+                  + _esc(label.upper())))
+    steps = int(round(total * 10))
+    for i in range(steps + 1):
+        a = start + i / 10
+        b = min(start + (i + 1) / 10, end) if i < steps else end + hold
+        if b <= a:
+            b = end + hold
+        final = i == steps
+        col = AZURE if final else WHITE
+        pop = "\\fscx115\\fscy115\\t(0,180,\\fscx100\\fscy100)\\fad(0,250)" if final else ""
+        value = f"{i / 10:.1f} s".replace(".", ",")
+        out.append(_d(3, a, b, "Hud",
+                      f"{{\\an7\\pos({x + 24},{y + 48})\\fn{sans}\\fs76\\b1\\c{col}\\bord0\\shad0{pop}}}" + value))
+    return out
+
+
 # ------------------------------------------------------------------ karta minimalistyczna
 _FONTS: dict = {}
 

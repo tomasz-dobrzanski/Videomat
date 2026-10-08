@@ -24,7 +24,7 @@ SCHEMA_VERSION = 1
 
 SceneType = Literal["black", "clip", "freeze", "still"]
 LayerType = Literal["title", "subtitle", "headline", "stamp", "counter", "panel", "shape", "board",
-                    "word_list", "grid", "keyword", "hero", "card", "hud"]
+                    "word_list", "grid", "keyword", "hero", "card", "hud", "timer"]
 CaptionAnimation = Literal["karaoke", "word_blast", "highlight", "karaoke_pro"]
 MusicAction = Literal["start", "cut", "resume", "fade_out"]
 
