@@ -97,15 +97,6 @@
      "kicker": "symulacja fizyczna · robot"
     },
     {
-     "type": "keyword",
-     "text": "SYMULACJA",
-     "animation": "badge",
-     "start": 3.2,
-     "end": 17.2,
-     "position": "top",
-     "size": 56
-    },
-    {
      "type": "card",
      "text": "UJĘCIE 1\n*NAGRANIE ROBOTA*.",
      "start": 17.7,
@@ -115,15 +106,6 @@
      "size": 76
     },
     {
-     "type": "keyword",
-     "text": "SYMULACJA",
-     "animation": "badge",
-     "start": 33.6,
-     "end": 36.8,
-     "position": "top",
-     "size": 56
-    },
-    {
      "type": "card",
      "text": "UJĘCIE 2\n*NAGRANIE ROBOTA*.",
      "start": 37.3,
@@ -131,38 +113,6 @@
      "y": 330,
      "kicker": "inny kąt · bez cięć",
      "size": 76
-    },
-    {
-     "type": "timer",
-     "text": "podniesienie → odłożenie",
-     "start": 19.6,
-     "end": 22.0,
-     "x": 60,
-     "y": 300
-    },
-    {
-     "type": "timer",
-     "text": "podniesienie → odłożenie",
-     "start": 29.4,
-     "end": 32.0,
-     "x": 60,
-     "y": 300
-    },
-    {
-     "type": "timer",
-     "text": "podniesienie → odłożenie",
-     "start": 41.6,
-     "end": 43.0,
-     "x": 60,
-     "y": 300
-    },
-    {
-     "type": "timer",
-     "text": "podniesienie → odłożenie",
-     "start": 52.9,
-     "end": 54.3,
-     "x": 60,
-     "y": 300
     },
     {
      "type": "keyword",
@@ -218,7 +168,7 @@
  "watermark": {
   "path": "assets/watermark.png",
   "x": 850,
-  "y": 36,
+  "y": 1790,
   "width": 190,
   "opacity": 0.92,
   "hide": [
