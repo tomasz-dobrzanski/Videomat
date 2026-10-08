@@ -59,10 +59,22 @@ def main() -> None:
             m.geom_pos[gi][2] += 0.0006
     mujoco.mj_forward(m, d)
     ren = mujoco.Renderer(m, H, W)
-    cams = {k: mujoco.MjvCamera() for k in ("front", "head", "hand")}
+    cams = {k: mujoco.MjvCamera() for k in ("front", "head", "hand", "wide")}
     torso = m.body("torso_link").id
     wrist = m.body("right_wrist_yaw_link").id
-    smooth = {"front": None, "head": None, "hand": None}
+    smooth = {"front": None, "head": None, "hand": None, "handpos": None}
+
+    def node_interp(x, xs, ys):
+        """Interpolacja z łagodnym wejściem/wyjściem (smoothstep) między węzłami — ruch kamery bez szarpnięć."""
+        ys = np.asarray(ys, float)
+        if x <= xs[0]:
+            return ys[0]
+        for i in range(len(xs) - 1):
+            if x <= xs[i + 1]:
+                u = (x - xs[i]) / (xs[i + 1] - xs[i])
+                u = u * u * (3 - 2 * u)
+                return ys[i] + (ys[i + 1] - ys[i]) * u
+        return ys[-1]
 
     def ease(key, target, k=0.08):
         t = np.asarray(target, float)
@@ -105,10 +117,16 @@ def main() -> None:
         # 2) oczami robota: kamera przy głowie, patrzy na chwytak
         head = torso_p + [0.22, 0.10, 0.50]
         aim(cams["head"], head, ease("head", 0.7 * tcp + 0.3 * c, 0.12))
-        # 3) nadgarstek: kamera 12 cm nad nadgarstkiem, patrzy na kosz
+        # 3) przy chwytaku: z boku, dalej niż poprzednio, pozycja i cel mocno wygładzone (bez drżenia chwytaka)
         back = wrist_p - tcp; back = back / (np.linalg.norm(back) + 1e-9)
         side = np.cross(back, [0, 0, 1]); side = side / (np.linalg.norm(side) + 1e-9)
-        aim(cams["hand"], tcp + side * 0.20 + [0.0, 0.0, 0.12], ease("hand", 0.5 * tcp + 0.5 * c, 0.25))
+        hp_ = ease("handpos", tcp + side * 0.32 + [0.0, 0.0, 0.18], 0.05)
+        aim(cams["hand"], hp_, ease("hand", 0.5 * tcp + 0.5 * c, 0.08))
+        # 4) szeroka: z daleka, prowadzona wyłącznie czasem symulacji (gładko, bez zależności od drgań chwytaka)
+        ts = t - stan["t0"]
+        wp = node_interp(ts, [0, 30, 45, 90], [[1.45, -0.55, 0.30], [1.30, -0.75, 0.18], [1.05, -0.80, 0.08], [1.0, -0.8, 0.06]])
+        wl = node_interp(ts, [0, 15, 28, 45, 90], [[0.30, -0.15, 0.05], [0.30, -0.15, 0.05], [0.42, -0.28, -0.05], [0.50, -0.36, -0.14], [0.50, -0.36, -0.14]])
+        aim(cams["wide"], wp, wl)
         for k in cams:
             procs[k].stdin.write(frame(cams[k]))
 

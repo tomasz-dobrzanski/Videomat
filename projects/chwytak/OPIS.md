@@ -79,3 +79,9 @@ przy chwytaku** (z boku, zbliżenie palców na koszu). Cięcie dynamiczne ze zmi
 dojazd ×4 (przód) → zejście ×1,5 (oczy) → **zacisk ×0,4, slow motion** (chwytak) → uniesienie ×2 (oczy) → obrót ×2,6 (przód)
 → powrót nad gniazdo ×4,5 (chwytak). Cała sekwencja 12,6 s, potem prawdziwe nagrania. Wstawka sim na „Setki tysięcy powtórzeń”
 z kamery przedniej ×1,8.
+
+## Film ostateczny (8.10, 06:00) — 56,5 s
+Symulacja z czterech kamer (`render_sim3.py`: przód, szeroka, oczy robota, kamera przy chwytaku). Dojazd ×4 (przód) → zejście
+(oczy) → zacisk w slow motion (chwytak, z odległości) → od 17 s symulacji tylko szeroka kamera z daleka, bez zbliżeń ręki
+→ symulacja kończy się w 25 s, gdy kosz jest nad gniazdem (dalej fizyka szuka spiralą 30 s i osadzenie się nie udaje —
+nie pokazujemy). Nagrania prawdziwego robota, lektor, muzyka i outro bez zmian względem poprzedniej wersji.
