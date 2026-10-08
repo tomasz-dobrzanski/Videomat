@@ -42,3 +42,20 @@ Constant small white plate with the DCS Robotics logo in the top-right corner. C
 captions at the bottom following the Polish narration word by word. Music: calm pulsing synth, a hit on each cut,
 rising tension before each grasp, warm chord on the end card. No invented robot features, no drones, no fake UI data.
 ```
+
+## Plansza końcowa G1-D przy linii produkcyjnej — do Veo 3.1 (kredyty AI Studio wyczerpane 8.10, 402)
+
+Klatka referencyjna: `GOTOWE FILMY/veo_ref_plansza_dcs_9x16.png` (plansza DCS Robotics z filmu Go2: logo, napis
+„AUTOMATYZACJA | ROBOTYKA | AI”, tło z obwodami, 1080x1920). Veo ma zachować układ, logo i napisy, a robota
+i scenę zamienić.
+
+```
+Vertical 9:16, 8 seconds, one continuous shot. Keep the exact layout, colours, logo and headline text of the
+reference image (dark circuit-board background, big "DCS robotics" logo at the top, the line
+"AUTOMATYZACJA | ROBOTYKA | AI" under it, glowing cyan lines). Replace the quadruped robot with a white humanoid
+robot (Unitree G1 type, two arms, two-finger grippers) standing at a slowly moving industrial conveyor belt in
+the lower half of the frame. Black speaker baskets and small plastic parts travel along the belt from left to
+right; the robot picks them one by one with one gripper, lifts, rotates and places them into grey fixtures on a
+black base beside the belt, calm and precise, one pick about every two seconds. Soft cyan light from the circuit
+lines reflects on the robot. No drones, no people, no extra text, the logo and headline stay sharp and unchanged.
+```
