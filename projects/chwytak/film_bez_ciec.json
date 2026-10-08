@@ -23,7 +23,7 @@
  "assets": {
   "clips": {
    "uncut": {
-    "path": "assets/uncut8.mp4",
+    "path": "assets/uncut9.mp4",
     "crop": null,
     "transcript": null,
     "fixes": {}
@@ -87,15 +87,6 @@
    "captions": false,
    "audio_gain_db": -60.0,
    "layers": [
-    {
-     "type": "hero",
-     "text": "JEDEN RUCH.\n*TYSIĄCE* POWTÓRZEŃ.",
-     "y": 560,
-     "size": 100,
-     "start": 0.3,
-     "end": 2.8,
-     "kicker": "symulacja fizyczna · robot"
-    },
     {
      "type": "card",
      "text": "UJĘCIE 1\n*NAGRANIE ROBOTA*.",
