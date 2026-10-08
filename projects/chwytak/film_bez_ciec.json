@@ -23,7 +23,7 @@
  "assets": {
   "clips": {
    "uncut": {
-    "path": "assets/uncut2.mp4",
+    "path": "assets/uncut3.mp4",
     "crop": null,
     "transcript": null,
     "fixes": {}
@@ -35,7 +35,20 @@
     "gain_db": -3.0
    }
   },
-  "sfx": {},
+  "sfx": {
+   "hit": {
+    "path": "work/go2kino/sfx_hit.mp3",
+    "prompt": "single deep cinematic impact boom with sub bass drop",
+    "duration": 2.5,
+    "loop": false
+   },
+   "resolve": {
+    "path": "work/go2kino/sfx_resolve.mp3",
+    "prompt": "warm resolving cinematic synth pad chord, hopeful, gentle, 4 seconds",
+    "duration": 4.0,
+    "loop": false
+   }
+  },
   "voice": {
    "provider": "elevenlabs",
    "voice_id": null,
@@ -54,7 +67,7 @@
    "type": "clip",
    "clip": "uncut",
    "start": 0.0,
-   "end": 59.77,
+   "end": 67.7,
    "speed": 1.0,
    "captions": false,
    "audio_gain_db": -60.0,
@@ -163,6 +176,27 @@
      "x": 540,
      "y": 1660,
      "size": 56
+    },
+    {
+     "type": "hero",
+     "text": "*dcsrobotics.pl*",
+     "y": 1560,
+     "size": 84,
+     "start": 61.0,
+     "end": 64.8,
+     "kicker": "Uczymy roboty pracy"
+    }
+   ],
+   "sfx": [
+    {
+     "ref": "hit",
+     "at": 59.8,
+     "gain_db": -12
+    },
+    {
+     "ref": "resolve",
+     "at": 60.099999999999994,
+     "gain_db": -13
     }
    ]
   }
@@ -172,7 +206,7 @@
   "gain_db": -3.0,
   "events": [],
   "fade_in": 1.5,
-  "fade_out": 2.0,
+  "fade_out": 2.5,
   "duck_after": null,
   "duck_factor": 0.6
  },
@@ -186,6 +220,10 @@
    [
     0,
     3.0
+   ],
+   [
+    59.8,
+    67.733333
    ]
   ]
  }
