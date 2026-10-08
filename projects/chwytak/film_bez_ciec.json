@@ -23,16 +23,16 @@
  "assets": {
   "clips": {
    "uncut": {
-    "path": "assets/uncut3.mp4",
+    "path": "assets/uncut4.mp4",
     "crop": null,
     "transcript": null,
     "fixes": {}
    }
   },
   "music": {
-   "drone": {
-    "path": "assets/drone.mp3",
-    "gain_db": -3.0
+   "score": {
+    "path": "assets/score2.wav",
+    "gain_db": -5.0
    }
   },
   "sfx": {
@@ -60,7 +60,22 @@
    "tempo": 1.0
   }
  },
- "narration": [],
+ "narration": [
+  {
+   "id": "lekA",
+   "text": "Jeden ruch. Zanim system wykona go na fizycznym stanowisku, uczy się na swoim cyfrowym bliźniaku. Chwyt, uniesienie, obrót, odłożenie. Każda milisekunda zmierzona. Każdy wektor zoptymalizowany. To nie jest zwykła wizualizacja. To czysta fizyka. Punkty styku, kinematyka, wyliczona siła docisku. Gotowy model trafia bezpośrednio do robota. Jeden płynny cykl. Maszyna nie zgaduje. Przetwarza dane, adaptuje się i powtarza, aż osiągnie absolutną precyzję. Setki tysięcy powtórzeń w symulowanym środowisku. Jutro dowolny komponent na Twojej linii produkcyjnej. Niezawodny w działaniu. Gotowy do wdrożenia.",
+   "say": null,
+   "fallback": 43.0,
+   "gain_db": 1.0
+  },
+  {
+   "id": "lekB",
+   "text": "DCS Robotics. Uczymy roboty pracy.",
+   "say": null,
+   "fallback": 3.4,
+   "gain_db": 1.0
+  }
+ ],
  "scenes": [
   {
    "id": "film",
@@ -82,131 +97,121 @@
      "kicker": "symulacja fizyczna · robot"
     },
     {
-     "type": "card",
-     "text": "UJĘCIE 1\n*NAGRANIE ROBOTA*.",
-     "start": 3.3,
-     "end": 6.0,
-     "y": 330,
-     "kicker": "dwa powtórzenia · bez cięć",
-     "size": 76
-    },
-    {
      "type": "keyword",
      "text": "SYMULACJA",
      "animation": "badge",
-     "start": 21.2,
-     "end": 24.6,
+     "start": 3.2,
+     "end": 22.3,
      "position": "top",
      "size": 56
+    },
+    {
+     "type": "card",
+     "text": "UJĘCIE 1\n*NAGRANIE ROBOTA*.",
+     "start": 22.900000000000002,
+     "end": 25.6,
+     "y": 330,
+     "kicker": "nagranie robota · bez cięć",
+     "size": 76
     },
     {
      "type": "card",
      "text": "UJĘCIE 2\n*NAGRANIE ROBOTA*.",
-     "start": 25.1,
-     "end": 27.8,
+     "start": 39.699999999999996,
+     "end": 42.4,
      "y": 330,
-     "kicker": "inny kąt · bez cięć",
+     "kicker": "inny kąt",
      "size": 76
-    },
-    {
-     "type": "keyword",
-     "text": "SYMULACJA",
-     "animation": "badge",
-     "start": 44.18,
-     "end": 47.38,
-     "position": "top",
-     "size": 56
     },
     {
      "type": "card",
      "text": "UJĘCIE 3\n*NAGRANIE ROBOTA*.",
-     "start": 47.88,
-     "end": 50.580000000000005,
+     "start": 50.099999999999994,
+     "end": 52.8,
      "y": 330,
-     "kicker": "z boku stołu · bez cięć",
+     "kicker": "z boku stołu",
      "size": 76
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 7.2,
-     "end": 9.6,
+     "start": 26.8,
+     "end": 29.2,
      "x": 60,
-     "y": 1380
+     "y": 300
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 17.0,
-     "end": 19.6,
+     "start": 36.6,
+     "end": 39.2,
      "x": 60,
-     "y": 1380
+     "y": 300
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 29.2,
-     "end": 30.6,
+     "start": 43.8,
+     "end": 45.2,
      "x": 60,
-     "y": 1380
+     "y": 300
     },
     {
      "type": "timer",
      "text": "podniesienie → odłożenie",
-     "start": 40.4,
-     "end": 42.0,
+     "start": 57.7,
+     "end": 59.0,
      "x": 60,
-     "y": 1380
-    },
-    {
-     "type": "timer",
-     "text": "podniesienie → odłożenie",
-     "start": 55.48,
-     "end": 56.78,
-     "x": 60,
-     "y": 1380
+     "y": 300
     },
     {
      "type": "keyword",
      "text": "RESET STANOWISKA",
      "animation": "badge",
-     "start": 11.4,
-     "end": 14.4,
+     "start": 31.0,
+     "end": 34.0,
      "position": null,
      "x": 540,
-     "y": 1660,
+     "y": 1300,
      "size": 56
     },
     {
      "type": "hero",
      "text": "*dcsrobotics.pl*",
-     "y": 1560,
+     "y": 1150,
      "size": 84,
      "start": 61.0,
-     "end": 64.8,
+     "end": 65.0,
      "kicker": "Uczymy roboty pracy"
     }
    ],
-   "sfx": [
+   "sfx": [],
+   "narration": [
     {
-     "ref": "hit",
-     "at": 59.8,
-     "gain_db": -12
+     "ref": "lekA",
+     "at": 0.4,
+     "captions": true,
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": null
     },
     {
-     "ref": "resolve",
-     "at": 60.099999999999994,
-     "gain_db": -13
+     "ref": "lekB",
+     "at": 60.699999999999996,
+     "captions": true,
+     "y": 1480,
+     "animation": "karaoke_pro",
+     "icon": null
     }
    ]
   }
  ],
  "music": {
-  "asset": "drone",
-  "gain_db": -3.0,
+  "asset": "score",
+  "gain_db": -5.0,
   "events": [],
-  "fade_in": 1.5,
-  "fade_out": 2.5,
+  "fade_in": 0.0,
+  "fade_out": 0.6,
   "duck_after": null,
   "duck_factor": 0.6
  },
@@ -223,7 +228,7 @@
    ],
    [
     59.8,
-    67.733333
+    67.73
    ]
   ]
  }

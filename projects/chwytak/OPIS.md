@@ -45,3 +45,11 @@ turns into a dense point cloud and wireframe, glowing cyan points flow and re-as
 materialises as a real photographed lab: a silver humanoid robot lifting and rotating the real speaker basket on a
 black fixture. Clean high-tech look, precise, no text, no logos, no people's faces.
 ```
+
+## Wersja z lektorem (8.10, noc) — „Jeden ruch”, 67,7 s
+Montaż prowadzi lektor (Jon, nagranie 02:02): 0–22,6 s symulacja (tytuł, dojazd, zacisk, uniesienie, obrót) pod
+tekstem o cyfrowym bliźniaku; cięcie na robota dokładnie na „Gotowy model trafia bezpośrednio do robota”;
+trzy nagrania robota (ujęcie 1 dwa powtórzenia bez cięć 16,8 s, ujęcia 2 i 3 po jednym powtórzeniu); outro Veo
+z G1-D przy linii, „DCS Robotics. Uczymy roboty pracy.” na planszy. Lektor jako dwa ciągłe fragmenty (cięcie raz,
+w pauzie przed „DCS Robotics”), napisy karaoke z czasów słów, stoper w lewym górnym rogu, muzyka `build_score2.py`
+(uderzenia na zaciskach, impact na przejściu sim→robot, akord na outro). -14,6 LUFS, szczyt -0,7 dB.
